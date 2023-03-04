@@ -1,31 +1,122 @@
-body {
-    margin: 0;
-    background-color: gray;
+:root {
+  --white: white;
+  --dark-gray: #333;
+  --gray: gray;
 }
 
+.dark-mode {
+  --white: black;
+  --dark-gray: gray;
+  --gray: white;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gray);
+  font-family: 'Lato', sans-serif;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stick {
+  position: sticky;
+  top: 0px;;
+}
+
+#greet {
+  /* height: 1px; */
+  padding-top: 10px;
+  text-align: center;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+#darkmode {
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0px 16px;
+
+  margin-left: auto;
+  color: var(--white);
+}
+
+#cards {
+  height: 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+  border: 1px solid;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-rows: 100px 100px 100px; */
+  grid-gap: 1em;
+  padding: 40px;
+
+  justify-items: center;
+  align-items: flex-start;
+  /* margin-right: 100px; */
+  /* animation: rotate 1500ms ease-in-out infinite; */
+}
+
+.item {
+  border-radius: 5px;
+  border: 1px solid;
+  min-width: 100%;
+  min-height: 200px;
+}
+
+#circle {
+  height: 25px;
+  width: 25px;
+  /* color: aqua; */
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  align-items: right;
+}
 /* preset */
 
-ul {
+.nav-container {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #333;
+  /* overflow: hidden; */
+  background-color: var(--dark-gray);
+
+  display: flex;
+  /* border: white solid; */
+  box-shadow: 0px 5px 15px #aaa;
+  /* position: sticky; */
+  /* top: 10; */
+  /* bottom: 90%; */
 }
 
 li {
-  float: left;
+  /* float: left; */
 }
 
 li a {
   display: block;
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+
+  /* border: cyan 1px solid; */
 }
 
 li a:hover {
   background-color: #111;
 }
-
