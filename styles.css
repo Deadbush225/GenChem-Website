@@ -1,19 +1,38 @@
 :root {
   --white: white;
+  --light-white: rgb(192, 192, 192);
   --dark-gray: #333;
-  --gray: gray;
+  --selected-dark-gray: #111;
+  --gray: rgb(61, 61, 61);
 }
 
-.dark-mode {
+.blur {
+  /* filter: blur(50) */
+  text-shadow: 0 0 15px var(--light-white);
+}
+
+.light-mode {
   --white: black;
-  --dark-gray: gray;
+  --light-white: rgb(102, 102, 102);
+  --dark-gray: lightgreen;
+  --selected-dark-gray: rgba(0, 126, 0, 0.712);
   --gray: white;
+}
+
+.image-clip {
+  background: url(https://i.kym-cdn.com/photos/images/newsfeed/002/235/108/0a6.gif)
+    no-repeat;
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  color: transparent;
+  background-size: cover;
 }
 
 body {
   margin: 0;
   background-color: var(--gray);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
+  color: var(--white);
 }
 
 @keyframes rotate {
@@ -27,7 +46,7 @@ body {
 
 .stick {
   position: sticky;
-  top: 0px;;
+  top: 0px;
 }
 
 #greet {
@@ -62,7 +81,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   /* grid-template-rows: 100px 100px 100px; */
   grid-gap: 1em;
-  padding: 40px;
+  padding: 3em;
 
   justify-items: center;
   align-items: flex-start;
@@ -97,7 +116,7 @@ body {
 
   display: flex;
   /* border: white solid; */
-  box-shadow: 0px 5px 15px #aaa;
+  box-shadow: 0px 5px 15px var(--selected-dark-gray);
   /* position: sticky; */
   /* top: 10; */
   /* bottom: 90%; */
@@ -118,5 +137,26 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: var(--selected-dark-gray);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
