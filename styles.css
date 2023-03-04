@@ -26,6 +26,8 @@
   background-clip: border-box;
   color: transparent;
   background-size: cover;
+
+  background-position: center;
 }
 
 body {
