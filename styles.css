@@ -14,8 +14,8 @@
 .light-mode {
   --white: black;
   --light-white: rgb(102, 102, 102);
-  --dark-gray: lightgreen;
-  --selected-dark-gray: rgba(0, 126, 0, 0.712);
+  --dark-gray: #0aed999e;
+  --selected-dark-gray: #007e00b6;
   --gray: white;
 }
 
