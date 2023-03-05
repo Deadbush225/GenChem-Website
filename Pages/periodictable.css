@@ -61,6 +61,24 @@
     display: inline;
 }
 
+@keyframes enlarge {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.elements:hover {
+    /* animation: enlarge 100ms ease-in; */
+    /* animation-fill-mode: backwards; */
+    transform: scale(2);
+    transition: 100ms;
+    background-color: aqua;
+}
+
+
 #x2 {
     /* grid-area: He; */
     background-color: rebeccapurple;
