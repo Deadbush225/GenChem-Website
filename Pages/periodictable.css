@@ -11,13 +11,61 @@
     gap: 1px;
     
     border: 1px solid wheat;
+    grid-template-areas: 
+        '.  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa .'
+        '.  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  .'
+        '.  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  .'
+        '.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        '.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        '.  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        '.  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        'wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd'
+        'we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        'we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+
+}
+
+.transparent {
+    background-color: transparent;
+    display: inline;
+}
+
+#spacer1 {
+    grid-area: wa;
+}
+
+#spacer2 {
+    grid-area: wb;
+}
+
+#spacer3 {
+    grid-area: wc;
+}
+
+#spacer4 {
+    grid-area: wd;
+    height: 1em;
+    width: 1em;
+}
+
+#spacer5 {
+    grid-area: we;
 }
 
 .elements {
     border: none;
     background-color: aquamarine;
     
-    height: 100%;
+    /* width: auto; */
     aspect-ratio: 1/1;
     display: inline;
+}
+
+#x2 {
+    /* grid-area: He; */
+    background-color: rebeccapurple;
+    /* grid-row: 1 / 2; */
+    /* grid-column: 17 / 18; */
+    /* grid-row: 2; */
+    /* position: absolute; */
 }
