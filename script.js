@@ -1,16 +1,12 @@
 // Dark = 1
 // Light = 0
 
-// global = {
-// defaultTheme = 1,
-// currentTheme = defaultTheme
-// }
+/* + UTILS */
+function l(message) {
+	console.log(message);
+}
 
-// let settings = {
-//   defaultTheme : true,
-//   currentTheme : this.defaultTheme
-// }
-
+/* + COOKIES */
 let saveCookie = () => {
 	// alert("cookies saved")
 	l("Saving cookies: ");
@@ -25,28 +21,20 @@ let saveCookie = () => {
 	); // we interact to the setting as boolean but we save it as integer
 };
 
-// import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
-// let Cookies = require("js-cookie");
-
 function initCookie() {
 	let settings = {};
 
-	// settings.currentTheme = Cookies.get("settings/currentTheme");
-	// settings.defaultTheme = Cookies.get("settings/defaultTheme");
-
-	// if (!settings) {
 	settings = {
-		// problem, the return if doesn't exist and "true" false is == false
 		defaultTheme: toSterializeFlag(Number(Cookies.get("settings/defaultTheme"))),
 		currentTheme: toSterializeFlag(Number(Cookies.get("settings/currentTheme"))),
 	};
-	// }
 
 	l("Page reloaded -> Getting Cookies: ");
 	l(settings);
 	return settings;
 }
 
+/* + COOKIE STERIALIZATION */
 function fromStrerializeFlag(number) {
 	let i;
 
@@ -60,8 +48,6 @@ function fromStrerializeFlag(number) {
 
 function toSterializeFlag(number) {
 	let i;
-	// l("input ")
-	// l(number)
 
 	i = number == 1 || isNaN(number) ? true : false;
 
@@ -82,9 +68,9 @@ function toSterializeFlag(number) {
 	return i;
 }
 
-function l(message) {
-	console.log(message);
-}
+/* importing */
+// import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
+// let Cookies = require("js-cookie");
 
 function applyCurrentTheme() {
 	l("ApplyCurrentTheme :" + settings.currentTheme);
