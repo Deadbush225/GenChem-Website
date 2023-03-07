@@ -70,7 +70,7 @@ function toSterializeFlag(number) {
 
 /* importing */
 // import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
-// let Cookies = require("js-cookie");
+let Cookies = require("js-cookie");
 
 function applyCurrentTheme() {
 	l("ApplyCurrentTheme :" + settings.currentTheme);
