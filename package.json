@@ -1,7 +1,8 @@
 {
+	"homepage": ".",
+	"private": false,
 	"dependencies": {
 		"jquery": "^3.6.3",
 		"js-cookie": "^3.0.1"
-	},
-	"homepage": "https://github.com/GenChem-Website/"
+	}
 }
