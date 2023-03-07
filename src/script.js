@@ -1,6 +1,12 @@
 // Dark = 1
 // Light = 0
 
+import Cookies from "js-cookie";
+import $ from "jquery";
+
+import "./assets/Menu.gif";
+import "./styles/styles.css";
+
 /* + UTILS */
 function l(message) {
 	console.log(message);
@@ -152,6 +158,7 @@ settings = initCookie();
 chto(settings.currentTheme);
 
 $(document).ready(() => {
+	document.querySelector("#darkmode").addEventListener("click", toggleTheme);
 	// applyCurrentTheme();
 	changeButtonThemes(settings.currentTheme);
 });

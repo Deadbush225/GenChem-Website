@@ -20,7 +20,7 @@
 }
 
 .image-clip {
-  background: url(Menu.gif)
+  background: url(../assets/Menu.gif)
     no-repeat;
   -webkit-background-clip: text;
   background-clip: border-box;
