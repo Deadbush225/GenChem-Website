@@ -36,7 +36,7 @@ module.exports = {
 		bundle: path.resolve(__dirname, "src/script.js"), // this is where the [name] is
 	},
 	output: {
-		path: path.resolve(__dirname, "dist"),
+		path: path.resolve(__dirname, "docs"),
 		filename: "[name].js",
 		// filename: "[name][contenthash].js",
 		// clean: true,
@@ -45,9 +45,9 @@ module.exports = {
 	// devtool: "source-map",
 	devServer: {
 		static: {
-			directory: path.resolve(__dirname, "dist"),
+			directory: path.resolve(__dirname, "docs"),
 		},
-		// contentBase: "./dist",
+		// contentBase: "./docs",
 		port: 3000,
 		open: true,
 		hot: true,
