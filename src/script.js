@@ -4,7 +4,7 @@
 import Cookies from "js-cookie";
 import $ from "jquery";
 
-import "./assets/Menu.gif";
+// import "./assets/Menu.gif";
 import "./styles/styles.css";
 
 /* + UTILS */
