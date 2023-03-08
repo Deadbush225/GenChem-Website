@@ -37,7 +37,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ \"./node_modules/js-cookie/dist/js.cookie.mjs\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);\n// Dark = 1\r\n// Light = 0\r\n\r\n/* + UTILS */\r\nfunction l(message) {\r\n\tconsole.log(message);\r\n}\r\n\r\n/* + COOKIES */\r\nlet saveCookie = () => {\r\n\t// alert(\"cookies saved\")\r\n\tl(\"Saving cookies: \");\r\n\tl(settings);\r\n\tjs_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(\r\n\t\t\"settings/defaultTheme\",\r\n\t\tfromStrerializeFlag(Number(settings.defaultTheme))\r\n\t);\r\n\tjs_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(\r\n\t\t\"settings/currentTheme\",\r\n\t\tfromStrerializeFlag(Number(settings.currentTheme))\r\n\t); // we interact to the setting as boolean but we save it as integer\r\n};\r\n\r\nfunction initCookie() {\r\n\tlet settings = {};\r\n\r\n\tsettings = {\r\n\t\tdefaultTheme: toSterializeFlag(Number(js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(\"settings/defaultTheme\"))),\r\n\t\tcurrentTheme: toSterializeFlag(Number(js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(\"settings/currentTheme\"))),\r\n\t};\r\n\r\n\tl(\"Page reloaded -> Getting Cookies: \");\r\n\tl(settings);\r\n\treturn settings;\r\n}\r\n\r\n/* + COOKIE STERIALIZATION */\r\nfunction fromStrerializeFlag(number) {\r\n\tlet i;\r\n\r\n\tif (number == true) {\r\n\t\ti = 1;\r\n\t} else if (number == false) {\r\n\t\ti = 0;\r\n\t}\r\n\treturn i;\r\n}\r\n\r\nfunction toSterializeFlag(number) {\r\n\tlet i;\r\n\r\n\ti = number == 1 || isNaN(number) ? true : false;\r\n\r\n\t// if (number == 1) {\r\n\t//   l(78)\r\n\t//   i = true\r\n\t// }\r\n\t// if (number == 0) {\r\n\t//   l(79)\r\n\t//   i = false\r\n\t// }\r\n\t// if (isNaN(number)) {\r\n\t//   l(80)\r\n\t//   i = true\r\n\t// }\r\n\t// l(\"computed val: \")\r\n\t// l(i)\r\n\treturn i;\r\n}\r\n\r\n/* importing */\r\n// import Cookies from \"../node_modules/js-cookie/dist/js.cookie.mjs\";\r\n// let Cookies = require(\"js-cookie\");\r\n\r\nfunction applyCurrentTheme() {\r\n\tl(\"ApplyCurrentTheme :\" + settings.currentTheme);\r\n\t// setTimeout(changeThemeTo, 1000, settings.currentTheme);\r\n\tchto(!settings.currentTheme);\r\n\tchangeButtonThemes(settings.currentTheme);\r\n}\r\n\r\nfunction toggleTheme() {\r\n\tl(\"toggleTheme to :\" + !settings.currentTheme);\r\n\tchto(!settings.currentTheme);\r\n\tchangeButtonThemes(!settings.currentTheme);\r\n}\r\n\r\nfunction chto(theme) {\r\n\tl(\r\n\t\t\"first replenish -> changing from \" + settings.currentTheme + \" to \" + theme\r\n\t);\r\n\t// l(\"defaultTheme: \" + settings.defaultTheme);\r\n\r\n\t//check if needs to change the default color\r\n\tif (settings.currentTheme == theme) {\r\n\t\t// saveCookie()\r\n\t\tif (settings.currentTheme == settings.defaultTheme) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t}\r\n\r\n\tlet element = document.documentElement;\r\n\r\n\tif (theme) {\r\n\t\telement.classList.toggle(\"light-mode\");\r\n\t\telement.classList.toggle(\"dark-mode\");\r\n\t\tl(\"DarkMode: Changing to \" + theme);\r\n\t} else {\r\n\t\telement.classList.toggle(\"dark-mode\");\r\n\t\telement.classList.toggle(\"light-mode\");\r\n\t\tl(\"LightMode: Changing to \" + theme);\r\n\t}\r\n}\r\n\r\nfunction changeButtonThemes(theme) {\r\n\tl(\"changing from \" + settings.currentTheme + \" to \" + theme);\r\n\t// l(\"defaultTheme: \" + settings.defaultTheme);\r\n\r\n\t//check if needs to change the default color\r\n\tif (settings.currentTheme == theme) {\r\n\t\t// saveCookie()\r\n\t\tif (settings.currentTheme == settings.defaultTheme) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t}\r\n\r\n\tlet element = document.documentElement;\r\n\tlet themeButton = document.querySelector(\".toggle-theme\");\r\n\r\n\tif (theme) {\r\n\t\t// element.classList.toggle(\"dark-mode\");\r\n\t\t// element.classList.toggle(\"light-mode\");\r\n\t\tl(\"DarkMode: Changing to \" + theme);\r\n\t\tthemeButton.classList.toggle(\"fa-sun\");\r\n\t\tthemeButton.classList.toggle(\"fa-moon\");\r\n\t} else {\r\n\t\t// element.classList.toggle(\"light-mode\");\r\n\t\t// element.classList.toggle(\"dark-mode\");\r\n\t\tl(\"LightMode: Changing to \" + theme);\r\n\t\tthemeButton.classList.toggle(\"fa-moon\");\r\n\t\tthemeButton.classList.toggle(\"fa-sun\");\r\n\t}\r\n\tsettings.currentTheme = theme;\r\n\r\n\tl(settings);\r\n\tsaveCookie();\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n// import \"./assets/Menu.gif\";\r\n\r\nlet settings;\r\nsettings = initCookie();\r\n\r\nchto(settings.currentTheme);\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(() => {\r\n\tdocument.querySelector(\"#darkmode\").addEventListener(\"click\", toggleTheme);\r\n\t// applyCurrentTheme();\r\n\tchangeButtonThemes(settings.currentTheme);\r\n});\r\n// toggleTheme()\r\n\n\n//# sourceURL=webpack://prismarine/./src/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/styles.css */ \"./src/styles/styles.css\");\n/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ \"./node_modules/js-cookie/dist/js.cookie.mjs\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);\n// Dark = 1\r\n// Light = 0\r\n\r\n/* + UTILS */\r\nfunction l(message) {\r\n\tconsole.log(message);\r\n}\r\n\r\n/* + COOKIES */\r\nlet saveCookie = () => {\r\n\t// alert(\"cookies saved\")\r\n\tl(\"Saving cookies: \");\r\n\tl(settings);\r\n\tjs_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(\r\n\t\t\"settings/defaultTheme\",\r\n\t\tfromStrerializeFlag(Number(settings.defaultTheme))\r\n\t);\r\n\tjs_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].set(\r\n\t\t\"settings/currentTheme\",\r\n\t\tfromStrerializeFlag(Number(settings.currentTheme))\r\n\t); // we interact to the setting as boolean but we save it as integer\r\n};\r\n\r\nfunction initCookie() {\r\n\tlet settings = {};\r\n\r\n\tsettings = {\r\n\t\tdefaultTheme: toSterializeFlag(Number(js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(\"settings/defaultTheme\"))),\r\n\t\tcurrentTheme: toSterializeFlag(Number(js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(\"settings/currentTheme\"))),\r\n\t};\r\n\r\n\tl(\"Page reloaded -> Getting Cookies: \");\r\n\tl(settings);\r\n\treturn settings;\r\n}\r\n\r\n/* + COOKIE STERIALIZATION */\r\nfunction fromStrerializeFlag(number) {\r\n\tlet i;\r\n\r\n\tif (number == true) {\r\n\t\ti = 1;\r\n\t} else if (number == false) {\r\n\t\ti = 0;\r\n\t}\r\n\treturn i;\r\n}\r\n\r\nfunction toSterializeFlag(number) {\r\n\tlet i;\r\n\r\n\ti = number == 1 || isNaN(number) ? true : false;\r\n\r\n\t// if (number == 1) {\r\n\t//   l(78)\r\n\t//   i = true\r\n\t// }\r\n\t// if (number == 0) {\r\n\t//   l(79)\r\n\t//   i = false\r\n\t// }\r\n\t// if (isNaN(number)) {\r\n\t//   l(80)\r\n\t//   i = true\r\n\t// }\r\n\t// l(\"computed val: \")\r\n\t// l(i)\r\n\treturn i;\r\n}\r\n\r\n/* importing */\r\n// import Cookies from \"../node_modules/js-cookie/dist/js.cookie.mjs\";\r\n// let Cookies = require(\"js-cookie\");\r\n\r\nfunction applyCurrentTheme() {\r\n\tl(\"ApplyCurrentTheme :\" + settings.currentTheme);\r\n\t// setTimeout(changeThemeTo, 1000, settings.currentTheme);\r\n\tchto(!settings.currentTheme);\r\n\tchangeButtonThemes(settings.currentTheme);\r\n}\r\n\r\nfunction toggleTheme() {\r\n\tl(\"toggleTheme to :\" + !settings.currentTheme);\r\n\tchto(!settings.currentTheme);\r\n\tchangeButtonThemes(!settings.currentTheme);\r\n}\r\n\r\nfunction chto(theme) {\r\n\tl(\r\n\t\t\"first replenish -> changing from \" + settings.currentTheme + \" to \" + theme\r\n\t);\r\n\t// l(\"defaultTheme: \" + settings.defaultTheme);\r\n\r\n\t//check if needs to change the default color\r\n\tif (settings.currentTheme == theme) {\r\n\t\t// saveCookie()\r\n\t\tif (settings.currentTheme == settings.defaultTheme) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t}\r\n\r\n\tlet element = document.documentElement;\r\n\r\n\tif (theme) {\r\n\t\telement.classList.toggle(\"light-mode\");\r\n\t\telement.classList.toggle(\"dark-mode\");\r\n\t\tl(\"DarkMode: Changing to \" + theme);\r\n\t} else {\r\n\t\telement.classList.toggle(\"dark-mode\");\r\n\t\telement.classList.toggle(\"light-mode\");\r\n\t\tl(\"LightMode: Changing to \" + theme);\r\n\t}\r\n}\r\n\r\nfunction changeButtonThemes(theme) {\r\n\tl(\"changing from \" + settings.currentTheme + \" to \" + theme);\r\n\t// l(\"defaultTheme: \" + settings.defaultTheme);\r\n\r\n\t//check if needs to change the default color\r\n\tif (settings.currentTheme == theme) {\r\n\t\t// saveCookie()\r\n\t\tif (settings.currentTheme == settings.defaultTheme) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t}\r\n\r\n\tlet element = document.documentElement;\r\n\tlet themeButton = document.querySelector(\".toggle-theme\");\r\n\r\n\tif (theme) {\r\n\t\t// element.classList.toggle(\"dark-mode\");\r\n\t\t// element.classList.toggle(\"light-mode\");\r\n\t\tl(\"DarkMode: Changing to \" + theme);\r\n\t\tthemeButton.classList.toggle(\"fa-sun\");\r\n\t\tthemeButton.classList.toggle(\"fa-moon\");\r\n\t} else {\r\n\t\t// element.classList.toggle(\"light-mode\");\r\n\t\t// element.classList.toggle(\"dark-mode\");\r\n\t\tl(\"LightMode: Changing to \" + theme);\r\n\t\tthemeButton.classList.toggle(\"fa-moon\");\r\n\t\tthemeButton.classList.toggle(\"fa-sun\");\r\n\t}\r\n\tsettings.currentTheme = theme;\r\n\r\n\tl(settings);\r\n\tsaveCookie();\r\n}\r\n\r\n\r\n\r\n\r\n\r\n// import \"./assets/Menu.gif\";\r\n\r\nlet settings;\r\nsettings = initCookie();\r\n\r\nchto(settings.currentTheme);\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(() => {\r\n\tdocument.querySelector(\"#darkmode\").addEventListener(\"click\", toggleTheme);\r\n\t// applyCurrentTheme();\r\n\tchangeButtonThemes(settings.currentTheme);\r\n});\r\n// toggleTheme()\r\n\n\n//# sourceURL=webpack://prismarine/./src/script.js?");
+
+/***/ }),
+
+/***/ "./src/vendor.js":
+/*!***********************!*\
+  !*** ./src/vendor.js ***!
+  \***********************/
+/***/ (() => {
+
+eval("\n\n//# sourceURL=webpack://prismarine/./src/vendor.js?");
 
 /***/ }),
 
@@ -78,7 +88,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -119,12 +164,66 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"vendor": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkprismarine"] = self["webpackChunkprismarine"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/script.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/vendor.js");
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;

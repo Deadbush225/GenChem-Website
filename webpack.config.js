@@ -31,9 +31,30 @@ console.log("+++");
 console.log(MYhtmlFiles);
 
 module.exports = {
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Webpack App",
+			filename: "index.html",
+			template: "src/index.html",
+			inject: "body",
+		}),
+		// new HtmlWebpackPlugin({
+		// 	filename: "pages/periodictable.html",
+		// 	template: "src/pages/periodictable.html",
+		// }),
+		...MYhtmlFiles,
+		new MiniCssExtractPlugin(),
+		//new BundleAnalyzerPlugin(),
+		new CleanWebpackPlugin(),
+	],
 	mode: "development",
 	entry: {
-		bundle: path.resolve(__dirname, "src/script.js"), // this is where the [name] is
+		// css: path.resolve(__dirname, "src/styles/styles.css"),
+		main: {
+			import: path.resolve(__dirname, "src/script.js"),
+			dependOn: "vendor",
+		}, // this is where the [name] is
+		vendor: path.resolve(__dirname, "src/vendor.js"),
 	},
 	output: {
 		path: path.resolve(__dirname, "docs"),
@@ -51,8 +72,21 @@ module.exports = {
 		port: 3000,
 		open: true,
 		hot: true,
-		compress: true,
-		historyApiFallback: true,
+		// compress: true,
+		// historyApiFallback: true,
+	},
+	// RANDOM TRY
+	optimization: {
+		splitChunks: {
+			chunks: "all",
+			cacheGroups: {
+				vendor: {
+					name: "vendor",
+					//				chunks: "initial",
+					//				minChunks: 2
+				},
+			},
+		},
 	},
 	// resolve: {
 	// 	extensions: [".css", ".js"],
@@ -108,22 +142,4 @@ module.exports = {
 			},
 		],
 	},
-
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: "Webpack App",
-			filename: "index.html",
-			template: "src/index.html",
-		}),
-		// new HtmlWebpackPlugin({
-		// 	filename: "pages/periodictable.html",
-		// 	template: "src/pages/periodictable.html",
-		// }),
-		...MYhtmlFiles,
-		new MiniCssExtractPlugin({
-			// insert: "head",
-		}),
-		//new BundleAnalyzerPlugin(),
-		new CleanWebpackPlugin(),
-	],
 };

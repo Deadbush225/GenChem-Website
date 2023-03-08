@@ -150,7 +150,6 @@ import "./styles/styles.css";
 
 import Cookies from "js-cookie";
 import $ from "jquery";
-
 // import "./assets/Menu.gif";
 
 let settings;
