@@ -104,6 +104,13 @@ body {
   min-height: 200px;
 }
 
+.item:hover {
+  transform: rotateZ(5deg);
+  transition: ease-in-out 100ms;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  /* transform: rotateY(20deg); */
+}
+
 #circle {
   height: 25px;
   width: 25px;

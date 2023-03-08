@@ -6,8 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const fs = require("fs");
 
-// let MYhtmlFiles = [];
-
 let MYhtmlFiles = fs
 	.readdirSync(path.resolve(__dirname, "src/pages"))
 	.filter((file) => {
@@ -21,11 +19,7 @@ let MYhtmlFiles = fs
 			template: "src/pages/" + file,
 		});
 		return hwp;
-		// console.log(hwp);
-		// MYhtmlFiles.push(hwp);
-		// console.log(MYhtmlFiles);
 	});
-// console.log(htmlFiles);
 
 console.log("+++");
 console.log(MYhtmlFiles);
