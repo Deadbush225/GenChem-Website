@@ -62,10 +62,11 @@ module.exports = {
 		static: {
 			directory: path.resolve(__dirname, "docs"),
 		},
-		// contentBase: "./docs",
+		// contentBase: ["./docs"],
 		port: 3000,
 		open: true,
 		hot: true,
+		// liveReload: true,
 		// compress: true,
 		// historyApiFallback: true,
 	},
@@ -82,9 +83,9 @@ module.exports = {
 			},
 		},
 	},
-	// resolve: {
-	// 	extensions: [".css", ".js"],
-	// },
+	resolve: {
+		extensions: [".css", ".js", ".html"],
+	},
 	module: {
 		// loaders
 		rules: [
