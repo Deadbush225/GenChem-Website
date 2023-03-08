@@ -1,6 +1,37 @@
 {
-  "dependencies": {
-    "jquery": "^3.6.3",
-    "js-cookie": "^3.0.1"
-  }
+	"homepage": "http://.",
+	"private": false,
+	"dependencies": {
+		"jquery": "^3.6.3",
+		"js-cookie": "^3.0.1"
+	},
+	"name": "prismarine",
+	"description": "",
+	"version": "1.0.0",
+	"main": "script.js",
+	"scripts": {
+		"build": "webpack",
+		"dev": "webpack serve"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Deadbush225/GenChem-Website.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Deadbush225/GenChem-Website/issues"
+	},
+	"devDependencies": {
+		"clean-webpack-plugin": "^4.0.0",
+		"css-loader": "^6.7.3",
+		"file-loader": "^6.2.0",
+		"html-loader": "^4.2.0",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.7.3",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	}
 }

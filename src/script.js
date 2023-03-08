@@ -146,12 +146,20 @@ function changeButtonThemes(theme) {
 	saveCookie();
 }
 
+import "./styles/styles.css";
+
+import Cookies from "js-cookie";
+import $ from "jquery";
+
+// import "./assets/Menu.gif";
+
 let settings;
 settings = initCookie();
 
 chto(settings.currentTheme);
 
 $(document).ready(() => {
+	document.querySelector("#darkmode").addEventListener("click", toggleTheme);
 	// applyCurrentTheme();
 	changeButtonThemes(settings.currentTheme);
 });
