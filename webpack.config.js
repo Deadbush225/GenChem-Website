@@ -1,7 +1,34 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+const fs = require("fs");
+
+// let MYhtmlFiles = [];
+
+let MYhtmlFiles = fs
+	.readdirSync(path.resolve(__dirname, "src/pages"))
+	.filter((file) => {
+		console.log(file);
+		return file.endsWith(".html");
+	})
+	.map((file) => {
+		console.log(file);
+		hwp = new HtmlWebpackPlugin({
+			filename: "pages/" + file,
+			template: "src/pages/" + file,
+		});
+		return hwp;
+		// console.log(hwp);
+		// MYhtmlFiles.push(hwp);
+		// console.log(MYhtmlFiles);
+	});
+// console.log(htmlFiles);
+
+console.log("+++");
+console.log(MYhtmlFiles);
 
 module.exports = {
 	mode: "development",
@@ -13,13 +40,14 @@ module.exports = {
 		filename: "[name].js",
 		// filename: "[name][contenthash].js",
 		// clean: true,
-		assetModuleFilename: "[name].[ext]",
+		assetModuleFilename: "assets/[name].[ext]",
 	},
 	// devtool: "source-map",
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, "dist"),
 		},
+		// contentBase: "./dist",
 		port: 3000,
 		open: true,
 		hot: true,
@@ -45,7 +73,8 @@ module.exports = {
 			// },
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				// use: ["style-loader", "css-loader"],
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
 				// exclude: /node_modules/,
 			},
 			// {
@@ -62,20 +91,21 @@ module.exports = {
 				test: /\.html$/,
 				use: ["html-loader"],
 			},
-			// {
-			// 	test: /\.(png|svg|jpg|jpeg|gif)$/i,
-			// 	use: [
-			// 		{
-			// 			// type: "asset/resource",
-			// 			loader: "file-loader",
-			// 			options: {
-			// 				name: "[name].[ext]",
-			// 				outputPath: "assets/",
-			// 				// publicPath: 'img/', // to reflect what will be the new path when including in the html
-			// 			},
-			// 		},
-			// 	],
-			// },
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: "asset/resource",
+				// use: [
+				// 	{
+				// 		// type: "asset/resource",
+				// 		loader: "file-loader",
+				// 		options: {
+				// 			name: "[name].[ext]",
+				// 			outputPath: "assets/",
+				// 			// publicPath: 'img/', // to reflect what will be the new path when including in the html
+				// 		},
+				// 	},
+				// ],
+			},
 		],
 	},
 
@@ -89,10 +119,11 @@ module.exports = {
 		// 	filename: "pages/periodictable.html",
 		// 	template: "src/pages/periodictable.html",
 		// }),
-
-		// new MiniCssExtractPlugin({
-		// 	insert: "head",
-		// }),
+		...MYhtmlFiles,
+		new MiniCssExtractPlugin({
+			// insert: "head",
+		}),
 		//new BundleAnalyzerPlugin(),
+		new CleanWebpackPlugin(),
 	],
 };

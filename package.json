@@ -23,6 +23,7 @@
 		"url": "https://github.com/Deadbush225/GenChem-Website/issues"
 	},
 	"devDependencies": {
+		"clean-webpack-plugin": "^4.0.0",
 		"css-loader": "^6.7.3",
 		"file-loader": "^6.2.0",
 		"html-loader": "^4.2.0",

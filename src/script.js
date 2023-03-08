@@ -1,12 +1,6 @@
 // Dark = 1
 // Light = 0
 
-import Cookies from "js-cookie";
-import $ from "jquery";
-
-// import "./assets/Menu.gif";
-import "./styles/styles.css";
-
 /* + UTILS */
 function l(message) {
 	console.log(message);
@@ -151,6 +145,13 @@ function changeButtonThemes(theme) {
 	l(settings);
 	saveCookie();
 }
+
+import "./styles/styles.css";
+
+import Cookies from "js-cookie";
+import $ from "jquery";
+
+// import "./assets/Menu.gif";
 
 let settings;
 settings = initCookie();
