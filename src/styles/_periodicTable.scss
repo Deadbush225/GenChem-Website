@@ -10,9 +10,9 @@
 	display: grid;
 	grid-template-columns: repeat(18, minmax(0, 1fr));
 	grid-template-rows: repeat(7, 1fr);
-	gap: 1px;
+	gap: 1px 1px;
 
-	border: 1px solid wheat;
+	// border: 1px solid wheat;
 	grid-template-areas:
 		".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ."
 		".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ."
@@ -59,6 +59,10 @@
 
 	display: inline;
 	width: auto;
+	align-items: center center;
+	border-color: azure;
+	// height: 100%;
+
 	aspect-ratio: 1/1;
 
 	&:hover {

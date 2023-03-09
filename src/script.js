@@ -25,8 +25,12 @@ function initCookie() {
 	let settings = {};
 
 	settings = {
-		defaultTheme: toSterializeFlag(Number(Cookies.get("settings/defaultTheme"))),
-		currentTheme: toSterializeFlag(Number(Cookies.get("settings/currentTheme"))),
+		defaultTheme: toSterializeFlag(
+			Number(Cookies.get("settings/defaultTheme"))
+		),
+		currentTheme: toSterializeFlag(
+			Number(Cookies.get("settings/currentTheme"))
+		),
 	};
 
 	l("Page reloaded -> Getting Cookies: ");
@@ -150,6 +154,10 @@ import "./styles/styles.scss";
 
 import Cookies from "js-cookie";
 import $ from "jquery";
+import { periodictable } from "./Periodictable/data";
+("./Periodictable/data.js");
+// import { readFileSync } from "fs";
+// const fs = require("fs");
 // import "./assets/Menu.gif";
 
 let settings;
@@ -161,5 +169,40 @@ $(document).ready(() => {
 	document.querySelector("#darkmode").addEventListener("click", toggleTheme);
 	// applyCurrentTheme();
 	changeButtonThemes(settings.currentTheme);
+
+	if (document.querySelector(".periodic-table")) {
+		// const data = readFileSync("./Periodictable/data.json", {
+		// encoding: "utf-8",
+		// flag: "r",
+		// });
+		const obj = periodictable.Row;
+
+		const groupBlock = {
+			Nonmetal: { color: "#ffffbb" },
+			Halogen: { color: "#ffff9a" },
+			"Alkali metal": { color: "#ffa6a6" },
+			"Alkaline earth metal": { color: "#cfcfff" },
+			"Transition metal": { color: "#b3d9ff" },
+			"Post-transition metal": { color: "#bbffbb" },
+			Metalloid: { color: "#d2ed85" },
+			"Noble gas": { color: "#ffca80" },
+			Lanthanide: { color: "#afffff" },
+			Actinide: { color: "#c2ffeb" },
+		};
+
+		document.querySelectorAll(".elements").forEach((element, index, parent) => {
+			let currentElement = $(element);
+			let atomicNumber = Number(currentElement.attr("id").substring(1) - 1);
+			let elementObject = obj[atomicNumber];
+
+			currentElement.text(elementObject[1]);
+			// return console.log(elementObject[15]);
+			// currentElement.css("background-color", "#" + elementObject[4]);
+			currentElement.css(
+				"background-color",
+				groupBlock[elementObject[15]].color
+			);
+		});
+	}
 });
 // toggleTheme()

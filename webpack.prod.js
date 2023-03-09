@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const devType = "prod";
+const devType = "production";
 const devMode = devType == "development";
 // const devMode = process.env.NODE_ENV !== "production";
 // console.log(process.env.NODE_ENV);
@@ -47,6 +47,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 	],
 	mode: "development",
+	// node: { fs: "empty" },
 	// mode: "production",
 	entry: {
 		// css: path.resolve(__dirname, "src/styles/styles.css"),

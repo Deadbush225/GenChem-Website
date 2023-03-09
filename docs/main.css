@@ -98,8 +98,7 @@
   display: grid;
   grid-template-columns: repeat(18, minmax(0, 1fr));
   grid-template-rows: repeat(7, 1fr);
-  gap: 1px;
-  border: 1px solid wheat;
+  gap: 1px 1px;
   grid-template-areas: ".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ." ".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ." ".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd" "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .";
 }
 
@@ -135,6 +134,8 @@
   background-color: aquamarine;
   display: inline;
   width: auto;
+  align-items: center center;
+  border-color: azure;
   aspect-ratio: 1/1;
 }
 .elements:hover {

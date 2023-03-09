@@ -10,8 +10,9 @@
 	"version": "1.0.0",
 	"main": "script.js",
 	"scripts": {
-		"build": "webpack",
-		"dev": "webpack serve"
+		"build": "webpack --config webpack.dev.js",
+		"dev": "webpack serve",
+		"prod": "webpack --config webpack.prod.js"
 	},
 	"repository": {
 		"type": "git",
