@@ -1,0 +1,89 @@
+.periodic-table-container {
+	padding: 20px;
+	// rotate: 90deg;
+	/* padding */
+	max-width: 6fr;
+}
+// }
+
+.periodic-table {
+	display: grid;
+	grid-template-columns: repeat(18, minmax(0, 1fr));
+	grid-template-rows: repeat(7, 1fr);
+	gap: 1px;
+
+	border: 1px solid wheat;
+	grid-template-areas:
+		".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ."
+		".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ."
+		".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ."
+		".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
+		".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
+		".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
+		".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
+		"wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd"
+		"we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
+		"we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .";
+}
+
+.transparent {
+	background-color: transparent;
+	display: inline;
+}
+
+#spacer1 {
+	grid-area: wa;
+}
+
+#spacer2 {
+	grid-area: wb;
+}
+
+#spacer3 {
+	grid-area: wc;
+}
+
+#spacer4 {
+	grid-area: wd;
+	height: 1em;
+	width: 100%;
+}
+
+#spacer5 {
+	grid-area: we;
+}
+
+.elements {
+	border: none;
+	background-color: aquamarine;
+
+	display: inline;
+	width: auto;
+	aspect-ratio: 1/1;
+
+	&:hover {
+		/* animation: enlarge 100ms ease-in; */
+		/* animation-fill-mode: backwards; */
+		transform: scale(2);
+		transition: 100ms;
+		background-color: aqua;
+	}
+}
+
+@keyframes enlarge {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
+
+#x2 {
+	/* grid-area: He; */
+	background-color: rebeccapurple;
+	/* grid-row: 1 / 2; */
+	/* grid-column: 17 / 18; */
+	/* grid-row: 2; */
+	/* position: absolute; */
+}

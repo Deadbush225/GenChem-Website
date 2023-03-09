@@ -1,0 +1,32 @@
+:root {
+	--true-white: white;
+	--true-black: black;
+}
+
+.dark-mode {
+	--opposite: white;
+	--light-opposite: rgb(192, 192, 192);
+	--neutral: rgb(61, 61, 61);
+	--dark-neutral: #333;
+	--light-theme: #111;
+	--theme: black;
+
+	--accent: #f49f0a;
+	--selected-accent: #cf870a;
+	--dark-accent: #e89400;
+	--selected-dark-accent: #ffab19;
+}
+
+.light-mode {
+	--opposite: black;
+	--light-opposite: rgb(102, 102, 102);
+	--neutral: rgb(255, 255, 255);
+	--dark-neutral: #45a318;
+	--light-theme: #099763;
+	--theme: white;
+
+	--accent: #f4600a;
+	--selected-accent: #cf420a;
+	--dark-accent: #e83600;
+	--selected-dark-accent: #ff3419;
+}

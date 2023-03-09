@@ -1,0 +1,141 @@
+@use "colorPallete";
+@use "generals";
+@use "utils";
+@use "periodicTable";
+
+.blur {
+	/* filter: blur(50) */
+	text-shadow: 0 0 15px var(--light-opposite);
+}
+
+.image-clip {
+	// background: url(../assets/Menu.gif) no-repeat;
+	-webkit-background-clip: text;
+	background-clip: border-box;
+	color: transparent;
+	background-size: cover;
+	background-position: center;
+
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	opacity: 60%;
+}
+
+body {
+	margin: 0;
+	background-color: var(--neutral);
+	font-family: "Lato", sans-serif;
+	color: var(--opposite);
+}
+
+.stick {
+	position: sticky;
+	top: 0px;
+}
+
+#greet {
+	/* height: 1px; */
+	color: var(--opposite);
+	padding-top: 10px;
+	text-align: center;
+	position: -webkit-sticky;
+	top: 0;
+}
+
+#darkmode {
+	min-width: 20px;
+	min-height: 20px;
+	font-size: 1em;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	padding: 0px 16px;
+
+	margin-left: auto;
+	color: var(--opposite);
+
+	/* z-index: 2; */
+}
+
+#cards {
+	height: 100%;
+	width: 100%;
+
+	box-sizing: border-box;
+	border: 1px solid;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1em;
+	padding: 3em;
+
+	justify-items: center;
+	align-items: flex-start;
+	/* margin-right: 100px; */
+	/* animation: rotate 1500ms ease-in-out infinite; */
+}
+
+.item {
+	text-align: center;
+
+	border-radius: 10px;
+	border: 3px solid var(--neutral);
+	min-width: 100%;
+	min-height: 100px;
+	color: var(--true-white);
+
+	&.left {
+		background-image: linear-gradient(
+			45deg,
+			var(--light-theme),
+			var(--dark-neutral)
+		);
+
+		&:hover {
+			transform: rotateZ(1deg);
+			/* background-image: linear-gradient(to bottom right, var(--dark-gray), var(--selected-dark-gray)); */
+			border-color: var(--accent);
+			z-index: 0;
+		}
+	}
+
+	&.right {
+		background-image: linear-gradient(
+			-45deg,
+			var(--light-theme),
+			var(--dark-neutral)
+		);
+
+		&:hover {
+			transform: rotateZ(-1deg);
+			/* background-image: linear-gradient(to bottom right, var(--dark-gray), var(--selected-dark-gray)); */
+			border: 3px solid var(--accent);
+			z-index: 0;
+		}
+	}
+}
+
+.parent {
+	height: 200px;
+}
+
+.child {
+	content: sit;
+}
+
+.item:hover {
+	transition: ease-in-out 100ms;
+	/* transform: rotateY(20deg);  */
+}
+
+#circle {
+	height: 25px;
+	width: 25px;
+	/* color: aqua; */
+	background-color: red;
+	border-radius: 50%;
+	position: absolute;
+	align-items: right;
+}
+/* preset */

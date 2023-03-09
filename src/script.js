@@ -146,7 +146,7 @@ function changeButtonThemes(theme) {
 	saveCookie();
 }
 
-import "./styles/styles.css";
+import "./styles/styles.scss";
 
 import Cookies from "js-cookie";
 import $ from "jquery";

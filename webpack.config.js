@@ -4,6 +4,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
+const devType = "development";
+const devMode = devType == "development";
+// const devMode = process.env.NODE_ENV !== "production";
+// console.log(process.env.NODE_ENV);
+
 const fs = require("fs");
 
 let MYhtmlFiles = fs
@@ -42,19 +47,21 @@ module.exports = {
 		new CleanWebpackPlugin(),
 	],
 	mode: "development",
+	// mode: "production",
 	entry: {
 		// css: path.resolve(__dirname, "src/styles/styles.css"),
 		main: {
 			import: path.resolve(__dirname, "src/script.js"),
-			dependOn: "vendor",
+			// dependOn: "vendor",
 		}, // this is where the [name] is
-		vendor: path.resolve(__dirname, "src/vendor.js"),
+		// style: path.resolve(__dirname, "src/styles/styles.scss"),
+		// vendor: path.resolve(__dirname, "src/vendor.js"),
 	},
 	output: {
 		path: path.resolve(__dirname, "docs"),
 		filename: "[name].js",
 		// filename: "[name][contenthash].js",
-		// clean: true,
+		clean: true,
 		assetModuleFilename: "assets/[name].[ext]",
 	},
 	// devtool: "source-map",
@@ -89,21 +96,24 @@ module.exports = {
 	module: {
 		// loaders
 		rules: [
-			// {
-			// 	test: /\.css$/,
-			// 	use: [
-			// 		{
-			// 			loader: "css-loader",
-			// 			// options: {
-			// 			// 	outputPath: "styles/",
-			// 			// },
-			// 		},
-			// 	],
-			// },
+			{
+				test: /\.scss$/,
+				use: [
+					// MiniCssExtractPlugin.loader,
+					devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+					// {
+					"css-loader",
+					// options: {
+					// outputPath: "styles/",
+					// },
+					// },
+					"sass-loader",
+				],
+			},
 			{
 				test: /\.css$/,
 				// use: ["style-loader", "css-loader"],
-				use: [MiniCssExtractPlugin.loader, "css-loader"],
+				use: [devMode ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
 				// exclude: /node_modules/,
 			},
 			// {
