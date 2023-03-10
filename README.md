@@ -1,4 +1,4 @@
-# GenChem-Website
+# Prismarine - your partner in General Chemistry
 
 --- 
 
@@ -9,6 +9,7 @@
   - Sass
   - WebPack
 
+---
 🧔 Members:
 - Inso, Eliazar N.
 - Abrea, Maureen I.
