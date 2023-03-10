@@ -18,3 +18,4 @@
 - Estrologo,Aliah Gwen D.
 - Sebastian, Rhian Kaye S.
 - Sabordo, Je-Anne B.
+- Lugagay, Samantha B.
