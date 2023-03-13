@@ -4,10 +4,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const devType = "production";
-const devMode = devType == "development";
-// const devMode = process.env.NODE_ENV !== "production";
-// console.log(process.env.NODE_ENV);
+// const devType = "production";
+// const devMode = devType == "development";
+const devMode = process.env.NODE_ENV !== "production";
+console.log(process.env.NODE_ENV);
 
 const fs = require("fs");
 
@@ -26,46 +26,34 @@ let MYhtmlFiles = fs
 		return hwp;
 	});
 
-console.log("+++");
-console.log(MYhtmlFiles);
+// console.log("+++");
+// console.log(MYhtmlFiles);
 
 module.exports = {
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: "Webpack App",
-			filename: "index.html",
-			template: "src/index.html",
-			inject: "body",
-		}),
-		// new HtmlWebpackPlugin({
-		// 	filename: "pages/periodictable.html",
-		// 	template: "src/pages/periodictable.html",
-		// }),
-		...MYhtmlFiles,
-		new MiniCssExtractPlugin(),
-		//new BundleAnalyzerPlugin(),
-		new CleanWebpackPlugin(),
-	],
 	mode: "development",
 	// node: { fs: "empty" },
 	// mode: "production",
 	entry: {
+		main: path.resolve(__dirname, "src/script.ts"),
 		// css: path.resolve(__dirname, "src/styles/styles.css"),
-		main: {
-			import: path.resolve(__dirname, "src/script.js"),
-			// dependOn: "vendor",
-		}, // this is where the [name] is
+		// main: {
+		// import
+		// import: path.resolve(__dirname, "src/script.ts"),
+		// dependOn: "vendor",
+		// }, // this is where the [name] is
 		// style: path.resolve(__dirname, "src/styles/styles.scss"),
 		// vendor: path.resolve(__dirname, "src/vendor.js"),
 	},
 	output: {
+		// publicPath: path.resolve(__dirname, "docs"), // use static directory instead
+		// path: "./docs",
 		path: path.resolve(__dirname, "docs"),
 		filename: "[name].js",
 		// filename: "[name][contenthash].js",
 		clean: true,
 		assetModuleFilename: "assets/[name].[ext]",
 	},
-	// devtool: "source-map",
+	// devtool: "source-map", // webpack bundles js to minified, and sourcemap will make it posible to debug it in the browser
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, "docs"),
@@ -92,7 +80,8 @@ module.exports = {
 		},
 	},
 	resolve: {
-		extensions: [".css", ".js", ".html"],
+		// so webpack knows what to resolve when importing
+		extensions: [".css", ".js", ".html", ".ts"],
 	},
 	module: {
 		// loaders
@@ -135,6 +124,11 @@ module.exports = {
 				use: ["html-loader"],
 			},
 			{
+				test: /\.ts$/,
+				use: ["ts-loader"],
+				include: path.resolve(__dirname, "src"),
+			},
+			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
 				// use: [
@@ -151,4 +145,22 @@ module.exports = {
 			},
 		],
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Webpack App",
+			filename: "index.html",
+			template: "src/index.html",
+			inject: "body",
+		}),
+		// new HtmlWebpackPlugin({
+		// 	filename: "pages/periodictable.html",
+		// 	template: "src/pages/periodictable.html",
+		// }),
+		...MYhtmlFiles,
+		new MiniCssExtractPlugin(),
+		//new BundleAnalyzerPlugin(),
+		new CleanWebpackPlugin({
+			cleanOnceBeforeBuildPatterns: true,
+		}),
+	],
 };
