@@ -30,22 +30,6 @@ console.log("+++");
 console.log(MYhtmlFiles);
 
 module.exports = {
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: "Webpack App",
-			filename: "index.html",
-			template: "src/index.html",
-			inject: "body",
-		}),
-		// new HtmlWebpackPlugin({
-		// 	filename: "pages/periodictable.html",
-		// 	template: "src/pages/periodictable.html",
-		// }),
-		...MYhtmlFiles,
-		new MiniCssExtractPlugin(),
-		//new BundleAnalyzerPlugin(),
-		new CleanWebpackPlugin(),
-	],
 	mode: "development",
 	// node: { fs: "empty" },
 	// mode: "production",
@@ -135,6 +119,11 @@ module.exports = {
 				use: ["html-loader"],
 			},
 			{
+				test: /\.ts$/,
+				use: ["ts-loader"],
+				include: path.resolve(__dirname, "src"),
+			},
+			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
 				// use: [
@@ -151,4 +140,20 @@ module.exports = {
 			},
 		],
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Webpack App",
+			filename: "index.html",
+			template: "src/index.html",
+			inject: "body",
+		}),
+		// new HtmlWebpackPlugin({
+		// 	filename: "pages/periodictable.html",
+		// 	template: "src/pages/periodictable.html",
+		// }),
+		...MYhtmlFiles,
+		new MiniCssExtractPlugin(),
+		//new BundleAnalyzerPlugin(),
+		new CleanWebpackPlugin(),
+	],
 };

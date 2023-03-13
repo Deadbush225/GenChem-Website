@@ -54,12 +54,18 @@
 }
 
 .elements {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	// text-align: center;
+	color: black;
 	border: none;
-	background-color: aquamarine;
+	// background-color: aquamarine;
 
-	display: inline;
+	// display: inline;
+	justify-content: center;
 	width: auto;
-	align-items: center center;
+	align-items: center;
 	border-color: azure;
 	// height: 100%;
 
@@ -72,6 +78,20 @@
 		transition: 100ms;
 		background-color: aqua;
 	}
+}
+
+.atomic-symbol {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	flex-grow: 1;
+	// text-align: center;
+}
+
+.atomic-number,
+.atomic-name,
+.atomic-weight {
+	font-size: 0.75vw;
 }
 
 @keyframes enlarge {
