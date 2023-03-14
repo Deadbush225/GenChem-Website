@@ -1,0 +1,9 @@
+#atom-details-container {
+	outline: 3px solid white;
+	outline-offset: -3px;
+	border-radius: 10px;
+	// width: 100%;
+	// height: 100%;
+	// grid-span: 2;
+	grid-column: span 2;
+}

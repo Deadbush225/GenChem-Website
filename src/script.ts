@@ -168,9 +168,45 @@ settings = initCookie();
 
 chto(settings.currentTheme);
 
+function getAtomicNumberFromElement(element :$) :number {
+    return Number(element.attr("id").substring(1))
+}
+
+function getIndexFromElement(element :$) : number {
+    return Number(element.attr("id").substring(1) - 1)
+    // return 1
+}
+
+function elementClicked(e) {
+    console.log(e)
+    
+    let sourceElement = e.srcElement
+
+    if (sourceElement.className == "elements") {
+        // console.log(sourceElement)
+    } else {
+        // console.log("++++++++")
+        while (sourceElement.className != "elements") {
+            // console.log(sourceElement)
+            sourceElement = sourceElement.parentElement
+        }
+    }
+    // console.log(sourceElement)
+    // if(e.)
+
+    let currentElement = getAtomicNumberFromElement($(sourceElement))
+    console.log(currentElement)
+
+}
+
+
 $(document).ready(() => {
 	document.querySelector("#darkmode")!.addEventListener("click", toggleTheme);
-	// applyCurrentTheme();
+	document.querySelectorAll(".elements").forEach((item) => {
+        item.addEventListener("click", elementClicked)
+    })
+    
+    // applyCurrentTheme();
 	changeButtonThemes(settings.currentTheme);
 
 	if (document.querySelector(".periodic-table")) {
@@ -192,7 +228,8 @@ $(document).ready(() => {
 
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
 			let currentElement = $(element);
-			let atomicNumber = Number(currentElement.attr("id").substring(1) - 1);
+			let atomicNumber = getIndexFromElement(currentElement);
+            // console.log(currentElement)
 			let elementObject = obj[atomicNumber];
 
 			currentElement.css(
@@ -200,10 +237,10 @@ $(document).ready(() => {
 				groupBlock[elementObject[15]].color
                 );
 
-                currentElement.append("<div class=\"atomic-number\">" + elementObject[0] + "</div>");
-                currentElement.append("<div class=\"atomic-symbol\"><div class=\"symbol\">" + elementObject[1] + "</div></div>");
-                currentElement.append("<div class=\"atomic-name\">" + elementObject[2] + "</div>");
-                currentElement.append("<div class=\"atomic-weight\">" + elementObject[3] + "</div>");
+            currentElement.append("<div class=\"atomic-number\">" + elementObject[0] + "</div>");
+            currentElement.append("<div class=\"atomic-symbol\"><div class=\"symbol\">" + elementObject[1] + "</div></div>");
+            currentElement.append("<div class=\"atomic-name\">" + elementObject[2] + "</div>");
+            currentElement.append("<div class=\"atomic-weight\">" + elementObject[3] + "</div>");
 		});
 	}
 });

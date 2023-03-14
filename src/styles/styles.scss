@@ -2,6 +2,8 @@
 @use "generals";
 @use "utils";
 @use "periodicTable";
+@use "atomicDetails";
+@use "atomicModel";
 
 .blur {
 	/* filter: blur(50) */
@@ -139,3 +141,9 @@ body {
 	align-items: right;
 }
 /* preset */
+
+#content {
+	display: grid;
+	grid-template-columns: 8fr 4fr;
+	grid-template-rows: 9fr 3fr;
+}
