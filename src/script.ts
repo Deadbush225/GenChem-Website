@@ -2,6 +2,9 @@
 // Dark = 1
 // Light = 0
 
+// globals
+let obj : string[][]
+
 enum theme {LIGHT, DARK}
 
 /* + UTILS */
@@ -168,12 +171,12 @@ settings = initCookie();
 
 chto(settings.currentTheme);
 
-function getAtomicNumberFromElement(element :$) :number {
+function getAtomicNumberFromElement(element : JQuery<Element>) :number {
     return Number(element.attr("id").substring(1))
 }
 
-function getIndexFromElement(element :$) : number {
-    return Number(element.attr("id").substring(1) - 1)
+function getIndexFromElement(element : JQuery<Element> ) : number {
+    return getAtomicNumberFromElement(element) - 1
     // return 1
 }
 
@@ -194,8 +197,35 @@ function elementClicked(e) {
     // console.log(sourceElement)
     // if(e.)
 
-    let currentElement = getAtomicNumberFromElement($(sourceElement))
-    console.log(currentElement)
+    let atomicNumber = getAtomicNumberFromElement($(sourceElement))
+    // console.log(currentElement)
+
+    let symbol = obj[atomicNumber][1]
+    let name = obj[atomicNumber][2]
+    let atomicMass = obj[atomicNumber][3]
+    let electronicConfiguration = obj[atomicNumber][5]
+    let electronNegativity = obj[atomicNumber][6]
+    let atomicRadius = obj[atomicNumber][7]
+    let ionizationEnergy = obj[atomicNumber][8]
+    let electornAfinity = obj[atomicNumber][9]
+    let oxidationStates = obj[atomicNumber][10]
+    let standardState = obj[atomicNumber][11]
+    let meltingPoint = obj[atomicNumber][12]
+    let boilingPoint = obj[atomicNumber][13]
+    let density = obj[atomicNumber][14]
+    let groupBlock = obj[atomicNumber][15]
+    let yearDiscovered = obj[atomicNumber][16]
+
+    $("#atomic-mass-field").text(atomicMass)
+    $("#atomic-number-field").text(atomicNumber)
+    $("#year-discovered-field").text(yearDiscovered)
+    $("#group-block-field").text(groupBlock)
+    $("#oxidation-states-field").text(oxidationStates)
+    $("#metling-point-field").text(meltingPoint)
+    $("#electronic-configuration-field").text(electronicConfiguration)
+    $("#ionization-energy-field").text(ionizationEnergy)
+    $("#electron-negativity-field").text(electronNegativity)
+
 
 }
 
@@ -211,7 +241,8 @@ $(document).ready(() => {
 
 	if (document.querySelector(".periodic-table")) {
 
-		const obj: string[][] = periodictable.Row;
+		// let obj: string[][] = periodictable.Row;
+		obj = periodictable.Row;
 
 		const groupBlock = {
 			Nonmetal: { color: "#ffffbb" },
