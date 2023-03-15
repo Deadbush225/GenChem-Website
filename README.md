@@ -2,7 +2,7 @@
 
 --- 
 
-🚀 Deployment Link: https://deadbush225.github.io/GenChem-Website/
+🚀 Deployment Link: https://deadbush225.github.io/Prismarine/
 
 ⚙ Technology Stack:
   - JavaScript
