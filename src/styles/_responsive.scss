@@ -1,0 +1,30 @@
+.force-landscape {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 3em;
+	// margin: 1em;
+	visibility: hidden;
+}
+
+@media screen and (orientation: portrait) {
+	.force-landscape {
+		visibility: visible;
+		z-index: 100;
+		// width: 100%;
+		height: 100%;
+		background-color: var(--neutral);
+		position: fixed;
+		padding: 1em;
+	}
+
+	body * {
+		visibility: hidden;
+		position: absolute;
+	}
+	// body {
+	// overflow: auto;
+	// }
+}
