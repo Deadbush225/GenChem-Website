@@ -1,4 +1,4 @@
-@use "colorPallete";
+@use "colorPallete" as v;
 @use "generals";
 @use "utils";
 @use "periodicTable";
@@ -8,7 +8,8 @@
 
 .blur {
 	/* filter: blur(50) */
-	text-shadow: 0 0 15px var(--light-opposite);
+	// text-shadow: 0 0 15px var(--light-opposite);
+	text-shadow: 0 0 15px v.$light-opposite;
 }
 
 .image-clip {
@@ -27,9 +28,9 @@
 
 body {
 	margin: 0;
-	background-color: var(--neutral);
+	background-color: v.$neutral;
 	font-family: "Lato", sans-serif;
-	color: var(--opposite);
+	color: v.$opposite;
 }
 
 .stick {
@@ -39,7 +40,7 @@ body {
 
 #greet {
 	/* height: 1px; */
-	color: var(--opposite);
+	color: v.$opposite;
 	padding-top: 10px;
 	text-align: center;
 	position: -webkit-sticky;
@@ -56,7 +57,7 @@ body {
 	padding: 0px 16px;
 
 	margin-left: auto;
-	color: var(--opposite);
+	color: v.$opposite;
 
 	/* z-index: 2; */
 }
@@ -83,37 +84,29 @@ body {
 	text-align: center;
 
 	border-radius: 10px;
-	border: 3px solid var(--neutral);
+	border: 3px solid v.$neutral;
 	min-width: 100%;
 	min-height: 100px;
-	color: var(--true-white);
+	color: v.$true-white;
 
 	&.left {
-		background-image: linear-gradient(
-			45deg,
-			var(--light-theme),
-			var(--dark-neutral)
-		);
+		background-image: linear-gradient(45deg, v.$light-theme, v.$dark-neutral);
 
 		&:hover {
 			transform: rotateZ(1deg);
 			/* background-image: linear-gradient(to bottom right, var(--dark-gray), var(--selected-dark-gray)); */
-			border-color: var(--accent);
+			border-color: v.$accent;
 			z-index: 0;
 		}
 	}
 
 	&.right {
-		background-image: linear-gradient(
-			-45deg,
-			var(--light-theme),
-			var(--dark-neutral)
-		);
+		background-image: linear-gradient(-45deg, v.$light-theme, v.$dark-neutral);
 
 		&:hover {
 			transform: rotateZ(-1deg);
 			/* background-image: linear-gradient(to bottom right, var(--dark-gray), var(--selected-dark-gray)); */
-			border: 3px solid var(--accent);
+			border: 3px solid v.$accent;
 			z-index: 0;
 		}
 	}

@@ -1,3 +1,5 @@
+@use "colorPallete" as v;
+
 .force-landscape {
 	position: absolute;
 	display: flex;
@@ -15,7 +17,7 @@
 		z-index: 100;
 		// width: 100%;
 		height: 100%;
-		background-color: var(--neutral);
+		background-color: v.$neutral;
 		position: fixed;
 		padding: 1em;
 	}

@@ -2,4 +2,13 @@
 	outline: 3px solid white;
 	outline-offset: -3px;
 	border-radius: 10px;
+
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+}
+
+#atomic-model {
+	aspect-ratio: unset;
 }

@@ -1,3 +1,5 @@
+@use "colorPallete" as v;
+
 /* ++ SCROLLBAR */
 ::-webkit-scrollbar {
 	/* width */
@@ -26,7 +28,7 @@
 	margin: 0;
 	padding: 0;
 	/* overflow: hidden; */
-	background-color: var(--dark-neutral);
+	background-color: v.$dark-neutral;
 
 	display: flex;
 	/* border: white solid; */
@@ -40,7 +42,7 @@
 
 		a {
 			display: block;
-			color: var(--true-white);
+			color: v.$true-white;
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
@@ -49,7 +51,7 @@
 		}
 
 		a:hover {
-			background-color: var(--selected-accent);
+			background-color: v.$selected-accent;
 		}
 	}
 }

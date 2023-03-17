@@ -1,0 +1,29 @@
+// $primary: null !global;
+// $secondary: null !global;
+
+:root {
+	--primary: red;
+	--secondary: yellow;
+}
+
+.dark {
+	--primary: red;
+	--secondary: yellow;
+
+	// --#{$primary}: $primary;
+}
+
+.light {
+	--primary: yellow;
+	--secondary: red;
+
+	// $primary: var(--primary);
+}
+
+div {
+	color: var(--primary);
+	background-color: var(--secondary);
+
+	width: 200px;
+	height: 200px;
+}

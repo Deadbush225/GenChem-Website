@@ -1,256 +1,167 @@
-
-
 // Dark = 1
 // Light = 0
 
 // globals
-let obj : string[][]
+let obj: string[][];
 
-enum theme {LIGHT, DARK}
+enum theme {
+	LIGHT,
+	DARK,
+}
 
 /* + UTILS */
-function l(message) {
+export function l(message) {
 	console.log(message);
-}
-
-/* + COOKIES */
-let saveCookie = () => {
-	// alert("cookies saved")
-	l("Saving cookies: ");
-	l(settings);
-	Cookies.set(
-		"settings/defaultTheme",
-		fromStrerializeFlag(Number(settings.defaultTheme))
-	);
-	Cookies.set(
-		"settings/currentTheme",
-		fromStrerializeFlag(Number(settings.currentTheme))
-	); // we interact to the setting as boolean but we save it as integer
-};
-
-function initCookie() {
-	let settings = {};
-
-	settings = {
-		defaultTheme: toSterializeFlag(
-			Number(Cookies.get("settings/defaultTheme"))
-		),
-		currentTheme: toSterializeFlag(
-			Number(Cookies.get("settings/currentTheme"))
-		),
-	};
-
-	l("Page reloaded -> Getting Cookies: ");
-	l(settings);
-	return settings;
-}
-
-/* + COOKIE STERIALIZATION */
-function fromStrerializeFlag(number) {
-	let i;
-
-	if (number == true) {
-		i = 1;
-	} else if (number == false) {
-		i = 0;
-	}
-	return i;
-}
-
-function toSterializeFlag(number) {
-	let i;
-
-	i = number == 1 || isNaN(number) ? true : false;
-
-	// if (number == 1) {
-	//   l(78)
-	//   i = true
-	// }
-	// if (number == 0) {
-	//   l(79)
-	//   i = false
-	// }
-	// if (isNaN(number)) {
-	//   l(80)
-	//   i = true
-	// }
-	// l("computed val: ")
-	// l(i)
-	return i;
 }
 
 /* importing */
 // import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
 // let Cookies = require("js-cookie");
 
-function applyCurrentTheme() {
-	l("ApplyCurrentTheme :" + settings.currentTheme);
-	// setTimeout(changeThemeTo, 1000, settings.currentTheme);
-	chto(!settings.currentTheme);
-	changeButtonThemes(settings.currentTheme);
-}
-
-function toggleTheme() {
-	l("toggleTheme to :" + !settings.currentTheme);
-	chto(!settings.currentTheme);
-	changeButtonThemes(!settings.currentTheme);
-}
-
-function chto(theme) {
-	l(
-		"first replenish -> changing from " + settings.currentTheme + " to " + theme
-	);
-	// l("defaultTheme: " + settings.defaultTheme);
-
-	//check if needs to change the default color
-	if (settings.currentTheme == theme) {
-		// saveCookie()
-		if (settings.currentTheme == settings.defaultTheme) {
-			return;
-		}
-	}
-
-	let element = document.documentElement;
-
-	if (theme) {
-		element.classList.toggle("light-mode");
-		element.classList.toggle("dark-mode");
-		l("DarkMode: Changing to " + theme);
-	} else {
-		element.classList.toggle("dark-mode");
-		element.classList.toggle("light-mode");
-		l("LightMode: Changing to " + theme);
-	}
-}
-
-function changeButtonThemes(theme) {
-	l("changing from " + settings.currentTheme + " to " + theme);
-	// l("defaultTheme: " + settings.defaultTheme);
-
-	//check if needs to change the default color
-	if (settings.currentTheme == theme) {
-		// saveCookie()
-		if (settings.currentTheme == settings.defaultTheme) {
-			return;
-		}
-	}
-
-	let element = document.documentElement;
-	let themeButton = document.querySelector(".toggle-theme")!;
-
-	if (theme) {
-		// element.classList.toggle("dark-mode");
-		// element.classList.toggle("light-mode");
-		l("DarkMode: Changing to " + theme);
-		themeButton.classList.toggle("fa-sun");
-		themeButton.classList.toggle("fa-moon");
-	} else {
-		// element.classList.toggle("light-mode");
-		// element.classList.toggle("dark-mode");
-		l("LightMode: Changing to " + theme);
-		themeButton.classList.toggle("fa-moon");
-		themeButton.classList.toggle("fa-sun");
-	}
-	settings.currentTheme = theme;
-
-	l(settings);
-	saveCookie();
-}
-
 import "./styles/styles.scss";
 
-import Cookies from "js-cookie";
+// import { initCookie } from "./cookies"
+// import Cookies from "js-cookie";
 import $ from "jquery";
+
 import { periodictable } from "./Periodictable/data";
-("./Periodictable/data.js");
+import {
+	toggleTheme,
+	chto,
+	changeButtonThemes,
+} from "./scripts/themesController";
+import { settings } from "./scripts/cookies";
+
+// ("./Periodictable/data.js");
 // import { readFileSync } from "fs";
 // const fs = require("fs");
 // import "./assets/Menu.gif";
 
-let settings;
-settings = initCookie();
-
-chto(settings.currentTheme);
-
-function getAtomicNumberFromElement(element : JQuery<Element>) :number {
-    return Number(element.attr("id").substring(1))
+function getAtomicNumberFromElement(element: JQuery<Element>): number {
+	return Number(element.attr("id")!.substring(1));
 }
 
-function getIndexFromElement(element : JQuery<Element> ) : number {
-    return getAtomicNumberFromElement(element) - 1
-    // return 1
+function getIndexFromElement(element: JQuery<Element>): number {
+	return getAtomicNumberFromElement(element) - 1;
+	// return 1
 }
 
 function elementClicked(e) {
-    console.log(e)
-    
-    let sourceElement = e.srcElement
+	console.log(e);
 
-    if (sourceElement.className == "elements") {
-        // console.log(sourceElement)
-    } else {
-        // console.log("++++++++")
-        while (sourceElement.className != "elements") {
-            // console.log(sourceElement)
-            sourceElement = sourceElement.parentElement
-        }
-    }
-    // console.log(sourceElement)
-    // if(e.)
+	let sourceElement = e.srcElement;
 
-    let atomIndex = getIndexFromElement($(sourceElement))
-    // console.log(currentElement)
-    let atomicNumber = getAtomicNumberFromElement($(sourceElement))
+	if (sourceElement.className == "elements") {
+		// console.log(sourceElement)
+	} else {
+		// console.log("++++++++")
+		while (sourceElement.className != "elements") {
+			// console.log(sourceElement)
+			sourceElement = sourceElement.parentElement;
+		}
+	}
+	// console.log(sourceElement)
+	// if(e.)
 
-    let symbol = obj[atomIndex][1]
-    let name = obj[atomIndex][2]
-    let atomicMass = obj[atomIndex][3]
-    let electronicConfiguration = obj[atomIndex][5]
-    let electronNegativity = obj[atomIndex][6]
-    let atomicRadius = obj[atomIndex][7]
-    let ionizationEnergy = obj[atomIndex][8]
-    let electornAfinity = obj[atomIndex][9]
-    let oxidationStates = obj[atomIndex][10]
-    let standardState = obj[atomIndex][11]
-    let meltingPoint = obj[atomIndex][12]
-    let boilingPoint = obj[atomIndex][13]
-    let density = obj[atomIndex][14]
-    let groupBlock = obj[atomIndex][15]
-    let yearDiscovered = obj[atomIndex][16]
+	let atomIndex = getIndexFromElement($(sourceElement));
+	// console.log(currentElement)
+	let atomicNumber = getAtomicNumberFromElement($(sourceElement));
 
-    $("#atomic-mass-field").text(atomicMass)
-    $("#atomic-number-field").text(atomicNumber)
-    $("#year-discovered-field").text(yearDiscovered)
-    $("#group-block-field").text(groupBlock)
-    $("#oxidation-states-field").text(oxidationStates)
-    $("#metling-point-field").text(meltingPoint)
-    $("#electronic-configuration-field").text(electronicConfiguration)
-    $("#ionization-energy-field").text(ionizationEnergy)
-    $("#electron-negativity-field").text(electronNegativity)
+	let symbol = obj[atomIndex][1];
+	let name = obj[atomIndex][2];
+	let atomicMass = obj[atomIndex][3];
+	let electronicConfiguration = obj[atomIndex][5];
+	let electronNegativity = obj[atomIndex][6];
+	let atomicRadius = obj[atomIndex][7];
+	let ionizationEnergy = obj[atomIndex][8];
+	let electornAfinity = obj[atomIndex][9];
+	let oxidationStates = obj[atomIndex][10];
+	let standardState = obj[atomIndex][11];
+	let meltingPoint = obj[atomIndex][12];
+	let boilingPoint = obj[atomIndex][13];
+	let density = obj[atomIndex][14];
+	let groupBlock = obj[atomIndex][15];
+	let yearDiscovered = obj[atomIndex][16];
 
-
+	$("#atomic-mass-field").text(atomicMass);
+	$("#atomic-number-field").text(atomicNumber);
+	$("#year-discovered-field").text(yearDiscovered);
+	$("#group-block-field").text(groupBlock);
+	$("#oxidation-states-field").text(oxidationStates);
+	$("#metling-point-field").text(meltingPoint);
+	$("#electronic-configuration-field").text(electronicConfiguration);
+	$("#ionization-energy-field").text(ionizationEnergy);
+	$("#electron-negativity-field").text(electronNegativity);
 }
 
+// applyCurrentTheme();
+chto(settings.currentTheme);
 
 $(document).ready(() => {
-	document.querySelector("#darkmode")!.addEventListener("click", toggleTheme);
-	document.querySelectorAll(".elements").forEach((item) => {
-        item.addEventListener("click", elementClicked)
-    })
-    
-    /// START of MODEL
-
-
-
-
-
-    /// END of MODEL
-
-    // applyCurrentTheme();
 	changeButtonThemes(settings.currentTheme);
 
-	if (document.querySelector(".periodic-table")) {
+	document.querySelector("#darkmode")!.addEventListener("click", toggleTheme);
 
+	let elements: NodeListOf<HTMLDivElement> =
+		document.querySelectorAll(".elements");
+
+	if (elements) {
+		elements.forEach((item) => {
+			item.addEventListener("click", elementClicked);
+		});
+	}
+
+	/// START of MODEL
+
+	// let model_container =
+
+	let canvas = $<HTMLCanvasElement>("#atomic-model")[0];
+
+	if (canvas) {
+		let container = canvas.parentElement!;
+		let ctx = canvas.getContext("2d");
+
+		if (ctx) {
+			canvas.width = container.offsetWidth;
+			canvas.height = container.offsetHeight;
+
+			let centerX = canvas.width / 2;
+			let centerY = canvas.height / 2;
+
+			ctx.strokeStyle = "white";
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 30, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 45, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 60, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 75, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 90, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 105, 0, Math.PI * 2, true);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, 120, 0, Math.PI * 2, true);
+			ctx.stroke();
+		}
+	}
+	/// END of MODEL
+
+	if (document.querySelector(".periodic-table")) {
 		// let obj: string[][] = periodictable.Row;
 		obj = periodictable.Row;
 
@@ -270,18 +181,28 @@ $(document).ready(() => {
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
 			let currentElement = $(element);
 			let atomicNumber = getIndexFromElement(currentElement);
-            // console.log(currentElement)
+			// console.log(currentElement)
 			let elementObject = obj[atomicNumber];
 
 			currentElement.css(
-                "background-color",
+				"background-color",
 				groupBlock[elementObject[15]].color
-                );
+			);
 
-            currentElement.append("<div class=\"atomic-number\">" + elementObject[0] + "</div>");
-            currentElement.append("<div class=\"atomic-symbol\"><div class=\"symbol\">" + elementObject[1] + "</div></div>");
-            currentElement.append("<div class=\"atomic-name\">" + elementObject[2] + "</div>");
-            currentElement.append("<div class=\"atomic-weight\">" + elementObject[3] + "</div>");
+			currentElement.append(
+				'<div class="atomic-number">' + elementObject[0] + "</div>"
+			);
+			currentElement.append(
+				'<div class="atomic-symbol"><div class="symbol">' +
+					elementObject[1] +
+					"</div></div>"
+			);
+			currentElement.append(
+				'<div class="atomic-name">' + elementObject[2] + "</div>"
+			);
+			currentElement.append(
+				'<div class="atomic-weight">' + elementObject[3] + "</div>"
+			);
 		});
 	}
 });
