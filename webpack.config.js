@@ -53,7 +53,7 @@ module.exports = {
 		clean: true,
 		assetModuleFilename: "assets/[name].[ext]",
 	},
-	devtool: "source-map", // webpack bundles js to minified, and sourcemap will make it posible to debug it in the browser
+	// devtool: "source-map", // webpack bundles js to minified, and sourcemap will make it posible to debug it in the browser
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, "docs"),
@@ -67,18 +67,18 @@ module.exports = {
 		// historyApiFallback: true,
 	},
 	// RANDOM TRY
-	optimization: {
-		splitChunks: {
-			chunks: "all",
-			cacheGroups: {
-				vendor: {
-					name: "vendor",
-					//				chunks: "initial",
-					//				minChunks: 2
-				},
-			},
-		},
-	},
+	// optimization: {
+	// 	splitChunks: {
+	// 		chunks: "all",
+	// 		cacheGroups: {
+	// 			vendor: {
+	// 				name: "vendor",
+	// 				//				chunks: "initial",
+	// 				//				minChunks: 2
+	// 			},
+	// 		},
+	// 	},
+	// },
 	resolve: {
 		// so webpack knows what to resolve when importing
 		extensions: [".css", ".js", ".html", ".ts"],

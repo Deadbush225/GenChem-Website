@@ -31,7 +31,6 @@ import {
 	changeButtonThemes,
 } from "./scripts/themesController";
 import { settings } from "./scripts/cookies";
-
 import { ElementModel } from "./scripts/modelGenerator";
 
 // ("./Periodictable/data.js");
