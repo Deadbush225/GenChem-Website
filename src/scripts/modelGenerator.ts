@@ -268,7 +268,7 @@ export class ElementModel {
 		}
 		this._generateProtons();
 
-		let _noise = transformRange(10);
+		let _noise = transformRange(8);
 		// let randX = 0;
 		// let randY = 0;
 

@@ -53,7 +53,7 @@ module.exports = {
 		clean: true,
 		assetModuleFilename: "assets/[name].[ext]",
 	},
-	devtool: devMode ? "source-map" : "", // webpack bundles js to minified, and sourcemap will make it posible to debug it in the browser
+	devtool: devMode ? "source-map" : false, // webpack bundles js to minified, and sourcemap will make it posible to debug it in the browser
 	devServer: {
 		static: {
 			directory: path.resolve(__dirname, "docs"),
