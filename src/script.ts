@@ -32,6 +32,8 @@ import {
 } from "./scripts/themesController";
 import { settings } from "./scripts/cookies";
 
+import { ElementModel } from "./scripts/modelGenerator";
+
 // ("./Periodictable/data.js");
 // import { readFileSync } from "fs";
 // const fs = require("fs");
@@ -49,23 +51,35 @@ function getIndexFromElement(element: JQuery<Element>): number {
 function elementClicked(e) {
 	console.log(e);
 
-	let sourceElement = e.srcElement;
+	// l(e.constructor);
 
-	if (sourceElement.className == "elements") {
-		// console.log(sourceElement)
+	let atomIndex;
+	let atomicNumber;
+	if (typeof e == "number") {
+		l("number");
+		atomIndex = e - 1;
+		atomicNumber = e;
 	} else {
-		// console.log("++++++++")
-		while (sourceElement.className != "elements") {
-			// console.log(sourceElement)
-			sourceElement = sourceElement.parentElement;
-		}
-	}
-	// console.log(sourceElement)
-	// if(e.)
+		l("passing here");
+		let sourceElement = e.target!;
 
-	let atomIndex = getIndexFromElement($(sourceElement));
-	// console.log(currentElement)
-	let atomicNumber = getAtomicNumberFromElement($(sourceElement));
+		// if (sourceElement instanceof HTMLElement) {
+		if (sourceElement.className == "elements") {
+			// console.log(sourceElement)
+		} else {
+			// console.log("++++++++")
+			while (sourceElement.className != "elements") {
+				// console.log(sourceElement)
+				sourceElement = sourceElement.parentElement;
+			}
+		}
+		// console.log(sourceElement)
+		// if(e.)
+
+		atomIndex = getIndexFromElement($(sourceElement));
+		// console.log(currentElement)
+		atomicNumber = getAtomicNumberFromElement($(sourceElement));
+	}
 
 	let symbol = obj[atomIndex][1];
 	let name = obj[atomIndex][2];
@@ -92,10 +106,14 @@ function elementClicked(e) {
 	$("#electronic-configuration-field").text(electronicConfiguration);
 	$("#ionization-energy-field").text(ionizationEnergy);
 	$("#electron-negativity-field").text(electronNegativity);
+
+	model.changeElement(atomicNumber);
+	// model = new ElementModel(atomicNumber);
 }
 
 // applyCurrentTheme();
 chto(settings.currentTheme);
+let model;
 
 $(document).ready(() => {
 	changeButtonThemes(settings.currentTheme);
@@ -112,53 +130,17 @@ $(document).ready(() => {
 	}
 
 	/// START of MODEL
+	model = new ElementModel(1);
 
 	// let model_container =
+	// init();
+	// model.changeElement(118);
+	// l(model._ringsCalculator());
+	// l(model._createRings());
+	// model._createRings();
+	// model._populateRings();
+	// model._populateNucleus();
 
-	let canvas = $<HTMLCanvasElement>("#atomic-model")[0];
-
-	if (canvas) {
-		let container = canvas.parentElement!;
-		let ctx = canvas.getContext("2d");
-
-		if (ctx) {
-			canvas.width = container.offsetWidth;
-			canvas.height = container.offsetHeight;
-
-			let centerX = canvas.width / 2;
-			let centerY = canvas.height / 2;
-
-			ctx.strokeStyle = "white";
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 30, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 45, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 60, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 75, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 90, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 105, 0, Math.PI * 2, true);
-			ctx.stroke();
-
-			ctx.beginPath();
-			ctx.arc(centerX, centerY, 120, 0, Math.PI * 2, true);
-			ctx.stroke();
-		}
-	}
 	/// END of MODEL
 
 	if (document.querySelector(".periodic-table")) {
@@ -205,4 +187,5 @@ $(document).ready(() => {
 			);
 		});
 	}
+	elementClicked(1);
 });
