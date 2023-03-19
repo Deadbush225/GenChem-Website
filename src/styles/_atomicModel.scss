@@ -26,12 +26,19 @@
 			border-radius: 5px;
 			margin: 1ch;
 			padding: 1ch 1em;
+			display: flex;
+			justify-content: space-evenly;
+			// flex-wrap: wrap;
+			width: 20%;
+			font-size: small;
+			align-items: center;
+
 			.label {
-				display: inline;
+				display: block;
 				color: v.$theme;
 			}
 			.field {
-				display: inline;
+				display: block;
 				color: v.$opposite;
 			}
 		}

@@ -106,6 +106,15 @@ function elementClicked(e) {
 	$("#ionization-energy-field").text(ionizationEnergy);
 	$("#electron-negativity-field").text(electronNegativity);
 
+	$("#electron-field").text(atomicNumber);
+	$("#proton-field").text(atomicNumber);
+	$("#neutron-field").text(atomicNumber);
+
+	$("#wiki").attr(
+		"href",
+		`https://pubchem.ncbi.nlm.nih.gov/element/${atomicNumber}`
+	);
+
 	model.changeElement(atomicNumber);
 	// model = new ElementModel(atomicNumber);
 }

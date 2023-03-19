@@ -8,6 +8,41 @@ function transformRange(value: number): number {
 	return scale * value;
 }
 
+function ptInCircle(pt, r) {
+	const lhs = Math.pow(pt[0], 2) + Math.pow(pt[1], 2);
+	const rhs = Math.pow(r, 2);
+
+	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
+}
+
+function a(a) {
+	return a;
+}
+function b(a) {
+	return a;
+}
+function c(a) {
+	return a;
+}
+function d(a) {
+	return a;
+}
+function e(a) {
+	return a;
+}
+function f(a) {
+	return a;
+}
+function g(a) {
+	return a;
+}
+function h(a) {
+	return a;
+}
+function i(a) {
+	return a;
+}
+
 export class ElementModel {
 	atomicNumber: number;
 	shells: number;
@@ -17,8 +52,11 @@ export class ElementModel {
 	ringGap: number = 20;
 	rings: number;
 
-	neutrons: { x: number; y: number; color: string }[] = [];
-	protons: { x: number; y: number; color: string }[] = [];
+	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
+		[];
+	protons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
+		[];
+	// protons: { x: number; y: number; color: string }[] = [];
 
 	startingAngle: number = 0;
 	ringsAngles: number[] = [0, 0, 0, 0, 0, 0, 0];
@@ -30,6 +68,8 @@ export class ElementModel {
 	centerY: number;
 	boundaryRadius: number;
 
+	radius: number;
+
 	canvas: HTMLCanvasElement;
 	ctx: CanvasRenderingContext2D;
 
@@ -39,8 +79,8 @@ export class ElementModel {
 	_innerTime = 0;
 	bind;
 
-	protonColors = ["#CF3B29", "#D5343A", "#CB2442"];
-	neutronColors = ["#3aa346", "#58bb44", "#78d23d"];
+	neutronColors = ["#CF3B29", "#D5343A", "#CB2442"];
+	protonColors = ["#3aa346", "#58bb44", "#78d23d"];
 
 	constructor(atomicNumber: number = 1) {
 		this.atomicNumber = atomicNumber;
@@ -200,6 +240,8 @@ export class ElementModel {
 			this.neutrons.push({
 				x: x,
 				y: y,
+				Rx: 0,
+				Ry: 0,
 				color: this.protonColors[randColor],
 			});
 
@@ -209,6 +251,8 @@ export class ElementModel {
 			this.protons.push({
 				x: x,
 				y: y,
+				Rx: 0,
+				Ry: 0,
 				color: this.neutronColors[randColor],
 			});
 		}
@@ -224,21 +268,92 @@ export class ElementModel {
 		}
 		this._generateProtons();
 
+		let _noise = transformRange(10);
+		// let randX = 0;
+		// let randY = 0;
+
 		let i = 0;
-		while (i < this.atomicNumber) {
+		let rhs = (this.boundaryRadius ** 2); // to compensate
+
+        let xSign = 0;
+        let xNoise = 0;
+        let xNegNoise = 0;
+        
+        let ySign = 0;
+        let yNoise = 0;
+        let yNegNoise = 0
+        
+        // let negative
+
+        while (i < this.atomicNumber) {
 			// l("drawing neucleus");
 
 			let proton = this.protons[i];
+
+            xSign = Math.sign(proton.x)
+            xNoise = _noise * (xSign)
+            xNegNoise = _noise * (~xSign + 1)
+            
+			proton.x +=
+				((proton.x + xNoise) ** 2) + (proton.y ** 2) <= rhs
+					? Math.random() > 0.5
+						? _noise
+						: -_noise
+					: ((proton.x + xNegNoise) ** 2) + (proton.y ** 2) <= rhs
+					? xNegNoise
+					: xNegNoise;
+
+            ySign = Math.sign(proton.y)
+            yNoise = _noise * (ySign)
+            yNegNoise = _noise * (~ySign + 1)
+
+			proton.y +=
+				((proton.y + yNoise) ** 2) + (proton.x ** 2) <= rhs
+					? Math.random() > 0.5
+						? _noise
+						: -_noise
+					: ((proton.y + yNegNoise) ** 2) + (proton.x ** 2) <= rhs
+					? yNegNoise// experimental, if doesn't work just use the normal negNoise
+					: yNegNoise//a(noise); 
+
 			this.ctx.fillStyle = proton.color;
 			this.ctx.beginPath();
 			this.ctx.arc(proton.x, proton.y, 5, 0, Math.PI * 2, true);
 			this.ctx.fill();
 
 			let neutron = this.neutrons[i];
-			this.ctx.fillStyle = neutron.color;
+
+            xSign = Math.sign(neutron.x)
+            xNoise = _noise * (xSign)
+            xNegNoise = _noise * (~xSign + 1)
+            
+			neutron.x +=
+				((neutron.x + xNoise) ** 2) + (neutron.y ** 2) <= rhs
+					? Math.random() > 0.5
+						? _noise
+						: -_noise
+					: ((neutron.x + xNegNoise) ** 2) + (neutron.y ** 2) <= rhs
+					? xNegNoise
+					: xNegNoise;
+
+            ySign = Math.sign(neutron.y)
+            yNoise = _noise * (ySign)
+            yNegNoise = _noise * (~ySign + 1)
+
+			neutron.y +=
+				((neutron.y + yNoise) ** 2) + (neutron.x ** 2) <= rhs
+					? Math.random() > 0.5
+						? _noise
+						: -_noise
+					: ((neutron.y + yNegNoise) ** 2) + (neutron.x ** 2) <= rhs
+					? yNegNoise// experimental, if doesn't work just use the normal negNoise
+					: yNegNoise//a(noise); 
+
+            this.ctx.fillStyle = neutron.color;
 			this.ctx.beginPath();
 			this.ctx.arc(neutron.x, neutron.y, 5, 0, Math.PI * 2, true);
 			this.ctx.fill();
+
 
 			i++;
 			if (i == 100) {

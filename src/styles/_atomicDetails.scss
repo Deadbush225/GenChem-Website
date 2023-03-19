@@ -9,6 +9,30 @@
 	// grid-span: 2;
 	grid-column: span 2;
 	padding: 1em;
+
+	display: grid;
+	// flex-wrap: wrap;
+
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.5ch;
+
+	// justify-content: space-between;
+	.details {
+		display: inline;
+		padding: 0.75ch 1ch;
+		// background-color: aqua;
+		border-radius: 10px;
+	}
+
+	.span {
+		// background-color: red;
+		grid-column: span 2;
+	}
+
+	.end {
+		grid-column-end: -1;
+		justify-self: center;
+	}
 }
 
 .field {

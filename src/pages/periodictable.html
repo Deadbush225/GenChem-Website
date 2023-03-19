@@ -212,7 +212,7 @@
 						style="background-color: #529bf5"
 					>
 						<div class="label">Electron:</div>
-						<div class="field">1</div>
+						<div class="field" id="electron-field">1</div>
 					</div>
 					<div
 						class="hover-control"
@@ -220,7 +220,7 @@
 						style="background-color: #f47068"
 					>
 						<div class="label">Proton:</div>
-						<div class="field">1</div>
+						<div class="field" id="proton-field">1</div>
 					</div>
 					<div
 						class="hover-control"
@@ -228,57 +228,61 @@
 						style="background-color: #57ab5a"
 					>
 						<div class="label">Neutron:</div>
-						<div class="field">1</div>
+						<div class="field" id="neutron-field">1</div>
 					</div>
 				</div>
 			</div>
 			<div id="atom-details-container">
-				<div id="atomic-mass">
+				<div id="atomic-mass" class="details" style="color: #ff0000">
 					<strong>Atomic Mass: </strong>
 					<div id="atomic-mass-field" class="field"></div>
 				</div>
 
-				<div id="atomic-number">
+				<div id="atomic-number" class="details" style="color: #ff9c2b">
 					<strong>Atomic Number: </strong>
 					<div id="atomic-number-field" class="field"></div>
 				</div>
 
-				<div id="year-discovered">
+				<div id="year-discovered" class="details" style="color: #ebf650">
 					<strong>Year Discovered: </strong>
 					<div id="year-discovered-field" class="field"></div>
 				</div>
 
-				<div id="group-block">
+				<div id="group-block" class="details" style="color: #51ff00">
 					<strong>Group Block: </strong>
 					<div id="group-block-field" class="field"></div>
 				</div>
 
-				<div id="oxidation-states">
+				<div id="oxidation-states" class="details" style="color: #00eeff">
 					<strong>Oxidation States: </strong>
 					<div id="oxidation-states-field" class="field"></div>
 				</div>
 
-				<div id="melting-point">
+				<div id="melting-point" class="details" style="color: #3a7fff">
 					<strong>Melting Point: </strong>
 					<div id="metling-point-field" class="field"></div>
 				</div>
 
-				<div id="electronic-configuration">
+				<div
+					id="electronic-configuration"
+					class="details span"
+					style="color: #6cb6ff"
+				>
 					<strong>Electronic Configuration: </strong>
 					<div id="electronic-configuration-field" class="field"></div>
 				</div>
 
-				<div id="ionization-energy">
+				<div id="ionization-energy" class="details" style="color: #616cff">
 					<strong>Ionization Energy: </strong>
 					<div id="ionization-energy-field" class="field"></div>
 				</div>
 
-				<div id="electron-negativity">
+				<div id="electron-negativity" class="details" style="color: #b152ff">
 					<strong>Electron Negativity: </strong>
 					<div id="electron-negativity-field" class="field"></div>
 				</div>
 
-				<a id="wiki" href="">More Info</a>
+				<a id="wiki" href="" class="end" style="color: #ff6cc7">More Info</a>
 			</div>
 		</div>
 
