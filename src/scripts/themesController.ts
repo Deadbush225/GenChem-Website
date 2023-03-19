@@ -1,4 +1,4 @@
-import { l } from "../script";
+import { l, model } from "../script";
 import { settings, saveCookie } from "./cookies";
 
 export function applyCurrentTheme() {
@@ -6,12 +6,14 @@ export function applyCurrentTheme() {
 	// setTimeout(changeThemeTo, 1000, settings.currentTheme);
 	chto(!settings.currentTheme);
 	changeButtonThemes(!settings.currentTheme);
+	model.updatePenColors();
 }
 
 export function toggleTheme() {
 	l("toggleTheme to :" + !settings.currentTheme);
 	chto(!settings.currentTheme);
 	changeButtonThemes(!settings.currentTheme);
+	model.updatePenColors();
 }
 
 export function chto(theme) {

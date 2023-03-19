@@ -112,10 +112,12 @@ function elementClicked(e) {
 
 // applyCurrentTheme();
 chto(settings.currentTheme);
-let model;
+export let model;
+export let bodyStyles;
 
 $(document).ready(() => {
 	changeButtonThemes(settings.currentTheme);
+	bodyStyles = window.getComputedStyle(document.body);
 
 	document.querySelector("#darkmode")!.addEventListener("click", toggleTheme);
 
@@ -130,15 +132,6 @@ $(document).ready(() => {
 
 	/// START of MODEL
 	model = new ElementModel(1);
-
-	// let model_container =
-	// init();
-	// model.changeElement(118);
-	// l(model._ringsCalculator());
-	// l(model._createRings());
-	// model._createRings();
-	// model._populateRings();
-	// model._populateNucleus();
 
 	/// END of MODEL
 

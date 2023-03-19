@@ -1,14 +1,39 @@
+@use "colorPallete" as v;
+
 #atomic-model-container {
 	outline: 3px solid white;
 	outline-offset: -3px;
 	border-radius: 10px;
 
 	display: flex;
-
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-}
 
-#atomic-model {
-	aspect-ratio: unset;
+	#atomic-model {
+		align-self: baseline;
+		aspect-ratio: unset;
+	}
+
+	#hover-container {
+		display: flex;
+		justify-content: space-evenly;
+
+		width: 100%;
+
+		.hover-control {
+			background-color: aqua;
+			border-radius: 5px;
+			margin: 1ch;
+			padding: 1ch 1em;
+			.label {
+				display: inline;
+				color: v.$theme;
+			}
+			.field {
+				display: inline;
+				color: v.$opposite;
+			}
+		}
+	}
 }

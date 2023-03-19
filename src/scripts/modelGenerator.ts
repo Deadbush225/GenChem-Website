@@ -1,4 +1,4 @@
-import { l } from "../script";
+import { l, bodyStyles } from "../script";
 
 function transformRange(value: number): number {
 	// [IN]  1 - 118
@@ -32,6 +32,8 @@ export class ElementModel {
 
 	canvas: HTMLCanvasElement;
 	ctx: CanvasRenderingContext2D;
+
+	penColor: string;
 
 	// time: Date = new Date();
 	_innerTime = 0;
@@ -123,9 +125,14 @@ export class ElementModel {
 				this.centerY = this.canvas.height / 2;
 			}
 
-			this.ctx.strokeStyle = "white";
-			this.ctx.fillStyle = "white";
+			this.updatePenColors();
 		}
+	}
+
+	updatePenColors() {
+		this.penColor = bodyStyles.getPropertyValue("--opposite");
+		this.ctx.fillStyle = this.penColor;
+		this.ctx.strokeStyle = this.penColor;
 	}
 
 	_createRings(): void {
@@ -182,7 +189,11 @@ export class ElementModel {
 	_generateProtons() {
 		// l("not equal ... generating protons");
 		while (this.protons.length < this.atomicNumber) {
-			let randColor = Math.ceil((Math.random() * 10) % 3);
+			let randColor = Math.floor(Math.random() * 3);
+
+			if (randColor == 3) {
+				throw Error("out of range");
+			}
 
 			let { x, y } = this._randomPoint(this.boundaryRadius);
 
