@@ -1,10 +1,11 @@
 @use "colorPallete" as v;
 
 .periodic-table-container {
-	padding: 20px;
+	// padding: 20px;
 	// rotate: 90deg;
 	/* padding */
 	// max-width: 6fr;
+	flex-grow: 3;
 }
 // }
 

@@ -1,9 +1,14 @@
 @use "colorPallete" as v;
 
 #atomic-model-container {
-	outline: 3px solid white;
+	// outline: 3px solid white;
+	outline: 5px outset;
 	outline-offset: -3px;
 	border-radius: 10px;
+
+	flex-grow: 0;
+	flex-basis: 30%;
+	// flex-shrink: 2;
 
 	display: flex;
 	flex-wrap: wrap;

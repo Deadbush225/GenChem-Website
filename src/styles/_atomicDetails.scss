@@ -1,22 +1,26 @@
 @use "colorPallete" as v;
 
 #atom-details-container {
-	outline: 3px solid white;
+	outline: 5px outset;
 	outline-offset: -3px;
 	border-radius: 10px;
+
 	// width: 100%;
 	// height: 100%;
 	// grid-span: 2;
 	grid-column: span 2;
 	padding: 1em;
 
-	display: grid;
-	// flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 
-	grid-template-columns: repeat(4, 1fr);
+	// grid-template-columns: repeat(5, 1fr);
 	gap: 0.5ch;
 
-	// justify-content: space-between;
+	justify-content: space-evenly;
+	// align-items: center;
+	// justify-items: center;
+
 	.details {
 		display: inline;
 		padding: 0.75ch 1ch;

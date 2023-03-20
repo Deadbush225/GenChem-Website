@@ -137,7 +137,14 @@ body {
 /* preset */
 
 #content {
-	display: grid;
+	display: flex;
+	flex-wrap: wrap;
 	grid-template-columns: 8fr 4fr;
+	padding: 1em;
+	gap: 1em;
+	.wrap {
+		display: flex;
+		gap: 1em;
+	}
 	// grid-template-rows: 9fr 3fr;
 }

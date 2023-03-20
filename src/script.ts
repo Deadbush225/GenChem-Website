@@ -18,6 +18,27 @@ export function l(message) {
 // import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
 // let Cookies = require("js-cookie");
 
+// MOUSE HOVER
+function mouseOver(e) {
+	// l("mouse over");
+
+	let target = e.target;
+	l(target.id);
+	if (target.id == "Electron") {
+		model.hover = 1;
+		// l("refreshing");
+	} else if (target.id == "Proton") {
+		model.hover = 2;
+	} else if (target.id == "Neutron") {
+		model.hover = 3;
+	}
+}
+
+function mouseOut(e) {
+	// l("mouse out");
+	model.hover = 0;
+}
+
 import "./styles/styles.scss";
 
 // import { initCookie } from "./cookies"
@@ -139,11 +160,6 @@ $(document).ready(() => {
 		});
 	}
 
-	/// START of MODEL
-	model = new ElementModel(1);
-
-	/// END of MODEL
-
 	if (document.querySelector(".periodic-table")) {
 		// let obj: string[][] = periodictable.Row;
 		obj = periodictable.Row;
@@ -188,5 +204,17 @@ $(document).ready(() => {
 			);
 		});
 	}
+
+	/// START of MODEL (positioning is important load this before everything else is loaded)
+	model = new ElementModel(1);
+
+	document.querySelectorAll(".hover-control").forEach((element) => {
+		element.addEventListener("mouseleave", mouseOut);
+	});
+	document.querySelectorAll(".hover-control").forEach((element) => {
+		element.addEventListener("mouseenter", mouseOver);
+	});
+	/// END of MODEL
+
 	elementClicked(1);
 });

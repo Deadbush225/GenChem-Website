@@ -18,30 +18,6 @@ function ptInCircle(pt, r) {
 function a(a) {
 	return a;
 }
-function b(a) {
-	return a;
-}
-function c(a) {
-	return a;
-}
-function d(a) {
-	return a;
-}
-function e(a) {
-	return a;
-}
-function f(a) {
-	return a;
-}
-function g(a) {
-	return a;
-}
-function h(a) {
-	return a;
-}
-function i(a) {
-	return a;
-}
 
 export class ElementModel {
 	atomicNumber: number;
@@ -74,6 +50,8 @@ export class ElementModel {
 	ctx: CanvasRenderingContext2D;
 
 	penColor: string;
+
+	hover: number = 0; // 1 - electron, 2 - proton, 3 - neutron
 
 	// time: Date = new Date();
 	_innerTime = 0;
@@ -158,8 +136,11 @@ export class ElementModel {
 			this.ctx = this.canvas.getContext("2d")!;
 
 			if (this.ctx) {
-				this.canvas.width = container.offsetWidth;
-				this.canvas.height = container.offsetHeight;
+				this.canvas.width = container.clientWidth;
+				this.canvas.height = container.clientWidth;
+
+				// l(this.canvas.width);
+				// l(this.canvas.height);
 
 				this.centerX = this.canvas.width / 2;
 				this.centerY = this.canvas.height / 2;
@@ -209,6 +190,22 @@ export class ElementModel {
 			) {
 				let centerY = Math.sin(currentAngle) * currentRingRadius;
 				let centerX = Math.cos(currentAngle) * currentRingRadius;
+
+				if (this.hover == 1) {
+					// l("Hovered is on");
+					this.ctx.save();
+
+					// this.ctx.fillStyle = neutron.color;
+					this.ctx.filter = "blur(10)";
+					this.ctx.filter = "opacity(0.5)";
+					// this.ctx.filter = "brightness(1.2)";
+
+					this.ctx.beginPath();
+					this.ctx.arc(centerX, centerY, 10, 0, Math.PI * 2, true);
+					this.ctx.fill();
+
+					this.ctx.restore();
+				}
 
 				this.ctx.beginPath();
 				this.ctx.arc(centerX, centerY, 5, 0, Math.PI * 2, true);
@@ -273,48 +270,48 @@ export class ElementModel {
 		// let randY = 0;
 
 		let i = 0;
-		let rhs = (this.boundaryRadius ** 2); // to compensate
+		let rhs = this.boundaryRadius ** 2; // to compensate
 
-        let xSign = 0;
-        let xNoise = 0;
-        let xNegNoise = 0;
-        
-        let ySign = 0;
-        let yNoise = 0;
-        let yNegNoise = 0
-        
-        // let negative
+		let xSign = 0;
+		let xNoise = 0;
+		let xNegNoise = 0;
 
-        while (i < this.atomicNumber) {
+		let ySign = 0;
+		let yNoise = 0;
+		let yNegNoise = 0;
+
+		// let negative
+
+		while (i < this.atomicNumber) {
 			// l("drawing neucleus");
 
 			let proton = this.protons[i];
 
-            xSign = Math.sign(proton.x)
-            xNoise = _noise * (xSign)
-            xNegNoise = _noise * (~xSign + 1)
-            
+			xSign = Math.sign(proton.x);
+			xNoise = _noise * xSign;
+			xNegNoise = _noise * (~xSign + 1);
+
 			proton.x +=
-				((proton.x + xNoise) ** 2) + (proton.y ** 2) <= rhs
+				(proton.x + xNoise) ** 2 + proton.y ** 2 <= rhs
 					? Math.random() > 0.5
 						? _noise
 						: -_noise
-					: ((proton.x + xNegNoise) ** 2) + (proton.y ** 2) <= rhs
+					: (proton.x + xNegNoise) ** 2 + proton.y ** 2 <= rhs
 					? xNegNoise
 					: xNegNoise;
 
-            ySign = Math.sign(proton.y)
-            yNoise = _noise * (ySign)
-            yNegNoise = _noise * (~ySign + 1)
+			ySign = Math.sign(proton.y);
+			yNoise = _noise * ySign;
+			yNegNoise = _noise * (~ySign + 1);
 
 			proton.y +=
-				((proton.y + yNoise) ** 2) + (proton.x ** 2) <= rhs
+				(proton.y + yNoise) ** 2 + proton.x ** 2 <= rhs
 					? Math.random() > 0.5
 						? _noise
 						: -_noise
-					: ((proton.y + yNegNoise) ** 2) + (proton.x ** 2) <= rhs
-					? yNegNoise// experimental, if doesn't work just use the normal negNoise
-					: yNegNoise//a(noise); 
+					: (proton.y + yNegNoise) ** 2 + proton.x ** 2 <= rhs
+					? yNegNoise // experimental, if doesn't work just use the normal negNoise
+					: yNegNoise; //a(noise);
 
 			this.ctx.fillStyle = proton.color;
 			this.ctx.beginPath();
@@ -323,37 +320,67 @@ export class ElementModel {
 
 			let neutron = this.neutrons[i];
 
-            xSign = Math.sign(neutron.x)
-            xNoise = _noise * (xSign)
-            xNegNoise = _noise * (~xSign + 1)
-            
+			xSign = Math.sign(neutron.x);
+			xNoise = _noise * xSign;
+			xNegNoise = _noise * (~xSign + 1);
+
 			neutron.x +=
-				((neutron.x + xNoise) ** 2) + (neutron.y ** 2) <= rhs
+				(neutron.x + xNoise) ** 2 + neutron.y ** 2 <= rhs
 					? Math.random() > 0.5
 						? _noise
 						: -_noise
-					: ((neutron.x + xNegNoise) ** 2) + (neutron.y ** 2) <= rhs
+					: (neutron.x + xNegNoise) ** 2 + neutron.y ** 2 <= rhs
 					? xNegNoise
 					: xNegNoise;
 
-            ySign = Math.sign(neutron.y)
-            yNoise = _noise * (ySign)
-            yNegNoise = _noise * (~ySign + 1)
+			ySign = Math.sign(neutron.y);
+			yNoise = _noise * ySign;
+			yNegNoise = _noise * (~ySign + 1);
 
 			neutron.y +=
-				((neutron.y + yNoise) ** 2) + (neutron.x ** 2) <= rhs
+				(neutron.y + yNoise) ** 2 + neutron.x ** 2 <= rhs
 					? Math.random() > 0.5
 						? _noise
 						: -_noise
-					: ((neutron.y + yNegNoise) ** 2) + (neutron.x ** 2) <= rhs
-					? yNegNoise// experimental, if doesn't work just use the normal negNoise
-					: yNegNoise//a(noise); 
+					: (neutron.y + yNegNoise) ** 2 + neutron.x ** 2 <= rhs
+					? yNegNoise // experimental, if doesn't work just use the normal negNoise
+					: yNegNoise; //a(noise);
 
-            this.ctx.fillStyle = neutron.color;
+			this.ctx.fillStyle = neutron.color;
 			this.ctx.beginPath();
 			this.ctx.arc(neutron.x, neutron.y, 5, 0, Math.PI * 2, true);
 			this.ctx.fill();
 
+			// l(this.hover);
+			if (this.hover == 2) {
+				// l("Hovered is on");
+				this.ctx.save();
+
+				this.ctx.fillStyle = proton.color;
+				this.ctx.filter = "blur(10)";
+				this.ctx.filter = "opacity(0.5)";
+				// this.ctx.filter = "brightness(1.2)";
+				this.ctx.beginPath();
+				this.ctx.arc(proton.x, proton.y, 13, 0, Math.PI * 2, true);
+				this.ctx.fill();
+
+				this.ctx.restore();
+			}
+			if (this.hover == 3) {
+				// l("Hovered is on");
+				this.ctx.save();
+
+				this.ctx.fillStyle = neutron.color;
+				this.ctx.filter = "blur(10)";
+				this.ctx.filter = "opacity(0.5)";
+				// this.ctx.filter = "brightness(1.2)";
+
+				this.ctx.beginPath();
+				this.ctx.arc(neutron.x, neutron.y, 13, 0, Math.PI * 2, true);
+				this.ctx.fill();
+
+				this.ctx.restore();
+			}
 
 			i++;
 			if (i == 100) {
