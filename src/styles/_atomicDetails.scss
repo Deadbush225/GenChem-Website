@@ -36,6 +36,10 @@
 	.end {
 		grid-column-end: -1;
 		justify-self: center;
+		align-self: center;
+		background-color: var(--rainbow-15);
+		padding: 0.5ch 1ch;
+		border-radius: 5px;
 	}
 	// COLOR ASSIGNMENT
 	// #atomic-number {

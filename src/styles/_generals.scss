@@ -40,7 +40,7 @@
 	li {
 		/* float: left; */
 
-		a {
+		.nav-item {
 			display: block;
 			color: v.$true-white;
 			text-align: center;
@@ -48,10 +48,13 @@
 			text-decoration: none;
 
 			/* border: cyan 1px solid; */
-		}
-
-		a:hover {
-			background-color: v.$selected-accent;
+			&:hover {
+				background-color: v.$accent;
+			}
 		}
 	}
+}
+
+.active {
+	background-color: v.$selected-accent;
 }
