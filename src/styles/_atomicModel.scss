@@ -48,4 +48,29 @@
 			}
 		}
 	}
+
+	.center-wrap {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: center;
+
+		#atomic-model-name {
+			text-align: left;
+		}
+
+		#atomic-model-number {
+			text-align: right;
+		}
+
+		.wrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.2ch;
+
+			.pipe {
+				margin: 0.5ch;
+			}
+		}
+	}
 }
