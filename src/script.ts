@@ -9,6 +9,24 @@ enum theme {
 	DARK,
 }
 
+// let colors = [
+// 	"#ff7d7d",
+// 	"#ffaaaa",
+// 	"#ff9c2b",
+// 	"#ffd42b",
+// 	"#ebf650",
+// 	"#a5ff52",
+// 	"#51ff00",
+// 	"#0cff00",
+// 	"#45f1fd",
+// 	"#45daff",
+// 	"#93c9ff",
+// 	"#adc9ff",
+// 	"#a9afff",
+// 	"#d8a9ff",
+// 	"#eea9ff",
+// ];
+
 /* + UTILS */
 export function l(message) {
 	console.log(message);
@@ -108,7 +126,7 @@ function elementClicked(e) {
 	let electronNegativity = obj[atomIndex][6];
 	let atomicRadius = obj[atomIndex][7];
 	let ionizationEnergy = obj[atomIndex][8];
-	let electornAfinity = obj[atomIndex][9];
+	let electronAfinity = obj[atomIndex][9];
 	let oxidationStates = obj[atomIndex][10];
 	let standardState = obj[atomIndex][11];
 	let meltingPoint = obj[atomIndex][12];
@@ -118,7 +136,7 @@ function elementClicked(e) {
 	let yearDiscovered = obj[atomIndex][16];
 
 	$("#atomic-mass-field").text(atomicMass);
-	$("#atomic-number-field").text(atomicNumber);
+	// $("#atomic-number-field").text(atomicNumber);
 	$("#year-discovered-field").text(yearDiscovered);
 	$("#group-block-field").text(groupBlock);
 	$("#oxidation-states-field").text(oxidationStates);
@@ -126,6 +144,12 @@ function elementClicked(e) {
 	$("#electronic-configuration-field").text(electronicConfiguration);
 	$("#ionization-energy-field").text(ionizationEnergy);
 	$("#electron-negativity-field").text(electronNegativity);
+	// new
+	$("#atomic-radius-field").text(atomicRadius);
+	$("#electron-afinity-field").text(electronAfinity);
+	$("#standard-state-field").text(standardState);
+	$("#boiling-point-field").text(boilingPoint);
+	$("#density-field").text(density);
 
 	$("#electron-field").text(atomicNumber);
 	$("#proton-field").text(atomicNumber);
@@ -135,6 +159,10 @@ function elementClicked(e) {
 		"href",
 		`https://pubchem.ncbi.nlm.nih.gov/element/${atomicNumber}`
 	);
+
+	$("#atomic-model-symbol").text(symbol);
+	$("#atomic-model-name").text(name);
+	$("#atomic-model-number").text(atomicNumber);
 
 	model.changeElement(atomicNumber);
 	// model = new ElementModel(atomicNumber);

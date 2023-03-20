@@ -37,6 +37,53 @@
 		grid-column-end: -1;
 		justify-self: center;
 	}
+	// COLOR ASSIGNMENT
+	// #atomic-number {
+	// 	color: var(--rainbow-1);
+	// }
+
+	#atomic-mass-field {
+		color: var(--rainbow-1);
+	}
+	#atomic-number-field {
+		color: var(--rainbow-2);
+	}
+	#year-discovered-field {
+		color: var(--rainbow-3);
+	}
+	#group-block-field {
+		color: var(--rainbow-4);
+	}
+	#oxidation-states-field {
+		color: var(--rainbow-5);
+	}
+	#metling-point-field {
+		color: var(--rainbow-6);
+	}
+	#electronic-configuration-field {
+		color: var(--rainbow-7);
+	}
+	#ionization-energy-field {
+		color: var(--rainbow-8);
+	}
+	#electron-negativity-field {
+		color: var(--rainbow-9);
+	}
+	#atomic-radius-field {
+		color: var(--rainbow-10);
+	}
+	#electron-afinity-field {
+		color: var(--rainbow-11);
+	}
+	#standard-state-field {
+		color: var(--rainbow-12);
+	}
+	#boiling-point-field {
+		color: var(--rainbow-13);
+	}
+	#density-field {
+		color: var(--rainbow-14);
+	}
 }
 
 .field {

@@ -3,6 +3,24 @@
 	--true-black: black;
 }
 
+$colors: (
+	#ff7d7d,
+	#ffaaaa,
+	#ff9c2b,
+	#ffd42b,
+	#ebf650,
+	#a5ff52,
+	#51ff00,
+	#0cff00,
+	#45f1fd,
+	#45daff,
+	#93c9ff,
+	#adc9ff,
+	#a9afff,
+	#d8a9ff,
+	#eea9ff
+);
+
 .dark-mode {
 	--opposite: white;
 	--light-opposite: rgb(192, 192, 192);
@@ -15,6 +33,11 @@
 	--selected-accent: #cf870a;
 	--dark-accent: #e89400;
 	--selected-dark-accent: #ffab19;
+
+	@for $i from 1 through length($colors) {
+		$x: nth($colors, $i);
+		--rainbow-#{$i}: #{$x};
+	}
 }
 
 .light-mode {
@@ -29,6 +52,11 @@
 	--selected-accent: #cf420a;
 	--dark-accent: #e83600;
 	--selected-dark-accent: #ff3419;
+
+	@for $i from 1 through length($colors) {
+		$x: darken(nth($colors, $i), 30);
+		--rainbow-#{$i}: #{$x};
+	}
 }
 
 $true-white: var(--true-white);
