@@ -3,3 +3,11 @@
 	position: relative;
 	z-index: 1;
 }
+
+.reference {
+	font-size: 0.7em;
+	&:visited,
+	&:link {
+		color: var(--rainbow-15);
+	}
+}

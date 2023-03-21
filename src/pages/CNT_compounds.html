@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- 3RD PARTY -->
+		<!-- + Fonts -->
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+		</style>
+
+		<!-- + JQuery -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/jquery/dist/jquery.slim.js"
+		></script> -->
+
+		<!-- + Js Cookie -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/js-cookie/dist/js.cookie.js"
+		></script> -->
+		<script
+			src="https://code.jquery.com/jquery-3.6.3.slim.js"
+			integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
+
+		<!-- + Font Awsome -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+			integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+			crossorigin="anonymous"
+		/>
+
+		<!-- MY CSS and JAVASCRIPT -->
+		<!-- <link rel="stylesheet" href="../styles/styles.css" /> -->
+		<!-- <script src="../../src/script.js"></script> -->
+		<!-- <link rel="stylesheet" href="fontawesome-free-5.15.4-web\css\all.css" /> -->
+	</head>
+	<body>
+		<div class="force-landscape">
+			Too narrow screen width, please turn on landscape
+		</div>
+
+		<!-- Nav bar -->
+		<nav class="stick">
+			<div class="image-clip"></div>
+			<ul class="nav-container">
+				<li>
+					<a class="nav-item blur ontop" href="../index.html">STEM 11-6</a>
+				</li>
+				<li>
+					<a class="nav-item blur ontop" href="./periodictable.html"
+						>Interactive Periodic Table</a
+					>
+				</li>
+				<li>
+					<a class="nav-item blur ontop" href="">Team</a>
+				</li>
+				<li><a class="nav-item blur ontop" href="./about.html">About</a></li>
+				<!-- <li><a class="nav-item"></a></li> -->
+				<button id="darkmode">
+					<i class="fas fa-sun toggle-theme ontop" onclick="toggleTheme()"></i>
+				</button>
+			</ul>
+		</nav>
+
+		<!-- To the top -->
+		<div class="toTheTop"><i class="fas fa-solid fa-arrow-up"></i></div>
+
+		<h1 class="greet blur">Elements? Compounds? Atom vs Elements?</h1>
+		<!-- directives:[] -->
+		<div class="body-text">
+			<h2 id="what-is-an-element">What is an Element?</h2>
+			<p>
+				All matter is made up of elements, which are the building blocks of
+				matter. Standard chemical methods cannot decompose any substance into
+				simpler substances. A basic component of a whole is an element. When
+				defining elements, any type of element has been considered an element in
+				and of itself.
+			</p>
+			<p>
+				One type of particle, the Atom, contains protons, neutrons, and
+				electrons and is the building block of all elements. An element's atoms
+				all have the same number of protons. Examples of elements: Hydrogen,
+				Carbon, Oxygen, Nitrogen, Gold, Silver, Iron, and Calcium. An element is
+				a simple substance that cannot be divided into smaller components or
+				transformed into another substance.
+			</p>
+			<h2 id="element-vs-atoms">Element vs Atoms</h2>
+			<table>
+				<thead>
+					<tr>
+						<th id="elements" style="text-align: center">Elements</th>
+						<th id="atom" style="text-align: center">Atom</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center">
+							Elements are the simplest form of substance.
+						</td>
+						<td style="text-align: center">Atoms are part of an element.</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">
+							Elements are composed of only one type of atom.
+						</td>
+						<td style="text-align: center">
+							Atom comprises subatomic particles called electrons,
+							<strong>neutrons</strong>, and protons.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">
+							Elements can combine to form molecules.
+						</td>
+						<td style="text-align: center">
+							Atom<strong>s</strong> can also combine to form
+							<strong>a</strong> molecule, but if only all bound atoms are
+							similar, the type of elements are formed.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Elements are heavier and bigger.</td>
+						<td style="text-align: center">Atoms are tiny particles.</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">There are 118 elements.</td>
+						<td style="text-align: center">
+							There are 92 different kinds of atoms in nature.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">
+							The term element is often used in general chemistry and the
+							periodic table.
+						</td>
+						<td style="text-align: center">
+							The term atom <strong>is</strong> used more in physics, while in
+							chemistry, it is often used when the topic is about atomic number
+							or mass.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2 id="what-are-compounds">What are Compounds?</h2>
+			<p>
+				Compound is known when two or more elements chemically combine in a
+				fixed ratio by mass. A compound can be defined as a substance consisting
+				of 2 or more elements in a fixed ratio of their atoms. Compound mixes
+				comprise a significant number of materials. Physical separation
+				techniques such as precipitation and distillation can be used to obtain
+				pure substances. Compounds can be broken down into their parts to
+				various degrees or transformed into new compounds via chemical
+				processes. Atoms assemble form molecules in set quantities, dividing
+				compounds from solutions and other mechanical combinations.
+			</p>
+			<h3 id="a-chemical-bonding">a. Chemical Bonding</h3>
+			<p>
+				see it's own page that focuses on
+				<a class="norm-link" href="./CNT_chemicalBonding.html"
+					>chemical bonding</a
+				>
+			</p>
+			<h3 id="b--acidity-and-base">b. Acidity and Base</h3>
+			<h4 id="1-acidity">1. Acidity</h4>
+			<p>
+				Any hydrogen-containing molecule that can transfer a proton to another
+				substance is an acid, which can be recognized by its sour taste. While
+				the Lowry-Bronsted definition describes an acid as a proton donor,
+				Arrhenius originally defined acids as compounds that ionize to create
+				hydrogen ions. This is clarified by the Lewis definition, which states
+				that acids are molecules or ions capable of coordinating with unshared
+				electron pairs. Thus, any electron-deficient molecule or ion can be
+				regarded as an acid in the Lewis sense.
+			</p>
+			<h5 id="properties-of-acids">Properties of Acids</h5>
+			<ol>
+				<li>Acids have a greater ability to corrode.</li>
+				<li>They are effective electrical conductors.</li>
+				<li>Their pH levels are never greater than 7.</li>
+				<li>These chemicals react with metals to form hydrogen gas.</li>
+				<li>Acids have a sour taste.</li>
+				<li>Acids have the power to turn blue litmus paper to red.</li>
+			</ol>
+			<h5 id="examples-of-acids">Examples of Acids:</h5>
+			<ul>
+				<li>Sulfuric acid - H₂SO₄</li>
+				<li>&nbsp;Hydrochloric acid - HCl</li>
+				<li>&nbsp;Acetic acid - CH₃COOH</li>
+				<li>Nitric acid - HNO₃</li>
+				<li>Citric acid - C₆H₈O₇</li>
+			</ul>
+			<h4 id="2-base">2. Base</h4>
+			<p>
+				A base is a molecule or ion that can absorb the hydrogen ion from an
+				acid. It can be identified by its bitter taste and slippery feel.
+				According to Arrhenius, bases are chemicals that, when ionized, produce
+				hydroxide ions. Additionally, a base serves as a proton acceptor,
+				following the Lowry-Bronsted definition, and bases are defined by the
+				Lewis definition as being molecules or ions that can interact with acids
+				due to the availability of unshared electron pairs.
+			</p>
+			<h5 id="properties-of-base">Properties of Base</h5>
+			<ol>
+				<li>When touched, they reveal a soapy texture.</li>
+				<li>
+					When these compounds are dissolved in water, hydroxide ions (OH- ions)
+					are released.
+				</li>
+				<li>
+					The aqueous solutions of bases are effective electrical conductors.
+				</li>
+				<li>Bases have pH values that are always higher than 7.</li>
+				<li>Bases have a bitter taste.</li>
+				<li>Bases have the power to turn red litmus paper blue.</li>
+			</ol>
+			<h5 id="examples-of-bases">Examples of Bases:</h5>
+			<ul>
+				<li>Ammonia - NH3</li>
+				<li>Calcium Hydroxide - Ca(OH)2</li>
+				<li>Lithium Hydroxide - LiOH</li>
+				<li>Acetone - C3H6O (or) (CH3)2CO</li>
+				<li>Methylamine - CH3NH2</li>
+			</ul>
+			<h3 id="c-presence-of-carbon">c. Presence of Carbon</h3>
+			<h4 id="1-organic">1. Organic</h4>
+			<p>
+				Everything on Earth that is or was alive is built from organic
+				compounds. Organic compounds are generally defined as molecules that
+				contain carbon atoms bonded to hydrogen atoms. The core feature of what
+				makes a compound organic is its backbone of carbon atoms. However, the
+				reason why the specific mention of carbon-hydrogen bonds is important in
+				the definition of organic compounds is that a few inorganic compounds,
+				like carbon dioxide (CO2), contain carbon.
+			</p>
+			<p>Examples:</p>
+			<ul>
+				<li>Carbohydrates</li>
+				<li>fats(lipids)</li>
+				<li>proteins</li>
+				<li>nucleic acids.</li>
+			</ul>
+			<h4 id="2-inorganic">2. Inorganic</h4>
+			<p>
+				Inorganic compounds include all molecules without the element carbon and
+				a few molecules with carbon, but no carbon-hydrogen bonds. The
+				difference between organic and inorganic compounds can also be defined
+				by where these compounds are found. Inorganic compounds are commonly
+				found in abiotic (nonliving) structures and components, while organic
+				compounds are produced by and found in biotic (living) organisms,
+				structures, and components.
+			</p>
+			<p>
+				Hydrogen atoms are present in a large number of inorganic substances,
+				such as water (H2O) the hydrochloric acid (HCI), produced by your
+				stomach.
+			</p>
+			<!-- directives:[] -->
+			<h2 id="compounds-vs-elements">Compounds Vs Elements</h2>
+			<p>
+				Chemically pure substances that can be found in nature are called
+				elements and compounds. A compound is made up of different elements in
+				predetermined ratios, as opposed to an element, which is a substance
+				composed of the same sort of atoms.
+			</p>
+			<h3 id="comparison-chart">Comparison Chart</h3>
+			<table>
+				<thead>
+					<tr>
+						<th id="" style="text-align: center"></th>
+						<th id="compounds" style="text-align: center">COMPOUNDS</th>
+						<th id="elements" style="text-align: center">ELEMENTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center">Definition</td>
+						<td style="text-align: center">
+							A compound is made up of atoms from various elements chemically
+							joined in a specific ratio.
+						</td>
+						<td style="text-align: center">
+							An element is a pure chemical compound made of the same type of
+							atom.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Composition</td>
+						<td style="text-align: center">
+							Compounds are made up of various elements ordered through chemical
+							bonding in a certain order and fixed ratio. They only contain one
+							kind of chemical. Chemical reactions combine the constituent parts
+							to form the compound.
+						</td>
+						<td style="text-align: center">
+							Only one kind of atom is found in elements. Every atom has exactly
+							one atomic number or one proton in its nucleus.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Ability to break down</td>
+						<td style="text-align: center">
+							By using chemical processes or reactions, a compound can be
+							divided into simpler compounds.
+						</td>
+						<td style="text-align: center">
+							Elements cannot be broken down into simpler substances by chemical
+							reactions.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Representation</td>
+						<td style="text-align: center">
+							The chemical formula of a compound, which represents the symbols
+							of its constituent elements and the number of atoms in each, is
+							used to represent the compound.
+						</td>
+						<td style="text-align: center">
+							An element is defined using symbols.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Types</td>
+						<td style="text-align: center">
+							Chemical compounds can be produced in enormous, almost infinite
+							quantities. Molecular compounds, ionic compounds, intermetallic
+							compounds, and complexes are the different types of compounds.
+						</td>
+						<td style="text-align: center">
+							There are about 117 elements that have been perceived. Can be
+							categorized as metal, non-metal, or metalloid.
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center">Examples</td>
+						<td style="text-align: center">
+							Water (H2O), Sodium chloride (NaCl), Sodium bicarbonate (NaHCO3),
+							and Hydrochloric acid (HCl) are examples of compounds.
+						</td>
+						<td style="text-align: center">
+							Hydrogen (H), Oxygen (O), Sodium (Na), Chlorine (Cl), Carbon (C),
+							Iron (Fe), copper (Cu), silver (Ag), and gold (Au) are examples of
+							elements.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3 id="differences-in-properties">Differences in Properties</h3>
+			<h4 id="elements">Elements</h4>
+			<ul>
+				<li>
+					the names, symbols, atomic numbers, melting and boiling points,
+					densities, and ionization energies that distinguish them from one
+					another. Element symbols are used to represent groups of elements with
+					similar chemical properties that are ordered in the Periodic Table
+					according to their atomic number.
+				</li>
+			</ul>
+			<h4 id="atomic-number">Atomic number</h4>
+			<ul>
+				<li>
+					The number of protons in an element's atomic nucleus is its atomic
+					number, which is represented by the symbol Z. E.g. As carbon has a
+					nucleus with six protons, Z = 6. Indicators of an electric charge or
+					the number of electrons in the nucleus, which influence the element's
+					chemical properties, include the presence of multiple protons.
+				</li>
+			</ul>
+			<h4 id="atomic-massnbsp">Atomic Mass&nbsp;</h4>
+			<ul>
+				<li>
+					The number of protons and neutrons in the nucleus of an atom of an
+					element, as represented by the symbol A, is known as the atomic mass
+					of the element. The atomic masses of different isotopes of the same
+					element vary.
+				</li>
+			</ul>
+			<h4 id="isotopesnbsp">Isotopes&nbsp;</h4>
+			<ul>
+				<li>
+					The nucleus of an element's isotopes all contain the same amount of
+					protons, but the neutron count varies. There are several stable
+					isotopes of every element that occurs in nature. Because they have the
+					same amount of protons, isotopes share similar chemical properties,
+					but they have different nuclear properties (due to the different
+					numbers of neutrons). E.g. The three isotopes of carbon are carbon-12,
+					carbon-13, and carbon-14.
+				</li>
+			</ul>
+			<h4 id="allotropes">Allotropes</h4>
+			<ul>
+				<li>
+					An element's atoms can connect in a variety of ways, resulting in
+					variations in the chemical characteristics of the element. For
+					instance, layers of carbon hexagons combine to produce graphite, and
+					carbon binds in a tetrahedron to form a diamond.
+				</li>
+			</ul>
+			<h4 id="compoundsnbsp">Compounds&nbsp;</h4>
+			<ul>
+				<li>
+					are made up of various components at a set ratio. One molecule of
+					sodium chloride (NaCl) is created, for instance, when one sodium (Na)
+					atom and one chlorine (Cl) atom combine. The components of a compound
+					don't always retain their original characteristics and can't be
+					physically separated. The valency of the elements makes it easier to
+					combine them. The number of hydrogen atoms needed to form a compound
+					with an atom of an element is known as valency. When temperatures are
+					low enough, most substances can exist as solids and can be broken down
+					by heat. Compounds occasionally develop non-homogeneous structures as
+					a result of foreign components becoming trapped inside the crystal
+					structure. Compounds are represented by their chemical formula, which
+					follows the Hill system and lists the carbon and hydrogen atoms first,
+					followed by the alphabetical listing of the elements.
+				</li>
+			</ul>
+			<h3 id="visualizing-the-differences">Visualizing the Differences</h3>
+			<p>
+				Compounds have more types of atoms than elements, which only have one.
+				Both elements and compounds are types of substances, as opposed to
+				mixes, which involve the mixing of several substances without the need
+				for atomic bonds.
+			</p>
+			<div class="utils-wrap-center">
+				<img src="../assets/pages/image1.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+</html>

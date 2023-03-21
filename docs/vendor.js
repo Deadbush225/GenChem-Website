@@ -11188,6 +11188,24 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(() => {
     (0,_scripts_themesController__WEBPACK_IMPORTED_MODULE_3__.changeButtonThemes)(_scripts_cookies__WEBPACK_IMPORTED_MODULE_4__.settings.currentTheme);
     bodyStyles = window.getComputedStyle(document.body);
     document.querySelector("#darkmode").addEventListener("click", _scripts_themesController__WEBPACK_IMPORTED_MODULE_3__.toggleTheme);
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()(".toTheTop").hide();
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()(".toTheTop").on("click", (e) => {
+        // document.body.scrollTop = document.documentElement.scrollTop = 0;
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("scroll", function () {
+        // l($(this).scrollTop());
+        if (jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).scrollTop() > 400) {
+            //use `this`, not `document`
+            // l("this should work");
+            jquery__WEBPACK_IMPORTED_MODULE_1___default()(".toTheTop").fadeIn("fast");
+            // $(".toTheTop").css("visibility", "visible");
+        }
+        else {
+            jquery__WEBPACK_IMPORTED_MODULE_1___default()(".toTheTop").fadeOut("fast");
+        }
+    });
+    // document.querySelector("#");
     let elements = document.querySelectorAll(".elements");
     if (elements) {
         elements.forEach((item) => {

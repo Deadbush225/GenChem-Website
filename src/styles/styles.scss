@@ -1,7 +1,7 @@
 @use "colorPallete" as v;
-@use "generals";
-@use "home";
 @use "utils";
+@use "home";
+@use "generals";
 @use "periodicTable";
 @use "atomicDetails";
 @use "atomicModel";
@@ -37,6 +37,7 @@ body {
 .stick {
 	position: sticky;
 	top: 0px;
+	z-index: 1;
 }
 
 .greet {

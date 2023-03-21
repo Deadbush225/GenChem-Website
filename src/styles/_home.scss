@@ -1,4 +1,9 @@
 @use "colorPallete" as v;
+// @use "utils";
+@mixin mixin-blur {
+	text-shadow: 0 0 15px v.$light-opposite;
+}
+
 #cards {
 	height: 100%;
 	width: 100%;
@@ -145,7 +150,12 @@
 	width: 100%;
 	align-items: center;
 	justify-content: space-evenly;
+	text-decoration: none;
 }
+
+// .rem-under {
+// 	text-decoration: none;
+// }
 
 // CARD CONTENTS
 .title {
@@ -168,5 +178,123 @@
 	flex-direction: column;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+}
+
+//
+.toTheTop {
+	// visibility: hidden;
+	border-radius: 100%;
+	width: 3em;
+	height: 3em;
+	position: fixed;
+	background-color: v.$dark-accent;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: -2px 3px 5px 0 v.$true-black;
+
+	top: 5em;
+	right: 2.5em;
+}
+
+body {
+	padding: 1em;
+}
+
+h2 {
+	color: var(--rainbow-4);
+	font-size: 2.2em;
+	padding-left: 0.2ch;
+	@include mixin-blur;
+}
+
+h3 {
+	color: var(--rainbow-6);
+	font-size: 1.8em;
+	padding-left: 0.8ch;
+	@include mixin-blur;
+}
+
+h4 {
+	color: var(--rainbow-8);
+	font-size: 1.5em;
+	padding-left: 1.4ch;
+	@include mixin-blur;
+}
+
+h5 {
+	color: var(--rainbow-10);
+	font-size: 1.3em;
+	padding-left: 2ch;
+	@include mixin-blur;
+}
+
+h6 {
+	color: var(--rainbow-12);
+	font-size: 1.2em;
+	padding-left: 2.6ch;
+	@include mixin-blur;
+}
+
+p {
+	text-indent: 6ch;
+	text-align: justify;
+
+	// padding: 0.5em 2.5em;
+}
+
+.body-text {
+	img {
+		padding: 3em;
+		// width: 100%;
+		max-height: 500px;
+		box-sizing: border-box;
+		// align-self: center;
+		justify-self: center;
+	}
+
+	p {
+		padding: 0.5em 2.5em;
+	}
+
+	ol,
+	ul,
+	li {
+		// margin-right: 2em;
+		// padding-left: 2em;
+		margin-left: 2em;
+	}
+}
+
+.norm-link {
+	text-decoration: none;
+	&:hover {
+		color: v.$accent;
+	}
+	&:visited {
+		color: v.$selected-dark-accent;
+	}
+	&:link {
+		color: var(--rainbow-14);
+	}
+}
+
+td,
+th
+// tr
+{
+	outline: 1px solid v.$opposite;
+	padding: 0.5em;
+}
+
+th {
+	font-size: 1.2em;
+	font-style: italic;
+}
+
+.utils-wrap-center {
+	display: flex;
 	justify-content: center;
 }

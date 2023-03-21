@@ -178,6 +178,25 @@ $(document).ready(() => {
 	bodyStyles = window.getComputedStyle(document.body);
 
 	document.querySelector("#darkmode")!.addEventListener("click", toggleTheme);
+	$(".toTheTop").hide();
+
+	$(".toTheTop").on("click", (e) => {
+		// document.body.scrollTop = document.documentElement.scrollTop = 0;
+		window.scroll({ top: 0, left: 0, behavior: "smooth" });
+	});
+
+	$(window).on("scroll", function () {
+		// l($(this).scrollTop());
+		if ($(this).scrollTop()! > 400) {
+			//use `this`, not `document`
+			// l("this should work");
+			$(".toTheTop").fadeIn("fast");
+			// $(".toTheTop").css("visibility", "visible");
+		} else {
+			$(".toTheTop").fadeOut("fast");
+		}
+	});
+	// document.querySelector("#");
 
 	let elements: NodeListOf<HTMLDivElement> =
 		document.querySelectorAll(".elements");
