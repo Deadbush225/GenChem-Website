@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- 3RD PARTY -->
+		<!-- + Fonts -->
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+		</style>
+
+		<!-- + JQuery -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/jquery/dist/jquery.slim.js"
+		></script> -->
+
+		<!-- + Js Cookie -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/js-cookie/dist/js.cookie.js"
+		></script> -->
+		<script
+			src="https://code.jquery.com/jquery-3.6.3.slim.js"
+			integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
+
+		<!-- + Font Awsome -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+			integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+			crossorigin="anonymous"
+		/>
+
+		<!-- MY CSS and JAVASCRIPT -->
+		<!-- <link rel="stylesheet" href="../styles/styles.css" /> -->
+		<!-- <script src="../../src/script.js"></script> -->
+		<!-- <link rel="stylesheet" href="fontawesome-free-5.15.4-web\css\all.css" /> -->
+	</head>
+	<body>
+		<div class="force-landscape">
+			Too narrow screen width, please turn on landscape
+		</div>
+
+		<!-- Nav bar -->
+		<nav class="stick">
+			<div class="image-clip"></div>
+			<ul class="nav-container">
+				<li>
+					<a class="nav-item blur ontop" href="../index.html">STEM 11-6</a>
+				</li>
+				<li>
+					<a class="nav-item blur ontop" href="./periodictable.html"
+						>Interactive Periodic Table</a
+					>
+				</li>
+				<li>
+					<a class="nav-item blur ontop" href="">Team</a>
+				</li>
+				<li><a class="nav-item blur ontop" href="./about.html">About</a></li>
+				<!-- <li><a class="nav-item"></a></li> -->
+				<button id="darkmode">
+					<i class="fas fa-sun toggle-theme ontop" onclick="toggleTheme()"></i>
+				</button>
+			</ul>
+		</nav>
+
+		<!-- To the top -->
+		<div class="toTheTop"><i class="fas fa-solid fa-arrow-up"></i></div>
+
+		<h1 class="greet blur">What are atoms?</h1>
+
+		<!-- directives:[] -->
+		<div class="body-text">
+			<h2 id="what-is-a-chemical-reaction">What is a Chemical Reaction?</h2>
+			<p>
+				Chemical reaction is the transformation of one or more substances, known
+				reactants, into new substances, known as products. This transition
+				typically entails atom rearrangement as well as the breaking and
+				building of chemical bonds. Energy is either received from or discharged
+				into the environment during a chemical process. <br />
+				Some examples of chemical reactions are:
+			</p>
+			<ol>
+				<li>Photosynthesis: 6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2</li>
+				<li>Combustion of Methane: CH4 + 2O2 → CO2 + 2H2O</li>
+				<li>Burning of Coal: C + O2 → CO2</li>
+				<li>Rusting of Iron: Fe + O2 + H2O → Fe2O3 + H2</li>
+				<li>Neutralization of an Acid and a Base: HCl + NaOH → NaCl + H2O</li>
+			</ol>
+			<h3 id="the-law-of-conservation-of-mass">
+				The Law of Conservation of Mass
+			</h3>
+			<p>
+				The conservation of mass principle, which is fundamental in physics and
+				chemistry, asserts that the mass of a closed system remains unchanged
+				over the course of time. This indicates that mass can only be modified
+				or restructured, not created or destroyed, by physical or chemical
+				events.
+			</p>
+			<p>
+				Way back 1700s, Antoine Lavoisier conducted experiments in a sealed jar
+				to estimate the mass of reactants and products in chemical processes. He
+				discovered that the entire mass of the jar and its contents remained
+				constant before and after the reaction, proving that matter cannot be
+				created or destroyed by chemical reactions. This fundamental concept has
+				significant importance in chemistry, as it allows for the balancing of
+				chemical equations and the prediction of the amount of product produced
+				from a given quantity of reactants.
+			</p>
+			<h3 id="1-synthesis-reactiondirect-combination-reaction">
+				1. Synthesis Reaction/Direct Combination Reaction
+			</h3>
+			<p>
+				Synthesis reaction or direct combination reaction is a type of chemical
+				reaction that involves the integration of two or more simple molecules
+				(reactants) to create a more complex compound (product). It is
+				characterized by the fact that the product has a higher molecular weight
+				than the reactants. The general equation for a synthesis reaction is:
+			</p>
+			<p>A + B → AB</p>
+			<p>
+				In this reaction, A and B are the reactants, and AB is the product. The
+				reactants may be elements, compounds, or both. <br />
+				Examples:
+			</p>
+			<ol>
+				<li>
+					The reaction of hydrogen and nitrogen to form ammonia:
+					<ul>
+						<li>3 H2(g) + N2(g) → 2 NH3(g)</li>
+					</ul>
+				</li>
+				<li>
+					The reaction of sodium and chlorine to form sodium chloride:&nbsp;
+					<ul>
+						<li>2Na + Cl2 → 2NaCl</li>
+					</ul>
+				</li>
+				<li>
+					The reaction of potassium and chlorine to form potassium chloride:
+					<br />
+					<ul>
+						<li>2 K(s) + Cl2(g) → 2 KCl(s)</li>
+					</ul>
+				</li>
+			</ol>
+			<h3 id="2-chemical-decompositionanalysis-reaction">
+				2. Chemical Decomposition/Analysis Reaction
+			</h3>
+			<p>
+				Chemical decomposition reaction or analysis reaction is a widely
+				observed type of chemical reaction that involves the breakdown of a
+				compound into smaller chemical components, forming two or more products.
+				This type of reaction occurs when a compound is heated, exposed to
+				light, or treated with an electric current, causing the bonds between
+				the atoms to break down. This process can be represented by the equation
+				AB → A + B, where the compound AB is broken down into its constituent
+				parts, A and B.
+			</p>
+			<p>Examples:</p>
+			<ol>
+				<li>
+					Electrolysis of water: Water decomposes into hydrogen gas and oxygen
+					gas when an electric current passed through it.
+					<ul>
+						<li>
+							The chemical equation for this reaction is 2 H2O(l) → 2 H2(g) +
+							O2(g)
+						</li>
+					</ul>
+				</li>
+				<li>
+					Thermal decomposition of calcium carbonate: Calcium carbonate
+					decomposes into calcium oxide and carbon dioxide gas when heated.
+					<ul>
+						<li>
+							The chemical equation for this reaction is CaCO3 (s) → CaO(s) +
+							CO2(g).
+						</li>
+					</ul>
+				</li>
+				<li>
+					Photodecomposition of silver chloride: Silver chloride decomposes into
+					silver metal and chlorine gas when it is exposed to sunlight.
+					<ul>
+						<li>
+							The chemical equation for this reaction is 2AgCl(s) → 2Ag(s) +
+							Cl2(g).
+						</li>
+					</ul>
+				</li>
+			</ol>
+			<h3 id="3-single-replacement-or-substitution-reaction">
+				3. Single Replacement or Substitution Reaction
+			</h3>
+			<p>
+				A single replacement reaction or substitution reaction is a type of
+				chemical reaction that happens when one element in a compound is
+				replaced or displaced by another. It is frequently observed in redox
+				processes, which involve the transfer of electrons between species. This
+				type of reaction can be described by the chemical equation A + BC → AC +
+				B, where the element A displaces B from the compound BC to generate AC
+				and B as distinct products. <br />
+				Examples:
+			</p>
+			<ol>
+				<li>
+					Zinc metal reacts with hydrochloric acid to produce zinc chloride and
+					hydrogen gas:
+					<ul>
+						<li>Zn(s)&nbsp; + 2HCl(aq)→ ZnCl2(aq)+ H2(g)</li>
+					</ul>
+				</li>
+				<li>
+					Copper metal reacts with silver nitrate solution to produce copper(II)
+					nitrate solution and silver metal:
+					<ul>
+						<li>Cu(s)+2AgNO3​(aq)⟶Cu(NO3)2​(aq)+2Ag(s).</li>
+					</ul>
+				</li>
+				<li>
+					Iron metal reacts with copper(II) sulfate solution to produce iron(II)
+					sulfate solution and copper metal:
+					<ul>
+						<li>Fe(s) + CuSO₄ (aq) → FeSO₄ (aq) + Cu(s)</li>
+					</ul>
+				</li>
+			</ol>
+			<h3 id="4-double-replacement-reaction-or-salt-metathesis-reaction">
+				4. Double-Replacement Reaction or Salt Metathesis Reaction
+			</h3>
+			<p>
+				Double-replacement reaction or salt metathesis reaction is a type of
+				chemical reaction in which two compounds switch ions or bonds with each
+				other to generate novel compounds. They are commonly observed in aqueous
+				solutions and can result in the formation of a precipitate, gas or water
+				as a product. This can be represented using the chemical equation:&nbsp;
+			</p>
+			<p>AB + CD → AD + CB.</p>
+			<ol>
+				<li>
+					Formation of Silver Chloride:
+					<ul>
+						<li>AgNO3 + NaCl → AgCl + NaNO3</li>
+					</ul>
+				</li>
+				<li>
+					Formation of Barium Sulfate and Sodium Chloride:
+					<ul>
+						<li>BaCl2(aq) + Na2SO4(aq) → BaSO4(s) + 2 NaCl(aq)</li>
+					</ul>
+				</li>
+				<li>
+					Formation of Potassium Nitrate and Lead Iodide:
+					<ul>
+						<li>Pb(NO3)2(aq) + 2 Kl(aq) → 2 KNO3(aq) + Pbl2(s)</li>
+					</ul>
+				</li>
+			</ol>
+		</div>
+	</body>
+</html>
