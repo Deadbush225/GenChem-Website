@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- 3RD PARTY -->
+		<!-- + Fonts -->
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+		</style>
+
+		<!-- + JQuery -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/jquery/dist/jquery.slim.js"
+		></script> -->
+
+		<!-- + Js Cookie -->
+		<!-- <script
+			language="JavaScript"
+			type="text/javascript"
+			src="../node_modules/js-cookie/dist/js.cookie.js"
+		></script> -->
+		<script
+			src="https://code.jquery.com/jquery-3.6.3.slim.js"
+			integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
+
+		<!-- + Font Awsome -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+			integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+			crossorigin="anonymous"
+		/>
+
+		<!-- MY CSS and JAVASCRIPT -->
+		<!-- <link rel="stylesheet" href="../styles/styles.css" /> -->
+		<!-- <script src="../../src/script.js"></script> -->
+		<!-- <link rel="stylesheet" href="fontawesome-free-5.15.4-web\css\all.css" /> -->
+	<script defer src="../vendor.js"></script><script defer src="../main.js"></script><link href="../vendor.css" rel="stylesheet"></head>
+	<body>
+		<div class="force-landscape">
+			Too narrow screen width, please turn on landscape
+		</div>
+
+		<!-- Nav bar -->
+		<nav class="stick">
+			<div class="image-clip"></div>
+			<ul class="nav-container">
+				<li>
+					<a class="nav-item blur ontop" href="../index.html">STEM 11-6</a>
+				</li>
+				<li>
+					<a class="nav-item blur ontop active" href=""
+						>Interactive Periodic Table</a
+					>
+				</li>
+				<li><a class="nav-item blur ontop" href="./team.html">Team</a></li>
+				<li><a class="nav-item blur ontop" href="./about.html">About</a></li>
+				<!-- <li><a class="nav-item"></a></li> -->
+				<button id="darkmode">
+					<i class="fas fa-sun toggle-theme ontop" onclick="toggleTheme()"></i>
+				</button>
+			</ul>
+		</nav>
+		<!-- -->
+
+		<div id="content">
+			<div class="wrap">
+				<div class="periodic-table-container">
+					<div class="periodic-table">
+						<!-- Grid -->
+						<div id="spacer1" class="transparent"></div>
+						<div id="spacer2" class="transparent"></div>
+						<div id="spacer3" class="transparent"></div>
+						<div id="spacer4" class="transparent"></div>
+						<div id="spacer5" class="transparent"></div>
+						<div class="elements" id="x1"></div>
+						<div class="elements" id="x2"></div>
+						<div class="elements" id="x3"></div>
+						<div class="elements" id="x4"></div>
+						<div class="elements" id="x5"></div>
+						<div class="elements" id="x6"></div>
+						<div class="elements" id="x7"></div>
+						<div class="elements" id="x8"></div>
+						<div class="elements" id="x9"></div>
+						<div class="elements" id="x10"></div>
+						<div class="elements" id="x11"></div>
+						<div class="elements" id="x12"></div>
+						<div class="elements" id="x13"></div>
+						<div class="elements" id="x14"></div>
+						<div class="elements" id="x15"></div>
+						<div class="elements" id="x16"></div>
+						<div class="elements" id="x17"></div>
+						<div class="elements" id="x18"></div>
+						<div class="elements" id="x19"></div>
+						<div class="elements" id="x20"></div>
+						<div class="elements" id="x21"></div>
+						<div class="elements" id="x22"></div>
+						<div class="elements" id="x23"></div>
+						<div class="elements" id="x24"></div>
+						<div class="elements" id="x25"></div>
+						<div class="elements" id="x26"></div>
+						<div class="elements" id="x27"></div>
+						<div class="elements" id="x28"></div>
+						<div class="elements" id="x29"></div>
+						<div class="elements" id="x30"></div>
+						<div class="elements" id="x31"></div>
+						<div class="elements" id="x32"></div>
+						<div class="elements" id="x33"></div>
+						<div class="elements" id="x34"></div>
+						<div class="elements" id="x35"></div>
+						<div class="elements" id="x36"></div>
+						<div class="elements" id="x37"></div>
+						<div class="elements" id="x38"></div>
+						<div class="elements" id="x39"></div>
+						<div class="elements" id="x40"></div>
+						<div class="elements" id="x41"></div>
+						<div class="elements" id="x42"></div>
+						<div class="elements" id="x43"></div>
+						<div class="elements" id="x44"></div>
+						<div class="elements" id="x45"></div>
+						<div class="elements" id="x46"></div>
+						<div class="elements" id="x47"></div>
+						<div class="elements" id="x48"></div>
+						<div class="elements" id="x49"></div>
+						<div class="elements" id="x50"></div>
+						<div class="elements" id="x51"></div>
+						<div class="elements" id="x52"></div>
+						<div class="elements" id="x53"></div>
+						<div class="elements" id="x54"></div>
+						<div class="elements" id="x55"></div>
+						<div class="elements" id="x56"></div>
+						<div class="elements" id="x72"></div>
+						<div class="elements" id="x73"></div>
+						<div class="elements" id="x74"></div>
+						<div class="elements" id="x75"></div>
+						<div class="elements" id="x76"></div>
+						<div class="elements" id="x77"></div>
+						<div class="elements" id="x78"></div>
+						<div class="elements" id="x79"></div>
+						<div class="elements" id="x80"></div>
+						<div class="elements" id="x81"></div>
+						<div class="elements" id="x82"></div>
+						<div class="elements" id="x83"></div>
+						<div class="elements" id="x84"></div>
+						<div class="elements" id="x85"></div>
+						<div class="elements" id="x86"></div>
+						<div class="elements" id="x87"></div>
+						<div class="elements" id="x88"></div>
+						<div class="elements" id="x104"></div>
+						<div class="elements" id="x105"></div>
+						<div class="elements" id="x106"></div>
+						<div class="elements" id="x107"></div>
+						<div class="elements" id="x108"></div>
+						<div class="elements" id="x109"></div>
+						<div class="elements" id="x110"></div>
+						<div class="elements" id="x111"></div>
+						<div class="elements" id="x112"></div>
+						<div class="elements" id="x113"></div>
+						<div class="elements" id="x114"></div>
+						<div class="elements" id="x115"></div>
+						<div class="elements" id="x116"></div>
+						<div class="elements" id="x117"></div>
+						<div class="elements" id="x118"></div>
+						<div class="elements" id="x57"></div>
+						<div class="elements" id="x58"></div>
+						<div class="elements" id="x59"></div>
+						<div class="elements" id="x60"></div>
+						<div class="elements" id="x61"></div>
+						<div class="elements" id="x62"></div>
+						<div class="elements" id="x63"></div>
+						<div class="elements" id="x64"></div>
+						<div class="elements" id="x65"></div>
+						<div class="elements" id="x66"></div>
+						<div class="elements" id="x67"></div>
+						<div class="elements" id="x68"></div>
+						<div class="elements" id="x69"></div>
+						<div class="elements" id="x70"></div>
+						<div class="elements" id="x71"></div>
+						<div class="elements" id="x89"></div>
+						<div class="elements" id="x90"></div>
+						<div class="elements" id="x91"></div>
+						<div class="elements" id="x92"></div>
+						<div class="elements" id="x93"></div>
+						<div class="elements" id="x94"></div>
+						<div class="elements" id="x95"></div>
+						<div class="elements" id="x96"></div>
+						<div class="elements" id="x97"></div>
+						<div class="elements" id="x98"></div>
+						<div class="elements" id="x99"></div>
+						<div class="elements" id="x100"></div>
+						<div class="elements" id="x101"></div>
+						<div class="elements" id="x102"></div>
+						<div class="elements" id="x103"></div>
+					</div>
+				</div>
+				<div id="atomic-model-container">
+					<div class="center-wrap">
+						<h4 id="atomic-model-number"></h4>
+						<div class="wrap">
+							<h2 class="pipe">|</h2>
+							<h1 id="atomic-model-symbol"></h1>
+							<h2 class="pipe">|</h2>
+						</div>
+						<h4 id="atomic-model-name"></h4>
+					</div>
+
+					<canvas id="atomic-model"> </canvas>
+
+					<div id="hover-container">
+						<div
+							class="hover-control"
+							id="Electron"
+							style="background-color: #529bf5"
+						>
+							<div class="label">Electron:</div>
+							<div class="field" id="electron-field">1</div>
+						</div>
+						<div
+							class="hover-control"
+							id="Proton"
+							style="background-color: #f47068"
+						>
+							<div class="label">Proton:</div>
+							<div class="field" id="proton-field">1</div>
+						</div>
+						<div
+							class="hover-control"
+							id="Neutron"
+							style="background-color: #57ab5a"
+						>
+							<div class="label">Neutron:</div>
+							<div class="field" id="neutron-field">1</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="atom-details-container">
+				<!-- <div id="atomic-number" class="details"> -->
+				<!-- <strong>Atomic Number: </strong> -->
+				<!-- <div id="atomic-number-field" class="field"></div> -->
+				<!-- </div> -->
+
+				<div id="atomic-mass" class="details">
+					<strong>Atomic Mass: </strong>
+					<div id="atomic-mass-field" class="field"></div>
+				</div>
+
+				<div id="year-discovered" class="details">
+					<strong>Year Discovered: </strong>
+					<div id="year-discovered-field" class="field"></div>
+				</div>
+
+				<div id="group-block" class="details span">
+					<strong>Group Block: </strong>
+					<div id="group-block-field" class="field"></div>
+				</div>
+
+				<div id="oxidation-states" class="details">
+					<strong>Oxidation States: </strong>
+					<div id="oxidation-states-field" class="field"></div>
+				</div>
+
+				<div id="melting-point" class="details">
+					<strong>Melting Point: </strong>
+					<div id="metling-point-field" class="field"></div>
+				</div>
+
+				<div id="electronic-configuration" class="details span">
+					<strong>Electronic Configuration: </strong>
+					<div id="electronic-configuration-field" class="field"></div>
+				</div>
+
+				<div id="ionization-energy" class="details">
+					<strong>Ionization Energy: </strong>
+					<div id="ionization-energy-field" class="field"></div>
+				</div>
+
+				<div id="electron-negativity" class="details">
+					<strong>Electron Negativity: </strong>
+					<div id="electron-negativity-field" class="field"></div>
+				</div>
+
+				<!-- new -->
+				<div id="atomic-radius" class="details">
+					<strong>Atomic Radius: </strong>
+					<div id="atomic-radius-field" class="field"></div>
+				</div>
+
+				<div id="electron-afinity" class="details">
+					<strong>Electron Afinity: </strong>
+					<div id="electron-afinity-field" class="field"></div>
+				</div>
+
+				<div id="standard-state" class="details">
+					<strong>Standard State: </strong>
+					<div id="standard-state-field" class="field"></div>
+				</div>
+
+				<div id="boiling-point" class="details">
+					<strong>Boiling Point: </strong>
+					<div id="boiling-point-field" class="field"></div>
+				</div>
+
+				<div id="density" class="details">
+					<strong>Density: </strong>
+					<div id="density-field" class="field"></div>
+				</div>
+
+				<a id="wiki" href="" class="end" target="_blank" rel="noopener"
+					>More Info</a
+				>
+			</div>
+		</div>
+
+		<!-- <script src="../script.js"></script> -->
+	</body>
+</html>

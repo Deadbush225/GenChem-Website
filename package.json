@@ -12,7 +12,8 @@
 	"scripts": {
 		"build": "set \"NODE_ENV=development\" && webpack",
 		"serve": "set \"NODE_ENV=development\" && webpack serve",
-		"prod": "set \"NODE_ENV=production\" && webpack"
+		"prod": "set \"NODE_ENV=production\" && webpack",
+		"add_prod": "npm run prod && git add ."
 	},
 	"repository": {
 		"type": "git",
