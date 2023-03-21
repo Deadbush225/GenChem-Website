@@ -8,12 +8,12 @@ function transformRange(value: number): number {
 	return scale * value;
 }
 
-function ptInCircle(pt, r) {
-	const lhs = Math.pow(pt[0], 2) + Math.pow(pt[1], 2);
-	const rhs = Math.pow(r, 2);
+// function ptInCircle(pt, r) {
+// 	const lhs = Math.pow(pt[0], 2) + Math.pow(pt[1], 2);
+// 	const rhs = Math.pow(r, 2);
 
-	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
-}
+// 	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
+// }
 
 function a(a) {
 	return a;
@@ -25,7 +25,7 @@ export class ElementModel {
 	MAX_ELECTRONS_PER_RING: number[] = [2, 8, 16, 32, 32, 20, 8];
 	electronsPerRing: number[] = [];
 
-	ringGap: number = 20;
+	ringGap: number;
 	rings: number;
 
 	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
@@ -140,10 +140,13 @@ export class ElementModel {
 				this.canvas.height = container.clientWidth;
 
 				// l(this.canvas.width);
+				this.ringGap = this.canvas.width * 0.045;
 				// l(this.canvas.height);
 
 				this.centerX = this.canvas.width / 2;
 				this.centerY = this.canvas.height / 2;
+
+				// this.ringGap =
 			}
 
 			this.updatePenColors();

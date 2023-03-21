@@ -30,3 +30,14 @@
 	// overflow: auto;
 	// }
 }
+
+@media screen and (max-width: 800px) {
+	.wrap {
+		flex-wrap: wrap-reverse;
+		justify-content: center;
+	}
+
+	.atomic-model-container {
+		height: fit-content;
+	}
+}

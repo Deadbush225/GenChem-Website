@@ -75,12 +75,14 @@ body {
 #content {
 	display: flex;
 	flex-wrap: wrap;
-	grid-template-columns: 8fr 4fr;
+	// grid-template-columns: 8fr 4fr;
 	padding: 1em;
 	gap: 1em;
+
 	.wrap {
 		display: flex;
 		gap: 1em;
+		// justify-content: center;
 	}
 	// grid-template-rows: 9fr 3fr;
 }
