@@ -203,46 +203,48 @@ body {
 	padding: 1em;
 }
 
-h2 {
-	color: var(--rainbow-4);
-	font-size: 2.2em;
-	padding-left: 0.2ch;
-	@include mixin-blur;
-}
+.body-text {
+	h2 {
+		color: var(--rainbow-4);
+		font-size: 2.2em;
+		padding-left: 0.2ch;
+		@include mixin-blur;
+	}
 
-h3 {
-	color: var(--rainbow-6);
-	font-size: 1.8em;
-	padding-left: 0.8ch;
-	@include mixin-blur;
-}
+	h3 {
+		color: var(--rainbow-6);
+		font-size: 1.8em;
+		padding-left: 0.8ch;
+		@include mixin-blur;
+	}
 
-h4 {
-	color: var(--rainbow-8);
-	font-size: 1.5em;
-	padding-left: 1.4ch;
-	@include mixin-blur;
-}
+	h4 {
+		color: var(--rainbow-8);
+		font-size: 1.5em;
+		padding-left: 1.4ch;
+		@include mixin-blur;
+	}
 
-h5 {
-	color: var(--rainbow-10);
-	font-size: 1.3em;
-	padding-left: 2ch;
-	@include mixin-blur;
-}
+	h5 {
+		color: var(--rainbow-10);
+		font-size: 1.3em;
+		padding-left: 2ch;
+		@include mixin-blur;
+	}
 
-h6 {
-	color: var(--rainbow-12);
-	font-size: 1.2em;
-	padding-left: 2.6ch;
-	@include mixin-blur;
-}
+	h6 {
+		color: var(--rainbow-12);
+		font-size: 1.2em;
+		padding-left: 2.6ch;
+		@include mixin-blur;
+	}
 
-p {
-	text-indent: 6ch;
-	text-align: justify;
+	p {
+		text-indent: 6ch;
+		text-align: justify;
 
-	// padding: 0.5em 2.5em;
+		// padding: 0.5em 2.5em;
+	}
 }
 
 .body-text {

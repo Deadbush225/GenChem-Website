@@ -235,42 +235,37 @@ body {
   padding: 1em;
 }
 
-h2 {
+.body-text h2 {
   color: var(--rainbow-4);
   font-size: 2.2em;
   padding-left: 0.2ch;
   text-shadow: 0 0 15px var(--light-opposite);
 }
-
-h3 {
+.body-text h3 {
   color: var(--rainbow-6);
   font-size: 1.8em;
   padding-left: 0.8ch;
   text-shadow: 0 0 15px var(--light-opposite);
 }
-
-h4 {
+.body-text h4 {
   color: var(--rainbow-8);
   font-size: 1.5em;
   padding-left: 1.4ch;
   text-shadow: 0 0 15px var(--light-opposite);
 }
-
-h5 {
+.body-text h5 {
   color: var(--rainbow-10);
   font-size: 1.3em;
   padding-left: 2ch;
   text-shadow: 0 0 15px var(--light-opposite);
 }
-
-h6 {
+.body-text h6 {
   color: var(--rainbow-12);
   font-size: 1.2em;
   padding-left: 2.6ch;
   text-shadow: 0 0 15px var(--light-opposite);
 }
-
-p {
+.body-text p {
   text-indent: 6ch;
   text-align: justify;
 }
