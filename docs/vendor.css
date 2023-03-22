@@ -314,6 +314,32 @@ th {
   justify-content: center;
 }
 
+.reference-btn {
+  background-image: linear-gradient(-45deg, var(--light-theme), var(--dark-neutral), var(--light-theme));
+  padding: 1em;
+  max-width: 12vw;
+  border-radius: 10px;
+  min-height: 0;
+}
+.reference-btn:hover {
+  /* background-image: linear-gradient(to bottom right, var(--dark-gray), var(--selected-dark-gray)); */
+  border-color: var(--accent);
+  box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+.left-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.rem-under {
+  text-decoration: none;
+}
+
 /* ++ SCROLLBAR */
 ::-webkit-scrollbar {
   /* width */
