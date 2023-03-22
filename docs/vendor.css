@@ -244,31 +244,36 @@ body {
   color: var(--rainbow-4);
   font-size: 2.2em;
   padding-left: 0.2ch;
-  text-shadow: 0 0 15px var(--light-opposite);
+  text-shadow: 0 0 8px var(--light-opposite);
+  text-decoration: underline;
 }
 .body-text h3 {
   color: var(--rainbow-6);
   font-size: 1.8em;
   padding-left: 0.8ch;
-  text-shadow: 0 0 15px var(--light-opposite);
+  text-shadow: 0 0 8px var(--light-opposite);
+  text-decoration: underline;
 }
 .body-text h4 {
   color: var(--rainbow-7);
   font-size: 1.5em;
   padding-left: 1.4ch;
-  text-shadow: 0 0 15px var(--light-opposite);
+  text-shadow: 0 0 8px var(--light-opposite);
+  text-decoration: underline;
 }
 .body-text h5 {
   color: var(--rainbow-10);
   font-size: 1.3em;
   padding-left: 2ch;
-  text-shadow: 0 0 15px var(--light-opposite);
+  text-shadow: 0 0 8px var(--light-opposite);
+  text-decoration: underline;
 }
 .body-text h6 {
   color: var(--rainbow-12);
   font-size: 1.2em;
   padding-left: 2.6ch;
-  text-shadow: 0 0 15px var(--light-opposite);
+  text-shadow: 0 0 8px var(--light-opposite);
+  text-decoration: underline;
 }
 .body-text p {
   text-indent: 6ch;
@@ -343,6 +348,24 @@ th {
 
 .rem-under {
   text-decoration: none;
+}
+
+.bg {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(assets/background..png);
+  background-repeat: repeat;
+  z-index: -100;
+  opacity: 0.09;
+}
+
+.light-mode .bg {
+  opacity: 0.3;
 }
 
 /* ++ SCROLLBAR */

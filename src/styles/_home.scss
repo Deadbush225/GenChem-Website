@@ -1,7 +1,8 @@
 @use "colorPallete" as v;
 // @use "utils";
 @mixin mixin-blur {
-	text-shadow: 0 0 15px v.$light-opposite;
+	text-shadow: 0 0 8px v.$light-opposite;
+	text-decoration: underline;
 }
 
 #cards {
@@ -340,4 +341,28 @@ th {
 
 .rem-under {
 	text-decoration: none;
+}
+
+//
+.bg {
+	position: fixed;
+	padding: 0;
+	margin: 0;
+
+	top: 0;
+	left: 0;
+
+	height: 100vh;
+	width: 100vw;
+
+	background-image: url("../assets/background.png");
+	background-repeat: repeat;
+	z-index: -100;
+	opacity: 0.09;
+}
+
+.light-mode {
+	.bg {
+		opacity: 0.3;
+	}
 }
