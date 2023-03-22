@@ -75,6 +75,11 @@
   color: var(--rainbow-15);
 }
 
+.flex-wrap-center {
+  display: flex;
+  justify-content: center;
+}
+
 #cards {
   height: 100%;
   width: 100%;
@@ -407,7 +412,7 @@ th {
   grid-template-columns: repeat(18, minmax(0, 1fr));
   grid-template-rows: repeat(7, 1fr);
   gap: 1px 1px;
-  grid-template-areas: ".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ." ".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ." ".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd" "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .";
+  grid-template-areas: ".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ." ".  .  wo wo wo wo wo wo wo wo wo wo .  .  .  .  .  ." ".  .  wo wo wo wo wo wo wo wo wo wo .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." ".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd wd" "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." "we we we .  .  .  .  .  .  .  .  .  .  .  .  .  .  .";
 }
 
 .transparent {
@@ -417,6 +422,10 @@ th {
 
 #spacer1 {
   grid-area: wa;
+}
+
+#spacer1-2 {
+  grid-area: wo;
 }
 
 #spacer2 {
@@ -454,6 +463,11 @@ th {
   transition: 100ms;
   outline: 3px solid var(--selected-accent);
   border-radius: 5px;
+}
+
+.period {
+  text-align: center;
+  align-self: center;
 }
 
 .symbol {

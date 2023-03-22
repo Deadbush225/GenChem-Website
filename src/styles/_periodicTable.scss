@@ -24,8 +24,9 @@
 	// border: 1px solid wheat;
 	grid-template-areas:
 		".  wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa wa ."
-		".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ."
-		".  .  wb wb wb wb wb wb wb wb wb wb .  .  .  .  .  ."
+		".  .  wo wo wo wo wo wo wo wo wo wo .  .  .  .  .  ."
+		".  .  wo wo wo wo wo wo wo wo wo wo .  .  .  .  .  ."
+		".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
 		".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
 		".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
 		".  .  wc .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."
@@ -44,6 +45,9 @@
 	grid-area: wa;
 }
 
+#spacer1-2 {
+	grid-area: wo;
+}
 #spacer2 {
 	grid-area: wb;
 }
@@ -95,6 +99,11 @@
 		border-radius: 5px;
 		// background-color: aqua;
 	}
+}
+
+.period {
+	text-align: center;
+	align-self: center;
 }
 
 .symbol {
