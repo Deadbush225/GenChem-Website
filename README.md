@@ -46,7 +46,7 @@
 
 + This will match the aim of the project which is to build a sustainable and functional learning material that will help the future generations of students to come in their academics, especially in chemistry.
 
----
+
 ## Documentation:
 ### OUTLINE OF THE WEBSITE:
 
