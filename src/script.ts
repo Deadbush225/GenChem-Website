@@ -57,8 +57,19 @@ function mouseOut(e) {
 	model.hover = 0;
 }
 
-import "./styles/styles.scss";
+import "./assets/square_pics/abrea.jpg";
+import "./assets/square_pics/andrade.jpg";
+import "./assets/square_pics/austero.jpg";
+import "./assets/square_pics/estrologo.jpg";
+import "./assets/square_pics/inso.jpg";
+import "./assets/square_pics/lugagay.jpg";
+import "./assets/square_pics/manuel.jpg";
+import "./assets/square_pics/sabordo.jpg";
+import "./assets/square_pics/sebastian.jpg";
 
+import "./styles/styles.scss";
+import "./flickity/flickity.css";
+import "./flickity/flickity.pkgd.min.js";
 // import { initCookie } from "./cookies"
 // import Cookies from "js-cookie";
 import $ from "jquery";

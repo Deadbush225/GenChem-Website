@@ -32,6 +32,7 @@ body {
 	background-color: v.$neutral;
 	font-family: "Lato", sans-serif;
 	color: v.$opposite;
+	overflow-x: hidden;
 }
 
 .stick {
@@ -86,4 +87,54 @@ body {
 		// justify-content: center;
 	}
 	// grid-template-rows: 9fr 3fr;
+}
+
+// GALERY
+.gallery-cell {
+	img {
+		width: 200px;
+		height: 200px;
+		padding: 0;
+		// outline: 1px solid red;
+	}
+}
+
+//
+.participation {
+	display: flex;
+	padding: 0 1em;
+	align-items: center;
+	width: 100%;
+
+	.persons {
+		// display: grid;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: center;
+		// flex-grow: 3;
+		width: 100%;
+		.person {
+			img {
+				max-width: 10vw;
+				padding: 0;
+			}
+
+			border-radius: 100%;
+			width: fit-content;
+			aspect-ratio: 1 / 1;
+			// height: fit-content;
+			overflow: hidden;
+
+			&:hover {
+				outline: 3px solid v.$accent;
+			}
+		}
+	}
+
+	p {
+		// flex-grow: 1;
+		max-width: 50%;
+		min-width: 40%;
+	}
 }
