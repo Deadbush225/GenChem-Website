@@ -52,7 +52,7 @@
 
 **By clicking the link,** you will see our main topics which are atomic structure and chemical bonding and below them are their different topics.
 
-<img src="./GENCHEM_11-6_G2_Documentation_files/image002.gif" alt="" styles="display: block; left-margin:auto; right-margin:auto"></img>
+<img src="./GENCHEM_11-6_G2_Documentation_files/image002.gif" alt="" styles="display: block; margin-left:auto; margin-right:auto;"></img>
 
 
 
