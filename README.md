@@ -10,8 +10,8 @@
   - WebPack
 
 ---
-🧔 Members:
-- Inso, Eliazar N.
+🧔 Leader: Inso, Eliazar N.
+👸 Members:
 - Abrea, Maureen I.
 - Andrade, Athynna Jannelle S.
 - Austero, Jasmine C.
@@ -19,3 +19,9 @@
 - Sebastian, Rhian Kaye S.
 - Sabordo, Je-Anne B.
 - Lugagay, Samantha B.
+
+--- 
+Documentation:
+
+
+
