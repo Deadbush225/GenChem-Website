@@ -17,19 +17,12 @@
 👩 Members:
 
 1. **Abrea**, Maureen I.
-
-2. **Andrade**, Athena Jannelle S.
-
-3. **Austero**, Jasmine C.
-
-4. **Estrologo**, Aliah Gwen D.
-
-5. **Lugagay**, Samantha B.
-
-6. **Manuel**, Micah Danielle F.
-
-7. **Sabordo**, Je-Anne B.
-
+2. **Andrade**, Athena Jannelle S.
+3. **Austero**, Jasmine C.
+4. **Estrologo**, Aliah Gwen D.
+5. **Lugagay**, Samantha B.
+6. **Manuel**, Micah Danielle F.
+7. **Sabordo**, Je-Anne B.
 8. **Sebastian**, Rhian Kaye S.
 
 ---
