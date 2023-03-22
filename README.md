@@ -11,17 +11,6 @@
   - Git & GitHub
 
 ---
-🧔 Leader: Inso, Eliazar N.
-👸 Members:
-- Abrea, Maureen I.
-- Andrade, Athynna Jannelle S.
-- Austero, Jasmine C.
-- Estrologo,Aliah Gwen D.
-- Sebastian, Rhian Kaye S.
-- Sabordo, Je-Anne B.
-- Lugagay, Samantha B.
-
---- 
 
 🧔 Leader: **Inso**, Eliazar N.
 👩 Members:
@@ -38,22 +27,22 @@
 
 #### UNIQUE FEATURES:
 
-**\+ Live intractability** to the atoms with the **Interactive Periodic Table**
-**\+ Mobile Friendly**, even the **Interactive Periodic Table**
-**\+ Theme** switcher to **Dark Mode** and **Light Mode**
-**\+ Fast** and **Efficient,** since it is not embedded which is noticeable to other platforms such as Adobe XD
++ **Live intractability** to the atoms with the **Interactive Periodic Table**
++ **Mobile Friendly**, even the **Interactive Periodic Table**
++ **Theme** switcher to **Dark Mode** and **Light Mode**
++ **Fast** and **Efficient,** since it is not embedded which is noticeable to other platforms such as Adobe XD
 
 #### DEVELOPER NOTES:
 
-**\+** When **hovering** over a picture in the **Teams** Tab will show the name of the member
-**\+** When **hovering** over **Electron|Neutron|Proton** in the Atomic Model will **highlight the sub-atomic particle**
-**\+** The **references** can be seen in the **bottom right section of the home page**
++ When **hovering** over a picture in the **Teams** Tab will show the name of the member
++ When **hovering** over **Electron|Neutron|Proton** in the Atomic Model will **highlight the sub-atomic particle**
++ The **references** can be seen in the **bottom right section of the home page**
 
 #### TO FUTURE DEVELOPER:
 
-**\+ Since this website will be open source,** it will be fully replicatable and anyone can extend and add additional functionalities to this. The code used is **organized and sorted using a known programming conventions**, so others will save development time rebuilding from the start and focus on what functionality they deem to add.
++ **Since this website will be open source,** it will be fully replicatable and anyone can extend and add additional functionalities to this. The code used is **organized and sorted using a known programming conventions**, so others will save development time rebuilding from the start and focus on what functionality they deem to add.
 
-\+ This will match the aim of the project which is to build a sustainable and functional learning material that will help the future generations of students to come in their academics, especially in chemistry.
++ This will match the aim of the project which is to build a sustainable and functional learning material that will help the future generations of students to come in their academics, especially in chemistry.
 
 ---
 ## Documentation:
@@ -63,11 +52,11 @@
 
 ![](./GENCHEM_11-6_G2_Documentation_files/image002.gif)
 
- 
 
-**On the top of the website**, three options will be visible to you: "STEM 11-6" (where our topics are situated), "Interactive Periodic Table" (where our interactive simulation of the periodic table is located), and "Team" (where the names of our group members who contributed to the creation of this website are listed).![](./GENCHEM_11-6_G2_Documentation_files/image004.gif)
 
-![](./GENCHEM_11-6_G2_Documentation_files/image006.gif)
+**On the top of the website**, three options will be visible to you: "STEM 11-6" (where our topics are situated), "Interactive Periodic Table" (where our interactive simulation of the periodic table is located), and "Team" (where the names of our group members who contributed to the creation of this website are listed).
+
+![](./GENCHEM_11-6_G2_Documentation_files/image004.gif)![](./GENCHEM_11-6_G2_Documentation_files/image006.gif)
 
 
 
@@ -77,7 +66,9 @@
 
 
 
-**Second**, when you click the "What are Atoms?", it will show the definition of atoms and the definition of the three parts of an atom. This will show if the charges are positive, negative, or even neutral, and if their size is small or not. Lastly, is the location, whether they are located inside or outside the nucleus.![](./GENCHEM_11-6_G2_Documentation_files/image010.gif)![](./GENCHEM_11-6_G2_Documentation_files/image012.gif)
+**Second**, when you click the "What are Atoms?", it will show the definition of atoms and the definition of the three parts of an atom. This will show if the charges are positive, negative, or even neutral, and if their size is small or not. Lastly, is the location, whether they are located inside or outside the nucleus.
+
+![](./GENCHEM_11-6_G2_Documentation_files/image010.gif)![](./GENCHEM_11-6_G2_Documentation_files/image012.gif)
 
 
 
@@ -93,7 +84,9 @@
 
 
 
-**Fifth,** the Chemical Bonding, we discussed the different topics such as chemical bonding, different types of chemical bonding, chemical reaction, and different types of chemical reactions.![](./GENCHEM_11-6_G2_Documentation_files/image022.gif)
+**Fifth,** the Chemical Bonding, we discussed the different topics such as chemical bonding, different types of chemical bonding, chemical reaction, and different types of chemical reactions.
+
+![](./GENCHEM_11-6_G2_Documentation_files/image022.gif)
 
 
 
@@ -109,16 +102,19 @@
 
 
 
-**Eighth**, under the chemical bonding is the chemical reactions in which we have discussed the definition of chemical reaction and its examples.![](./GENCHEM_11-6_G2_Documentation_files/image032.gif)![](./GENCHEM_11-6_G2_Documentation_files/image034.gif)
+**Eighth**, under the chemical bonding is the chemical reactions in which we have discussed the definition of chemical reaction and its examples.
 
-**Ninth**, we included the different types of chemical reactions such as Synthesis Reactions/Direct Combination Reactions, Double-Replacement Reactions or Salt Metathesis Reactions, Chemical Decomposition/Analysis Reactions, and Single Replacement or Substitution Reactions together with their examples. ![](./GENCHEM_11-6_G2_Documentation_files/image036.gif)![](./GENCHEM_11-6_G2_Documentation_files/image038.gif)
+![](./GENCHEM_11-6_G2_Documentation_files/image032.gif)![](./GENCHEM_11-6_G2_Documentation_files/image034.gif)
+
+**Ninth**, we included the different types of chemical reactions such as Synthesis Reactions/Direct Combination Reactions, Double-Replacement Reactions or Salt Metathesis Reactions, Chemical Decomposition/Analysis Reactions, and Single Replacement or Substitution Reactions together with their examples.
+
+![](./GENCHEM_11-6_G2_Documentation_files/image036.gif)![](./GENCHEM_11-6_G2_Documentation_files/image038.gif)
 
 **On the bottom right of the website,** you will see the references to acknowledge the rightful authors work and to avoid plagiarism.
 
 ![](./GENCHEM_11-6_G2_Documentation_files/image041.gif)
 
  
-
 **Once you click the Interactive Periodic Table**, you will find the 118 elements. If you click on one element, it will show the graphics on the right side, which indicates the number of electrons, protons, and neutrons in each element. If you scroll down the website, it will show more information about the Interactive Periodic Table, such as its atomic mass, oxidation states, melting point, etc. And once you click the hyperlink at the bottom right of the website, it will lead you to another site for additional information.
 
 ![](./GENCHEM_11-6_G2_Documentation_files/image043.gif)
@@ -131,6 +127,7 @@
 ![](./GENCHEM_11-6_G2_Documentation_files/image045.gif)
 
 
+**Attached here is the screenshot of our website (Mobile):**
 
-**Attached here is the screenshot of our website (Mobile):**![](./GENCHEM_11-6_G2_Documentation_files/image047.jpg)
+![](./GENCHEM_11-6_G2_Documentation_files/image047.jpg)
 
