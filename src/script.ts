@@ -57,24 +57,36 @@ function mouseOut(e) {
 	model.hover = 0;
 }
 
-import "./assets/square_pics/abrea.jpg";
-import "./assets/square_pics/andrade.jpg";
-import "./assets/square_pics/austero.jpg";
-import "./assets/square_pics/estrologo.jpg";
-import "./assets/square_pics/inso.jpg";
-import "./assets/square_pics/lugagay.jpg";
-import "./assets/square_pics/manuel.jpg";
-import "./assets/square_pics/sabordo.jpg";
-import "./assets/square_pics/sebastian.jpg";
+// import "./assets/square_pics/abrea.jpg";
+// import "./assets/square_pics/andrade.jpg";
+// import "./assets/square_pics/austero.jpg";
+// import "./assets/square_pics/estrologo.jpg";
+// import "./assets/square_pics/inso.jpg";
+// import "./assets/square_pics/lugagay.jpg";
+// import "./assets/square_pics/manuel.jpg";
+// import "./assets/square_pics/sabordo.jpg";
+// import "./assets/square_pics/sebastian.jpg";
+
+// import "./assets/Prismarine.png";
 
 import "./styles/styles.scss";
-import "./flickity/flickity.css";
-import "./flickity/flickity.pkgd.min.js";
+// import "./styles/_colorPallete.scss";
+// import "./styles/_atomicDetails.scss";
+// import "./styles/_atomicModel.scss";
+// import "./styles/_generals.scss";
+// import "./styles/_home.scss";
+// import "./styles/_periodicTable.scss";
+// import "./styles/_responsive.scss";
+// import "./styles/_utils.scss";
+
+// import "./flickity/flickity.css";
+// import "./flickity/flickity.pkgd.min.js";
+
 // import { initCookie } from "./cookies"
 // import Cookies from "js-cookie";
 import $ from "jquery";
 
-import { periodictable } from "./Periodictable/data";
+import periodictable from "./Periodictable/data";
 import {
 	toggleTheme,
 	chto,
@@ -184,7 +196,7 @@ chto(settings.currentTheme);
 export let model;
 export let bodyStyles;
 
-$(document).ready(() => {
+$(() => {
 	changeButtonThemes(settings.currentTheme);
 	bodyStyles = window.getComputedStyle(document.body);
 
@@ -218,24 +230,30 @@ $(document).ready(() => {
 		});
 	}
 
+	const groupBlock = {
+		Nonmetal: { color: "#ffffbb" },
+		Halogen: { color: "#ffff9a" },
+		"Alkali metal": { color: "#ffa6a6" },
+		"Alkaline earth metal": { color: "#cfcfff" },
+		"Transition metal": { color: "#b3d9ff" },
+		"Post-transition metal": { color: "#bbffbb" },
+		Metalloid: { color: "#d2ed85" },
+		"Noble gas": { color: "#ffca80" },
+		Lanthanide: { color: "#afffff" },
+		Actinide: { color: "#c2ffeb" },
+	};
+
 	if (document.querySelector(".periodic-table")) {
+		l("generating");
+
 		// let obj: string[][] = periodictable.Row;
 		obj = periodictable.Row;
 
-		const groupBlock = {
-			Nonmetal: { color: "#ffffbb" },
-			Halogen: { color: "#ffff9a" },
-			"Alkali metal": { color: "#ffa6a6" },
-			"Alkaline earth metal": { color: "#cfcfff" },
-			"Transition metal": { color: "#b3d9ff" },
-			"Post-transition metal": { color: "#bbffbb" },
-			Metalloid: { color: "#d2ed85" },
-			"Noble gas": { color: "#ffca80" },
-			Lanthanide: { color: "#afffff" },
-			Actinide: { color: "#c2ffeb" },
-		};
+		// l(obj)
 
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
+			l(index);
+
 			let currentElement = $(element);
 			let atomicNumber = getIndexFromElement(currentElement);
 			// console.log(currentElement)

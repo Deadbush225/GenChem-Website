@@ -1,349 +1,228 @@
 <!DOCTYPE html>
 <html lang="en" class="dark-mode">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- <title>Document</title> -->
-		<title>Prismarine</title>
-		<link rel="icon" type="image/x-icon" href="../assets/Prismarine.png" />
 
-		<!-- 3RD PARTY -->
-		<!-- + Fonts -->
-		<style>
-			@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
-		</style>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Document</title> -->
+    <title>Prismarine</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Prismarine.png" />
 
-		<!-- + JQuery -->
-		<!-- <script
+    <!-- 3RD PARTY -->
+    <!-- + Fonts -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+    </style>
+
+    <!-- + JQuery -->
+    <!-- <script
 			language="JavaScript"
 			type="text/javascript"
 			src="../node_modules/jquery/dist/jquery.slim.js"
 		></script> -->
 
-		<!-- + Js Cookie -->
-		<!-- <script
+    <!-- + Js Cookie -->
+    <!-- <script
 			language="JavaScript"
 			type="text/javascript"
 			src="../node_modules/js-cookie/dist/js.cookie.js"
 		></script> -->
-		<script
-			src="https://code.jquery.com/jquery-3.6.3.slim.js"
-			integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc="
-			crossorigin="anonymous"
-		></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.js"
+        integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
-		<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> -->
 
-		<!-- + Font Awsome -->
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
-			integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
-			crossorigin="anonymous"
-		/>
+    <!-- + Font Awsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+        integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous" />
 
-		<!-- MY CSS and JAVASCRIPT -->
-		<!-- <link rel="stylesheet" href="../styles/styles.css" /> -->
-		<!-- <script src="../../src/script.js"></script> -->
-		<!-- <link rel="stylesheet" href="fontawesome-free-5.15.4-web\css\all.css" /> -->
-		<!-- FLICKITY -->
-		<script src="../flickity/flickity.pkgd.min.js"></script>
-		<link rel="stylesheet" href="../flickity/flickity.css" />
-	</head>
-	<body>
-		<div class="force-landscape">
-			Too narrow screen width, please turn on landscape
-		</div>
+    <!-- MY CSS and JAVASCRIPT -->
+    <!-- <link rel="stylesheet" href="../styles/styles.css" /> -->
+    <script type="module" src="../script.ts"></script>
+    <!-- <link rel="stylesheet" href="fontawesome-free-5.15.4-web\css\all.css" /> -->
+    <!-- FLICKITY -->
+    <script src="../flickity/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="../flickity/flickity.css" />
+</head>
 
-		<!-- Nav bar -->
-		<nav class="stick">
-			<div class="image-clip"></div>
-			<ul class="nav-container">
-				<li>
-					<a class="nav-item blur ontop" href="../index.html">STEM 11-6</a>
-				</li>
-				<li>
-					<a class="nav-item blur ontop" href="./periodictable.html"
-						>Interactive Periodic Table</a
-					>
-				</li>
-				<li>
-					<a class="nav-item blur ontop active" href="">Team</a>
-				</li>
-				<!-- <li><a class="nav-item"></a></li> -->
-				<button id="darkmode">
-					<i class="fas fa-sun toggle-theme ontop" onclick="toggleTheme()"></i>
-				</button>
-			</ul>
-		</nav>
+<body>
+    <div class="force-landscape">
+        Too narrow screen width, please turn on landscape
+    </div>
 
-		<div class="bg"></div>
+    <!-- Nav bar -->
+    <nav class="stick">
+        <div class="image-clip"></div>
+        <ul class="nav-container">
+            <li>
+                <a class="nav-item blur ontop" href="../index.html">STEM 11-6</a>
+            </li>
+            <li>
+                <a class="nav-item blur ontop" href="./periodictable.html">Interactive Periodic Table</a>
+            </li>
+            <li>
+                <a class="nav-item blur ontop active" href="">Team</a>
+            </li>
+            <!-- <li><a class="nav-item"></a></li> -->
+            <button id="darkmode">
+                <i class="fas fa-sun toggle-theme ontop" onclick="toggleTheme()"></i>
+            </button>
+        </ul>
+    </nav>
 
-		<h1 class="blur greet">
-			This website wouldn't be made possible without them, Say Hello!
-		</h1>
-		<div
-			class="gallery js-flickity"
-			data-flickity-options='{ "wrapAround": true, "autoPlay": 1700,
-    "pauseAutoPlayOnHover": false}'
-		>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/sebastian.jpg"
-					alt=""
-					title="Sebastian, Rhian Kaye S."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/sabordo.jpg"
-					alt=""
-					title="Sabordo, Je-Anne B."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/inso.jpg"
-					alt=""
-					title="Inso, Eliazar N."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/austero.jpg"
-					alt=""
-					title="Austero, Jasmine C."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/andrade.jpg"
-					alt=""
-					title="Andrade, Athena Jannelle S."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/abrea.jpg"
-					alt=""
-					title="Abrea, Maureen I."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/lugagay.jpg"
-					alt=""
-					title="Lugagay, Samantha B."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/estrologo.jpg"
-					alt=""
-					title="Estrologo, Aliah Gwen D."
-				/>
-			</div>
-			<div class="gallery-cell">
-				<img
-					src="../assets/square_pics/manuel.jpg"
-					alt=""
-					title="Manuel, Micah Danielle F."
-				/>
-			</div>
-		</div>
-		<div class="body-text">
-			<!-- Content Manager -->
-			<h4>Content Managers:</h4>
+    <div class="bg"></div>
 
-			<div class="participation">
-				<div class="persons">
-					<div class="person">
-						<img
-							src="../assets/square_pics/inso.jpg"
-							alt=""
-							title="Inso, Eliazar N."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/sebastian.jpg"
-							alt=""
-							title="Sebastian, Rhian Kaye S."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/sabordo.jpg"
-							alt=""
-							title="Sabordo, Je-Anne B."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/manuel.jpg"
-							alt=""
-							title="Manuel, Micah Danielle F."
-						/>
-					</div>
-				</div>
+    <h1 class="blur greet">
+        This website wouldn't be made possible without them, Say Hello!
+    </h1>
+    <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "autoPlay": 1700,
+    "pauseAutoPlayOnHover": false}'>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/sebastian.jpg" alt="" title="Sebastian, Rhian Kaye S." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/sabordo.jpg" alt="" title="Sabordo, Je-Anne B." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/inso.jpg" alt="" title="Inso, Eliazar N." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/austero.jpg" alt="" title="Austero, Jasmine C." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/andrade.jpg" alt="" title="Andrade, Athena Jannelle S." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/abrea.jpg" alt="" title="Abrea, Maureen I." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/lugagay.jpg" alt="" title="Lugagay, Samantha B." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/estrologo.jpg" alt="" title="Estrologo, Aliah Gwen D." />
+        </div>
+        <div class="gallery-cell">
+            <img src="../assets/square_pics/manuel.jpg" alt="" title="Manuel, Micah Danielle F." />
+        </div>
+    </div>
+    <div class="body-text">
+        <!-- Content Manager -->
+        <h4>Content Managers:</h4>
 
-				<p>
-					They helped manage the contents and informations that you see in this
-					website. They proofread and checked the gathered datas together with
-					the proper citations to the respective authors.
-				</p>
-			</div>
+        <div class="participation">
+            <div class="persons">
+                <div class="person">
+                    <img src="../assets/square_pics/inso.jpg" alt="" title="Inso, Eliazar N." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/sebastian.jpg" alt="" title="Sebastian, Rhian Kaye S." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/sabordo.jpg" alt="" title="Sabordo, Je-Anne B." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/manuel.jpg" alt="" title="Manuel, Micah Danielle F." />
+                </div>
+            </div>
 
-			<br />
-			<br />
-			<!-- Content Creators -->
-			<h4>Content Creators:</h4>
+            <p>
+                They helped manage the contents and informations that you see in this
+                website. They proofread and checked the gathered datas together with
+                the proper citations to the respective authors.
+            </p>
+        </div>
 
-			<div class="participation">
-				<p>
-					They helped to gather the contents and informations that you can learn
-					and discover from this website. They've ensured that all the
-					informations are verified and did came from a reliable resources.
-				</p>
-				<div class="persons">
-					<div class="person">
-						<img
-							src="../assets/square_pics/sebastian.jpg"
-							alt=""
-							title="Sebastian, Rhian Kaye S."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/sabordo.jpg"
-							alt=""
-							title="Sabordo, Je-Anne B."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/austero.jpg"
-							alt=""
-							title="Austero, Jasmine C."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/andrade.jpg"
-							alt=""
-							title="Andrade, Athena Jannelle S."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/abrea.jpg"
-							alt=""
-							title="Abrea, Maureen I."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/lugagay.jpg"
-							alt=""
-							title="Lugagay, Samantha B."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/estrologo.jpg"
-							alt=""
-							title="Estrologo, Aliah Gwen D."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/manuel.jpg"
-							alt=""
-							title="Manuel, Micah Danielle F."
-						/>
-					</div>
-				</div>
-			</div>
+        <br />
+        <br />
+        <!-- Content Creators -->
+        <h4>Content Creators:</h4>
 
-			<br />
-			<br />
-			<!-- Documentator -->
-			<h4>Documentor:</h4>
+        <div class="participation">
+            <p>
+                They helped to gather the contents and informations that you can learn
+                and discover from this website. They've ensured that all the
+                informations are verified and did came from a reliable resources.
+            </p>
+            <div class="persons">
+                <div class="person">
+                    <img src="../assets/square_pics/sebastian.jpg" alt="" title="Sebastian, Rhian Kaye S." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/sabordo.jpg" alt="" title="Sabordo, Je-Anne B." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/austero.jpg" alt="" title="Austero, Jasmine C." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/andrade.jpg" alt="" title="Andrade, Athena Jannelle S." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/abrea.jpg" alt="" title="Abrea, Maureen I." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/lugagay.jpg" alt="" title="Lugagay, Samantha B." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/estrologo.jpg" alt="" title="Estrologo, Aliah Gwen D." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/manuel.jpg" alt="" title="Manuel, Micah Danielle F." />
+                </div>
+            </div>
+        </div>
 
-			<div class="participation">
-				<div class="persons">
-					<div class="person">
-						<img
-							src="../assets/square_pics/inso.jpg"
-							alt=""
-							title="Inso, Eliazar N."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/austero.jpg"
-							alt=""
-							title="Austero, Jasmine C."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/andrade.jpg"
-							alt=""
-							title="Andrade, Athena Jannelle S."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/abrea.jpg"
-							alt=""
-							title="Abrea, Maureen I."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/lugagay.jpg"
-							alt=""
-							title="Lugagay, Samantha B."
-						/>
-					</div>
-					<div class="person">
-						<img
-							src="../assets/square_pics/estrologo.jpg"
-							alt=""
-							title="Estrologo, Aliah Gwen D."
-						/>
-					</div>
-				</div>
+        <br />
+        <br />
+        <!-- Documentator -->
+        <h4>Documentor:</h4>
 
-				<p>
-					They've constructed the documentation for this website and how one can
-					access and utilize it on its full potential.
-				</p>
-			</div>
+        <div class="participation">
+            <div class="persons">
+                <div class="person">
+                    <img src="../assets/square_pics/inso.jpg" alt="" title="Inso, Eliazar N." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/austero.jpg" alt="" title="Austero, Jasmine C." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/andrade.jpg" alt="" title="Andrade, Athena Jannelle S." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/abrea.jpg" alt="" title="Abrea, Maureen I." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/lugagay.jpg" alt="" title="Lugagay, Samantha B." />
+                </div>
+                <div class="person">
+                    <img src="../assets/square_pics/estrologo.jpg" alt="" title="Estrologo, Aliah Gwen D." />
+                </div>
+            </div>
 
-			<br />
-			<br />
-			<!-- Website Developer -->
-			<h4>Website Developer:</h4>
+            <p>
+                They've constructed the documentation for this website and how one can
+                access and utilize it on its full potential.
+            </p>
+        </div>
 
-			<div class="participation">
-				<p>
-					They've constructed this website from an abstract idea of helping
-					other students, to hundred readable lines of code. They've used HTML,
-					SCSS, TypeScript, WebPack, Git & GitHub
-				</p>
-				<div class="persons">
-					<div class="person">
-						<img
-							src="../assets/square_pics/inso.jpg"
-							alt=""
-							title="Inso, Eliazar N."
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+        <br />
+        <br />
+        <!-- Website Developer -->
+        <h4>Website Developer:</h4>
+
+        <div class="participation">
+            <p>
+                They've constructed this website from an abstract idea of helping
+                other students, to hundred readable lines of code. They've used HTML,
+                SCSS, TypeScript, WebPack, Git & GitHub
+            </p>
+            <div class="persons">
+                <div class="person">
+                    <img src="../assets/square_pics/inso.jpg" alt="" title="Inso, Eliazar N." />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
