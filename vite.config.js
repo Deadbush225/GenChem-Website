@@ -72,7 +72,7 @@ export default defineConfig({
 				entryFileNames: "scripts/[name]-[hash].js",
 
 				// dir: "docs/",
-				generatedCode: "es2015",
+				// generatedCode: "es2015",
 			},
 		},
 		// sourcemap: "hidden",
