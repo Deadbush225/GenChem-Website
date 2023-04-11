@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"commit": "git add . && git commit -m \"[automated push]\""
+		"cmt": "git add . && git commit -m \"[automated push]\"",
+		"commit": "git add . && git commit"
 	},
 	"devDependencies": {
 		"jquery": "^3.6.4",
