@@ -45,6 +45,8 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(root, "script.ts"),
+				flickity: resolve(root, "flickity", "flickity.pkgd.min.js"),
+
 				index: resolve(root, "index.html"),
 
 				...Object.fromEntries(htmlFiles),
