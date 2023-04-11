@@ -81,6 +81,9 @@ export default defineConfig({
 				generatedCode: "es2015",
 			},
 		},
+		modulePreload: {
+			polyfill: false,
+		},
 		// sourcemap: "hidden",
 	},
 
