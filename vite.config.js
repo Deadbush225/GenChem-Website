@@ -1,4 +1,6 @@
 import { defineConfig } from "vite";
+import { splitVendorChunkPlugin } from "vite";
+
 import { resolve } from "path";
 
 import fs from "fs";
@@ -20,6 +22,8 @@ const htmlFiles = fs
 
 export default defineConfig({
 	// plugins: [htmlTemplate()],
+	plugins: [splitVendorChunkPlugin()],
+
 	base: "./",
 	publicDir: false,
 	root: root,
