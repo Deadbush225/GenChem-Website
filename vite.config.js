@@ -45,7 +45,7 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(root, "script.ts"),
-				flickity: resolve(root, "flickity", "flickity.pkgd.min.js"),
+				// flickity: resolve(root, "flickity", "flickity.pkgd.min.js"),
 
 				index: resolve(root, "index.html"),
 
@@ -84,6 +84,12 @@ export default defineConfig({
 		modulePreload: {
 			polyfill: false,
 		},
+		// commonjsOptions: {
+		// transformMixedEsModules: true,
+		include: ["/node_modules/", "/flickity/"],
+		// requireReturnsDefault: "auto",
+		// requireReturnsDefault: "namespace",
+		// },
 		// sourcemap: "hidden",
 	},
 
@@ -93,11 +99,12 @@ export default defineConfig({
 		open: true,
 	},
 
-	//   optimizeDeps: {
-	// entries: ["src/*.html", "src/script.ts"],
-	// include: ["src/script.ts"],
-	// force: true
-	//   },
+	optimizeDeps: {
+		// entries: ["src/*.html", "src/script.ts"],
+		// include: ["src/script.ts"],
+		// force: true
+		include: ["flickity"],
+	},
 
 	// resolve: {
 	// conditions: ["\"import\": \"./src/script.ts\""]
