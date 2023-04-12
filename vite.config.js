@@ -29,7 +29,7 @@ export default defineConfig({
 				// flickity: resolve(root, "flickity", "flickity.pkgd.min.js"),
 
 				index: resolve(root, "index.html"),
-				// indedx: resolve(root, "pages", "team.html"),
+				indedx: resolve(root, "pages", "team.html"),
 			},
 		},
 
