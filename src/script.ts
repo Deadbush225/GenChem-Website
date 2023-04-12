@@ -89,7 +89,7 @@ import $ from "jquery";
 // import "../node_modules/flickity/css/flickity.css";
 // import "../node_modules/flickity/js/index.js";
 // import "../node_modules/flickity/dist/flickity.pkgd.js";
-// import "../node_modules/flickity/dist/flickity.css";
+import "../node_modules/flickity/dist/flickity.css";
 
 import "flickity";
 
