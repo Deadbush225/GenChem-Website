@@ -1,4 +1,5 @@
 import { l, bodyStyles } from "../script";
+import $ from "jquery";
 
 function transformRange(value: number): number {
 	// [IN]  1 - 118

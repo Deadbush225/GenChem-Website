@@ -90,8 +90,8 @@ import "./styles/styles.scss";
 // import "./styles/_utils.scss";
 
 import "../node_modules/flickity/css/flickity.css";
-import "../node_modules/flickity/js/index.js";
-// import "flickity";
+// import "../node_modules/flickity/js/index.js";
+import "flickity";
 
 // import { initCookie } from "./cookies"
 // import Cookies from "js-cookie";
