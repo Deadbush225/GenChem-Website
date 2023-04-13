@@ -79,22 +79,13 @@ import "./styles/styles.scss";
 // import "./styles/_responsive.scss";
 // import "./styles/_utils.scss";
 
+import "../node_modules/flickity/css/flickity.css";
+import "../node_modules/flickity/js/index.js";
 // import "flickity";
-// import "../flickity/flickity.pkgd.min.js";
-import $ from "jquery";
-// import "../flickity/flickity.css";
-// import "./flickity/flickity.pkgd.min.js";
-// import "./flickity/flickity.css";
-// import "../flickity/flickity.pkgd.min.js";
-// import "../node_modules/flickity/css/flickity.css";
-// import "../node_modules/flickity/js/index.js";
-// import "../node_modules/flickity/dist/flickity.pkgd.js";
-import "../node_modules/flickity/dist/flickity.css";
-
-import "flickity";
 
 // import { initCookie } from "./cookies"
 // import Cookies from "js-cookie";
+import $ from "jquery";
 
 import periodictable from "./Periodictable/data";
 import {
