@@ -9,6 +9,9 @@ enum theme {
 	DARK,
 }
 
+export let model: ElementModel;
+export let bodyStyles: CSSStyleDeclaration;
+
 // let colors = [
 // 	"#ff7d7d",
 // 	"#ffaaaa",
@@ -28,7 +31,7 @@ enum theme {
 // ];
 
 /* + UTILS */
-export function l(message) {
+export function l(message: any) {
 	console.log(message);
 }
 
@@ -37,24 +40,31 @@ export function l(message) {
 // let Cookies = require("js-cookie");
 
 // MOUSE HOVER
-function mouseOver(e) {
+function mouseOver(e: Event) {
 	// l("mouse over");
 
-	let target = e.target;
-	l(target.id);
-	if (target.id == "Electron") {
-		model.hover = 1;
-		// l("refreshing");
-	} else if (target.id == "Proton") {
-		model.hover = 2;
-	} else if (target.id == "Neutron") {
-		model.hover = 3;
+	if (e instanceof MouseEvent) {
+		let target = e.target as HTMLElement;
+
+		if (target) {
+			l(target.id);
+			if (target.id == "Electron") {
+				model.hover = 1;
+				// l("refreshing");
+			} else if (target.id == "Proton") {
+				model.hover = 2;
+			} else if (target.id == "Neutron") {
+				model.hover = 3;
+			}
+		}
 	}
 }
 
-function mouseOut(e) {
+function mouseOut(e: Event) {
 	// l("mouse out");
-	model.hover = 0;
+	if (e instanceof MouseEvent) {
+		model.hover = 0;
+	}
 }
 
 // import "./assets/square_pics/abrea.jpg";
@@ -110,92 +120,90 @@ function getIndexFromElement(element: JQuery<Element>): number {
 	// return 1
 }
 
-function elementClicked(e) {
+function elementClicked(e: MouseEvent | number) {
 	console.log(e);
 
 	// l(e.constructor);
 
-	let atomIndex;
-	let atomicNumber;
+	let atomIndex: number | undefined = undefined;
+	let atomicNumber: number | undefined = undefined;
+
 	if (typeof e == "number") {
 		l("number");
 		atomIndex = e - 1;
 		atomicNumber = e;
 	} else {
 		l("passing here");
-		let sourceElement = e.target!;
+		let sourceElement = e.target as HTMLElement;
 
-		// if (sourceElement instanceof HTMLElement) {
-		if (sourceElement.className == "elements") {
-			// console.log(sourceElement)
-		} else {
-			// console.log("++++++++")
-			while (sourceElement.className != "elements") {
-				// console.log(sourceElement)
-				sourceElement = sourceElement.parentElement;
+		if (sourceElement) {
+			if (sourceElement.className != "elements") {
+				while (sourceElement.className != "elements") {
+					let temp = sourceElement.parentElement;
+					if (temp) {
+						sourceElement = temp;
+					}
+				}
 			}
-		}
-		// console.log(sourceElement)
-		// if(e.)
 
-		atomIndex = getIndexFromElement($(sourceElement));
-		// console.log(currentElement)
-		atomicNumber = getAtomicNumberFromElement($(sourceElement));
+			atomIndex = getIndexFromElement($(sourceElement));
+			atomicNumber = getAtomicNumberFromElement($(sourceElement));
+		}
 	}
 
-	let symbol = obj[atomIndex][1];
-	let name = obj[atomIndex][2];
-	let atomicMass = obj[atomIndex][3];
-	let electronicConfiguration = obj[atomIndex][5];
-	let electronNegativity = obj[atomIndex][6];
-	let atomicRadius = obj[atomIndex][7];
-	let ionizationEnergy = obj[atomIndex][8];
-	let electronAfinity = obj[atomIndex][9];
-	let oxidationStates = obj[atomIndex][10];
-	let standardState = obj[atomIndex][11];
-	let meltingPoint = obj[atomIndex][12];
-	let boilingPoint = obj[atomIndex][13];
-	let density = obj[atomIndex][14];
-	let groupBlock = obj[atomIndex][15];
-	let yearDiscovered = obj[atomIndex][16];
+	if (atomIndex && atomicNumber) {
+		let symbol = obj[atomIndex][1];
+		let name = obj[atomIndex][2];
+		let atomicMass = obj[atomIndex][3];
+		let electronicConfiguration = obj[atomIndex][5];
+		let electronNegativity = obj[atomIndex][6];
+		let atomicRadius = obj[atomIndex][7];
+		let ionizationEnergy = obj[atomIndex][8];
+		let electronAfinity = obj[atomIndex][9];
+		let oxidationStates = obj[atomIndex][10];
+		let standardState = obj[atomIndex][11];
+		let meltingPoint = obj[atomIndex][12];
+		let boilingPoint = obj[atomIndex][13];
+		let density = obj[atomIndex][14];
+		let groupBlock = obj[atomIndex][15];
+		let yearDiscovered = obj[atomIndex][16];
 
-	$("#atomic-mass-field").text(atomicMass);
-	// $("#atomic-number-field").text(atomicNumber);
-	$("#year-discovered-field").text(yearDiscovered);
-	$("#group-block-field").text(groupBlock);
-	$("#oxidation-states-field").text(oxidationStates);
-	$("#metling-point-field").text(meltingPoint);
-	$("#electronic-configuration-field").text(electronicConfiguration);
-	$("#ionization-energy-field").text(ionizationEnergy);
-	$("#electron-negativity-field").text(electronNegativity);
-	// new
-	$("#atomic-radius-field").text(atomicRadius);
-	$("#electron-afinity-field").text(electronAfinity);
-	$("#standard-state-field").text(standardState);
-	$("#boiling-point-field").text(boilingPoint);
-	$("#density-field").text(density);
+		$("#atomic-mass-field").text(atomicMass);
+		// $("#atomic-number-field").text(atomicNumber);
+		$("#year-discovered-field").text(yearDiscovered);
+		$("#group-block-field").text(groupBlock);
+		$("#oxidation-states-field").text(oxidationStates);
+		$("#metling-point-field").text(meltingPoint);
+		$("#electronic-configuration-field").text(electronicConfiguration);
+		$("#ionization-energy-field").text(ionizationEnergy);
+		$("#electron-negativity-field").text(electronNegativity);
+		// new
+		$("#atomic-radius-field").text(atomicRadius);
+		$("#electron-afinity-field").text(electronAfinity);
+		$("#standard-state-field").text(standardState);
+		$("#boiling-point-field").text(boilingPoint);
+		$("#density-field").text(density);
 
-	$("#electron-field").text(atomicNumber);
-	$("#proton-field").text(atomicNumber);
-	$("#neutron-field").text(atomicNumber);
+		$("#electron-field").text(atomicNumber);
+		$("#proton-field").text(atomicNumber);
+		$("#neutron-field").text(atomicNumber);
 
-	$("#wiki").attr(
-		"href",
-		`https://pubchem.ncbi.nlm.nih.gov/element/${atomicNumber}`
-	);
+		$("#wiki").attr(
+			"href",
+			`https://pubchem.ncbi.nlm.nih.gov/element/${atomicNumber}`
+		);
 
-	$("#atomic-model-symbol").text(symbol);
-	$("#atomic-model-name").text(name);
-	$("#atomic-model-number").text(atomicNumber);
+		$("#atomic-model-symbol").text(symbol);
+		$("#atomic-model-name").text(name);
+		$("#atomic-model-number").text(atomicNumber);
 
-	model.changeElement(atomicNumber);
-	// model = new ElementModel(atomicNumber);
+		model.changeElement(atomicNumber);
+		// model = new ElementModel(atomicNumber);
+	}
 }
 
 // applyCurrentTheme();
 chto(settings.currentTheme);
-export let model;
-export let bodyStyles;
 
 $(() => {
 	changeButtonThemes(settings.currentTheme);
@@ -231,7 +239,7 @@ $(() => {
 		});
 	}
 
-	const groupBlock = {
+	const groupBlock: { [key: string]: { [key: string]: string } } = {
 		Nonmetal: { color: "#ffffbb" },
 		Halogen: { color: "#ffff9a" },
 		"Alkali metal": { color: "#ffa6a6" },
@@ -285,12 +293,16 @@ $(() => {
 	/// START of MODEL (positioning is important load this before everything else is loaded)
 	model = new ElementModel(1);
 
-	document.querySelectorAll(".hover-control").forEach((element) => {
-		element.addEventListener("mouseleave", mouseOut);
-	});
-	document.querySelectorAll(".hover-control").forEach((element) => {
-		element.addEventListener("mouseenter", mouseOver);
-	});
+	document
+		.querySelectorAll(".hover-control")
+		.forEach((element: EventTarget) => {
+			element.addEventListener("mouseleave", mouseOut);
+		});
+	document
+		.querySelectorAll(".hover-control")
+		.forEach((element: EventTarget) => {
+			element.addEventListener("mouseenter", mouseOver);
+		});
 	/// END of MODEL
 
 	elementClicked(1);

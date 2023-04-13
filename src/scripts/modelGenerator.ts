@@ -15,7 +15,7 @@ function transformRange(value: number): number {
 // 	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
 // }
 
-function a(a) {
+function a(a: any) {
 	return a;
 }
 
@@ -46,10 +46,10 @@ export class ElementModel {
 
 	radius: number;
 
-	canvas: HTMLCanvasElement;
-	ctx: CanvasRenderingContext2D;
+	_canvas!: HTMLCanvasElement;
+	_ctx!: CanvasRenderingContext2D;
 
-	penColor: string;
+	_penColor!: string;
 
 	hover: number = 0; // 1 - electron, 2 - proton, 3 - neutron
 
@@ -64,6 +64,16 @@ export class ElementModel {
 		this.atomicNumber = atomicNumber;
 		this.boundaryRadius = transformRange(this.atomicNumber);
 
+		this.shells = 0;
+		this.ringGap = 0;
+		this.rings = 0;
+
+		this.additionalAnglePerUpdate = 0;
+		this.centerX = 0;
+		this.centerY = 0;
+
+		this.radius = 0;
+
 		this._initCanvas();
 
 		this.bind = this.draw.bind(this);
@@ -74,13 +84,38 @@ export class ElementModel {
 		window.requestAnimationFrame(this.bind);
 	}
 
+	_initCanvas() {
+		this._canvas = $<HTMLCanvasElement>("#atomic-model")[0];
+
+		if (this._canvas) {
+			let container = this._canvas.parentElement!;
+			this._ctx = this._canvas.getContext("2d")!;
+
+			if (this._ctx) {
+				this._canvas.width = container.clientWidth;
+				this._canvas.height = container.clientWidth;
+
+				// l(this.canvas.width);
+				this.ringGap = this._canvas.width * 0.045;
+				// l(this.canvas.height);
+
+				this.centerX = this._canvas.width / 2;
+				this.centerY = this._canvas.height / 2;
+
+				// this.ringGap =
+			}
+
+			this.updatePenColors();
+		}
+	}
+
 	draw() {
 		this._innerTime++;
 
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		this.ctx.save();
+		this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
+		this._ctx.save();
 
-		this.ctx.translate(this.centerX, this.centerY);
+		this._ctx.translate(this.centerX, this.centerY);
 
 		this._createRings();
 		this._populateRings();
@@ -88,7 +123,7 @@ export class ElementModel {
 
 		// this.startingAngle += this.additionalAnglePerUpdate;
 
-		this.ctx.restore();
+		this._ctx.restore();
 		window.requestAnimationFrame(this.bind);
 	}
 
@@ -128,44 +163,19 @@ export class ElementModel {
 		this.rings = rings;
 	}
 
-	_initCanvas() {
-		this.canvas = $<HTMLCanvasElement>("#atomic-model")[0];
-
-		if (this.canvas) {
-			let container = this.canvas.parentElement!;
-			this.ctx = this.canvas.getContext("2d")!;
-
-			if (this.ctx) {
-				this.canvas.width = container.clientWidth;
-				this.canvas.height = container.clientWidth;
-
-				// l(this.canvas.width);
-				this.ringGap = this.canvas.width * 0.045;
-				// l(this.canvas.height);
-
-				this.centerX = this.canvas.width / 2;
-				this.centerY = this.canvas.height / 2;
-
-				// this.ringGap =
-			}
-
-			this.updatePenColors();
-		}
-	}
-
 	updatePenColors() {
-		this.penColor = bodyStyles.getPropertyValue("--opposite");
-		this.ctx.fillStyle = this.penColor;
-		this.ctx.strokeStyle = this.penColor;
+		this._penColor = bodyStyles.getPropertyValue("--opposite");
+		this._ctx.fillStyle = this._penColor;
+		this._ctx.strokeStyle = this._penColor;
 	}
 
 	_createRings(): void {
 		let startingRadius = 60;
 
 		for (let i = 0; i < this.rings; i++) {
-			this.ctx.beginPath();
-			this.ctx.arc(0, 0, startingRadius, 0, Math.PI * 2, true);
-			this.ctx.stroke();
+			this._ctx.beginPath();
+			this._ctx.arc(0, 0, startingRadius, 0, Math.PI * 2, true);
+			this._ctx.stroke();
 
 			startingRadius += this.ringGap;
 		}
@@ -183,8 +193,8 @@ export class ElementModel {
 			let additionalAnglePerUpdate =
 				(Math.PI * 2) / (this.FRAME_RATE * ringsSpeed);
 
-			this.ctx.save();
-			this.ctx.rotate(this.ringsAngles[ring]);
+			this._ctx.save();
+			this._ctx.rotate(this.ringsAngles[ring]);
 
 			for (
 				let electron = 0;
@@ -196,28 +206,28 @@ export class ElementModel {
 
 				if (this.hover == 1) {
 					// l("Hovered is on");
-					this.ctx.save();
+					this._ctx.save();
 
 					// this.ctx.fillStyle = neutron.color;
-					this.ctx.filter = "blur(10)";
-					this.ctx.filter = "opacity(0.5)";
+					this._ctx.filter = "blur(10)";
+					this._ctx.filter = "opacity(0.5)";
 					// this.ctx.filter = "brightness(1.2)";
 
-					this.ctx.beginPath();
-					this.ctx.arc(centerX, centerY, 10, 0, Math.PI * 2, true);
-					this.ctx.fill();
+					this._ctx.beginPath();
+					this._ctx.arc(centerX, centerY, 10, 0, Math.PI * 2, true);
+					this._ctx.fill();
 
-					this.ctx.restore();
+					this._ctx.restore();
 				}
 
-				this.ctx.beginPath();
-				this.ctx.arc(centerX, centerY, 5, 0, Math.PI * 2, true);
-				this.ctx.fill();
+				this._ctx.beginPath();
+				this._ctx.arc(centerX, centerY, 5, 0, Math.PI * 2, true);
+				this._ctx.fill();
 
 				currentAngle += anglesBetweenShells;
 			}
 
-			this.ctx.restore();
+			this._ctx.restore();
 
 			this.ringsAngles[ring] += additionalAnglePerUpdate;
 			ringsSpeed += -1;
@@ -316,10 +326,10 @@ export class ElementModel {
 					? yNegNoise // experimental, if doesn't work just use the normal negNoise
 					: yNegNoise; //a(noise);
 
-			this.ctx.fillStyle = proton.color;
-			this.ctx.beginPath();
-			this.ctx.arc(proton.x, proton.y, 5, 0, Math.PI * 2, true);
-			this.ctx.fill();
+			this._ctx.fillStyle = proton.color;
+			this._ctx.beginPath();
+			this._ctx.arc(proton.x, proton.y, 5, 0, Math.PI * 2, true);
+			this._ctx.fill();
 
 			let neutron = this.neutrons[i];
 
@@ -349,40 +359,40 @@ export class ElementModel {
 					? yNegNoise // experimental, if doesn't work just use the normal negNoise
 					: yNegNoise; //a(noise);
 
-			this.ctx.fillStyle = neutron.color;
-			this.ctx.beginPath();
-			this.ctx.arc(neutron.x, neutron.y, 5, 0, Math.PI * 2, true);
-			this.ctx.fill();
+			this._ctx.fillStyle = neutron.color;
+			this._ctx.beginPath();
+			this._ctx.arc(neutron.x, neutron.y, 5, 0, Math.PI * 2, true);
+			this._ctx.fill();
 
 			// l(this.hover);
 			if (this.hover == 2) {
 				// l("Hovered is on");
-				this.ctx.save();
+				this._ctx.save();
 
-				this.ctx.fillStyle = proton.color;
-				this.ctx.filter = "blur(10)";
-				this.ctx.filter = "opacity(0.5)";
+				this._ctx.fillStyle = proton.color;
+				this._ctx.filter = "blur(10)";
+				this._ctx.filter = "opacity(0.5)";
 				// this.ctx.filter = "brightness(1.2)";
-				this.ctx.beginPath();
-				this.ctx.arc(proton.x, proton.y, 13, 0, Math.PI * 2, true);
-				this.ctx.fill();
+				this._ctx.beginPath();
+				this._ctx.arc(proton.x, proton.y, 13, 0, Math.PI * 2, true);
+				this._ctx.fill();
 
-				this.ctx.restore();
+				this._ctx.restore();
 			}
 			if (this.hover == 3) {
 				// l("Hovered is on");
-				this.ctx.save();
+				this._ctx.save();
 
-				this.ctx.fillStyle = neutron.color;
-				this.ctx.filter = "blur(10)";
-				this.ctx.filter = "opacity(0.5)";
+				this._ctx.fillStyle = neutron.color;
+				this._ctx.filter = "blur(10)";
+				this._ctx.filter = "opacity(0.5)";
 				// this.ctx.filter = "brightness(1.2)";
 
-				this.ctx.beginPath();
-				this.ctx.arc(neutron.x, neutron.y, 13, 0, Math.PI * 2, true);
-				this.ctx.fill();
+				this._ctx.beginPath();
+				this._ctx.arc(neutron.x, neutron.y, 13, 0, Math.PI * 2, true);
+				this._ctx.fill();
 
-				this.ctx.restore();
+				this._ctx.restore();
 			}
 
 			i++;
@@ -392,7 +402,7 @@ export class ElementModel {
 		}
 	}
 
-	_randomPoint(limit): { x: number; y: number } {
+	_randomPoint(limit: number): { x: number; y: number } {
 		let theta = Math.random() * Math.PI * 2;
 		// let radius = Math.sqrt(limit) * Math.random();
 		let radius = limit * Math.random();

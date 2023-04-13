@@ -8,11 +8,11 @@ export let saveCookie = () => {
 	l(settings);
 	Cookies.set(
 		"settings/defaultTheme",
-		fromStrerializeFlag(settings.defaultTheme)
+		fromStrerializeFlag(settings.defaultTheme).toString()
 	);
 	Cookies.set(
 		"settings/currentTheme",
-		fromStrerializeFlag(settings.currentTheme)
+		fromStrerializeFlag(settings.currentTheme).toString()
 	); // we interact to the setting as boolean but we save it as integer
 };
 
@@ -34,7 +34,7 @@ export function initCookie() {
 }
 
 /* + COOKIE STERIALIZATION */
-function fromStrerializeFlag(number: Boolean): number {
+function fromStrerializeFlag(number: boolean): number {
 	let i: number = 0;
 
 	if (number) {

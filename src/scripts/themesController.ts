@@ -16,7 +16,7 @@ export function toggleTheme() {
 	model.updatePenColors();
 }
 
-export function chto(theme) {
+export function chto(theme: boolean) {
 	l(
 		"first replenish -> changing from " + settings.currentTheme + " to " + theme
 	);
@@ -43,7 +43,7 @@ export function chto(theme) {
 	}
 }
 
-export function changeButtonThemes(theme) {
+export function changeButtonThemes(theme: boolean) {
 	l("changing from " + settings.currentTheme + " to " + theme);
 	// l("defaultTheme: " + settings.defaultTheme);
 
