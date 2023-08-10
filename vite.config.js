@@ -48,7 +48,7 @@ export default defineConfig({
 	base: "./",
 	publicDir: false,
 	root: root,
-	mode: "Development",
+	// mode: "",
 
 	build: {
 		target: "es2020",
@@ -94,9 +94,7 @@ export default defineConfig({
 			},
 		},
 
-		modulePreload: {
-			polyfill: false,
-		},
+		// modulePreload: true,
 
 		// commonjsOptions: {
 		// 	// transformMixedEsModules: true,
@@ -117,18 +115,20 @@ export default defineConfig({
 		port: 8888,
 		strictPort: true,
 		open: true,
+		// https: true,
 	},
 
-	// optimizeDeps: {
-	// 	// entries: ["src/*.html", "src/script.ts"],
-	// 	// include: ["src/script.ts"],
-	// 	// force: true
-	// 	// include: ["/src/flickity"],
-	// 	// exclude: ["/node_modules"],
-	// },
+	optimizeDeps: {
+		entries: ["src/script.ts"],
+		// include: ["src/script.ts"],
+		// force: true,
+		// include: ["/src/flickity"],
+		// exclude: ["/node_modules"],
+	},
 
-	// resolve: {
-	// 	extensions: [".cjs", ".mjs", ".js", ".mts", ".ts", ".jsx", ".tsx", ".json"],
-	// 	mainFields: ["module", "main", "jsnext:main", "browser"],
-	// },
+	resolve: {
+		// 	extensions: [".cjs", ".mjs", ".js", ".mts", ".ts", ".jsx", ".tsx", ".json"],
+		// 	mainFields: ["module", "main", "jsnext:main", "browser"],
+		// dedupe: ["/src/script.ts"],
+	},
 });

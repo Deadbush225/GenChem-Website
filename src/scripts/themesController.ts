@@ -1,5 +1,5 @@
-import { l, model } from "../script";
-import { settings, saveCookie } from "./cookies";
+import { l, model } from "../script.ts";
+import { settings, saveCookie } from "./cookies.ts";
 
 export function applyCurrentTheme() {
 	l("ApplyCurrentTheme :" + settings.currentTheme);

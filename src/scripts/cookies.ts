@@ -1,4 +1,4 @@
-import { l } from "../script";
+import { l } from "../script.ts";
 import Cookies from "js-cookie";
 
 /* + COOKIES */

@@ -1,4 +1,4 @@
-import { l, bodyStyles } from "../script";
+import { l, bodyStyles } from "../script.ts";
 import $ from "jquery";
 
 function transformRange(value: number): number {

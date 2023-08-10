@@ -1,3 +1,22 @@
+import "./styles/styles.scss";
+
+import "../node_modules/flickity/css/flickity.css";
+// import "../node_modules/flickity/js/index.js";
+import "flickity";
+
+// import { initCookie } from "./cookies"
+// import Cookies from "js-cookie";
+import $ from "jquery";
+
+import periodictable from "./Periodictable/data.ts";
+import {
+	toggleTheme,
+	chto,
+	changeButtonThemes,
+} from "./scripts/themesController.ts";
+import { settings } from "./scripts/cookies.ts";
+import { ElementModel } from "./scripts/modelGenerator.ts";
+
 // Dark = 1
 // Light = 0
 
@@ -67,50 +86,6 @@ function mouseOut(e: Event) {
 	}
 }
 
-// import "./assets/square_pics/abrea.jpg";
-// import "./assets/square_pics/andrade.jpg";
-// import "./assets/square_pics/austero.jpg";
-// import "./assets/square_pics/estrologo.jpg";
-// import "./assets/square_pics/inso.jpg";
-// import "./assets/square_pics/lugagay.jpg";
-// import "./assets/square_pics/manuel.jpg";
-// import "./assets/square_pics/sabordo.jpg";
-// import "./assets/square_pics/sebastian.jpg";
-
-// import "./assets/Prismarine.png";
-
-import "./styles/styles.scss";
-// import "./styles/_colorPallete.scss";
-// import "./styles/_atomicDetails.scss";
-// import "./styles/_atomicModel.scss";
-// import "./styles/_generals.scss";
-// import "./styles/_home.scss";
-// import "./styles/_periodicTable.scss";
-// import "./styles/_responsive.scss";
-// import "./styles/_utils.scss";
-
-import "../node_modules/flickity/css/flickity.css";
-// import "../node_modules/flickity/js/index.js";
-import "flickity";
-
-// import { initCookie } from "./cookies"
-// import Cookies from "js-cookie";
-import $ from "jquery";
-
-import periodictable from "./Periodictable/data";
-import {
-	toggleTheme,
-	chto,
-	changeButtonThemes,
-} from "./scripts/themesController";
-import { settings } from "./scripts/cookies";
-import { ElementModel } from "./scripts/modelGenerator";
-
-// ("./Periodictable/data.js");
-// import { readFileSync } from "fs";
-// const fs = require("fs");
-// import "./assets/Menu.gif";
-
 function getAtomicNumberFromElement(element: JQuery<Element>): number {
 	return Number(element.attr("id")!.substring(1));
 }
@@ -120,7 +95,7 @@ function getIndexFromElement(element: JQuery<Element>): number {
 	// return 1
 }
 
-function elementClicked(e: MouseEvent | number) {
+function elementClicked(e: Event | number) {
 	console.log(e);
 
 	// l(e.constructor);
@@ -151,7 +126,7 @@ function elementClicked(e: MouseEvent | number) {
 		}
 	}
 
-	if (atomIndex && atomicNumber) {
+	if (typeof atomIndex != "undefined" && typeof atomicNumber != "undefined") {
 		let symbol = obj[atomIndex][1];
 		let name = obj[atomIndex][2];
 		let atomicMass = obj[atomIndex][3];
@@ -172,17 +147,58 @@ function elementClicked(e: MouseEvent | number) {
 		// $("#atomic-number-field").text(atomicNumber);
 		$("#year-discovered-field").text(yearDiscovered);
 		$("#group-block-field").text(groupBlock);
-		$("#oxidation-states-field").text(oxidationStates);
-		$("#metling-point-field").text(meltingPoint);
+
+		let oxidationStatesField = $("#oxidation-states-field");
+		if (oxidationStates) {
+			oxidationStatesField.parent().show();
+			oxidationStatesField.text(oxidationStates);
+		} else oxidationStatesField.parent().hide();
+
+		let meltingPointField = $("#metling-point-field");
+		if (meltingPoint) {
+			meltingPointField.parent().show();
+			meltingPointField.text(meltingPoint);
+		} else meltingPointField.parent().hide();
+
 		$("#electronic-configuration-field").text(electronicConfiguration);
-		$("#ionization-energy-field").text(ionizationEnergy);
-		$("#electron-negativity-field").text(electronNegativity);
+
+		let ionizationEnergyField = $("#ionization-energy-field");
+		if (ionizationEnergy) {
+			ionizationEnergyField.text(ionizationEnergy);
+			ionizationEnergyField.parent().show();
+		} else ionizationEnergyField.parent().hide();
+
+		let electronNegativityField = $("#electron-negativity-field");
+		if (electronNegativity) {
+			electronNegativityField.text(electronNegativity);
+			electronNegativityField.parent().show();
+		} else electronNegativityField.parent().hide();
 		// new
-		$("#atomic-radius-field").text(atomicRadius);
-		$("#electron-afinity-field").text(electronAfinity);
+		let atomicRadiusField = $("#atomic-radius-field");
+		if (atomicRadius) {
+			atomicRadiusField.text(atomicRadius);
+			atomicRadiusField.parent().show();
+		} else atomicRadiusField.parent().hide();
+
+		let electronAfinityField = $("#electron-afinity-field");
+		if (electronAfinity) {
+			electronAfinityField.text(electronAfinity);
+			electronAfinityField.parent().show();
+		} else electronAfinityField.parent().hide();
+
 		$("#standard-state-field").text(standardState);
-		$("#boiling-point-field").text(boilingPoint);
-		$("#density-field").text(density);
+
+		let boilingPointField = $("#boiling-point-field");
+		if (boilingPoint) {
+			boilingPointField.text(boilingPoint);
+			boilingPointField.parent().show();
+		} else boilingPointField.parent().hide();
+
+		let densityField = $("#density-field");
+		if (density) {
+			densityField.text(density);
+			densityField.parent().show();
+		} else densityField.parent().hide();
 
 		$("#electron-field").text(atomicNumber);
 		$("#proton-field").text(atomicNumber);
@@ -197,15 +213,20 @@ function elementClicked(e: MouseEvent | number) {
 		$("#atomic-model-name").text(name);
 		$("#atomic-model-number").text(atomicNumber);
 
+		console.log("Changing Element");
 		model.changeElement(atomicNumber);
 		// model = new ElementModel(atomicNumber);
 	}
 }
 
-// applyCurrentTheme();
 chto(settings.currentTheme);
 
+let refresh = 0;
+
 $(() => {
+	refresh += 1;
+	console.log("refresh: " + refresh);
+
 	changeButtonThemes(settings.currentTheme);
 	bodyStyles = window.getComputedStyle(document.body);
 
@@ -255,17 +276,11 @@ $(() => {
 	if (document.querySelector(".periodic-table")) {
 		l("generating");
 
-		// let obj: string[][] = periodictable.Row;
 		obj = periodictable.Row;
 
-		// l(obj)
-
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
-			l(index);
-
 			let currentElement = $(element);
 			let atomicNumber = getIndexFromElement(currentElement);
-			// console.log(currentElement)
 			let elementObject = obj[atomicNumber];
 
 			currentElement.css(
@@ -273,24 +288,23 @@ $(() => {
 				groupBlock[elementObject[15]].color
 			);
 
-			currentElement.append(
-				'<div class="atomic-number">' + elementObject[0] + "</div>"
-			);
-			currentElement.append(
+			element.innerHTML =
+				'<div class="atomic-number">' +
+				elementObject[0] +
+				"</div>" +
 				'<div class="atomic-symbol"><div class="symbol">' +
-					elementObject[1] +
-					"</div></div>"
-			);
-			currentElement.append(
-				'<div class="atomic-name">' + elementObject[2] + "</div>"
-			);
-			currentElement.append(
-				'<div class="atomic-weight">' + elementObject[3] + "</div>"
-			);
+				elementObject[1] +
+				"</div></div>" +
+				'<div class="atomic-name">' +
+				elementObject[2] +
+				"</div>" +
+				'<div class="atomic-weight">' +
+				elementObject[3] +
+				"</div>";
 		});
 	}
 
-	/// START of MODEL (positioning is important load this before everything else is loaded)
+	/// START of MODEL (positioning is important, load this before everything else is loaded)
 	model = new ElementModel(1);
 
 	document
