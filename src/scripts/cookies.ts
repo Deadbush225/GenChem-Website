@@ -1,11 +1,11 @@
 import { l } from "../script";
 import Cookies from "js-cookie";
 
-/* + COOKIES */
+/* ============================= SAVING COOKIES ============================= */
+/* we interact to the setting as a boolean but we save it as an integer */
 export let saveCookie = () => {
-	// alert("cookies saved")
-	l("Saving cookies: ");
-	l(settings);
+	// l("Saving cookies: ");
+	// l(settings);
 	Cookies.set(
 		"settings/defaultTheme",
 		fromStrerializeFlag(settings.defaultTheme).toString()
@@ -13,10 +13,11 @@ export let saveCookie = () => {
 	Cookies.set(
 		"settings/currentTheme",
 		fromStrerializeFlag(settings.currentTheme).toString()
-	); // we interact to the setting as boolean but we save it as integer
+	); 
+		
 };
 
-export function initCookie() {
+export function getCookie(): {defaultTheme: boolean; currentTheme: boolean} {
 	let settings: { defaultTheme: boolean; currentTheme: boolean };
 
 	settings = {
@@ -28,12 +29,12 @@ export function initCookie() {
 		),
 	};
 
-	l("Page reloaded -> Getting Cookies: ");
-	l(settings);
+	// l("Page reloaded -> Getting Cookies: ");
+	// l(settings);
 	return settings;
 }
 
-/* + COOKIE STERIALIZATION */
+/* ========================== COOKIE STERIALIZATION ========================= */
 function fromStrerializeFlag(number: boolean): number {
 	let i: number = 0;
 
@@ -53,4 +54,4 @@ function toSterializeFlag(number: number): boolean {
 	return i;
 }
 
-export let settings = initCookie();
+export let settings = getCookie();

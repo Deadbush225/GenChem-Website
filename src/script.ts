@@ -1,7 +1,7 @@
 // Dark = 1
 // Light = 0
 
-// globals
+/* ================================= GLOBALS ================================ */
 let obj: string[][];
 
 enum theme {
@@ -39,10 +39,9 @@ export function l(message: any) {
 // import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
 // let Cookies = require("js-cookie");
 
-// MOUSE HOVER
+/* =============================== MOUSE HOVER ============================== */
 function mouseOver(e: Event) {
 	// l("mouse over");
-
 	if (e instanceof MouseEvent) {
 		let target = e.target as HTMLElement;
 
@@ -67,28 +66,8 @@ function mouseOut(e: Event) {
 	}
 }
 
-// import "./assets/square_pics/abrea.jpg";
-// import "./assets/square_pics/andrade.jpg";
-// import "./assets/square_pics/austero.jpg";
-// import "./assets/square_pics/estrologo.jpg";
-// import "./assets/square_pics/inso.jpg";
-// import "./assets/square_pics/lugagay.jpg";
-// import "./assets/square_pics/manuel.jpg";
-// import "./assets/square_pics/sabordo.jpg";
-// import "./assets/square_pics/sebastian.jpg";
-
-// import "./assets/Prismarine.png";
 
 import "./styles/styles.scss";
-// import "./styles/_colorPallete.scss";
-// import "./styles/_atomicDetails.scss";
-// import "./styles/_atomicModel.scss";
-// import "./styles/_generals.scss";
-// import "./styles/_home.scss";
-// import "./styles/_periodicTable.scss";
-// import "./styles/_responsive.scss";
-// import "./styles/_utils.scss";
-
 import "../node_modules/flickity/css/flickity.css";
 // import "../node_modules/flickity/js/index.js";
 import "flickity";
@@ -106,10 +85,6 @@ import {
 import { settings } from "./scripts/cookies";
 import { ElementModel } from "./scripts/modelGenerator";
 
-// ("./Periodictable/data.js");
-// import { readFileSync } from "fs";
-// const fs = require("fs");
-// import "./assets/Menu.gif";
 
 function getAtomicNumberFromElement(element: JQuery<Element>): number {
 	return Number(element.attr("id")!.substring(1));
@@ -117,14 +92,9 @@ function getAtomicNumberFromElement(element: JQuery<Element>): number {
 
 function getIndexFromElement(element: JQuery<Element>): number {
 	return getAtomicNumberFromElement(element) - 1;
-	// return 1
 }
 
 function elementClicked(e: MouseEvent | number) {
-	console.log(e);
-
-	// l(e.constructor);
-
 	let atomIndex: number | undefined = undefined;
 	let atomicNumber: number | undefined = undefined;
 
@@ -177,7 +147,6 @@ function elementClicked(e: MouseEvent | number) {
 		$("#electronic-configuration-field").text(electronicConfiguration);
 		$("#ionization-energy-field").text(ionizationEnergy);
 		$("#electron-negativity-field").text(electronNegativity);
-		// new
 		$("#atomic-radius-field").text(atomicRadius);
 		$("#electron-afinity-field").text(electronAfinity);
 		$("#standard-state-field").text(standardState);

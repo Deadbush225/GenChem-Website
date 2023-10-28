@@ -16,9 +16,6 @@ function transformRange(value: number): number {
 // 	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
 // }
 
-function a(a: any) {
-	return a;
-}
 
 export class ElementModel {
 	atomicNumber: number;
@@ -29,10 +26,9 @@ export class ElementModel {
 	ringGap: number;
 	rings: number;
 
-	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
-		[];
-	protons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
-		[];
+	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] 	= [];
+	protons: { x: number; y: number; Rx: number; Ry: number; color: string }[]
+		= [];
 	// protons: { x: number; y: number; color: string }[] = [];
 
 	startingAngle: number = 0;
@@ -96,14 +92,10 @@ export class ElementModel {
 				this._canvas.width = container.clientWidth;
 				this._canvas.height = container.clientWidth;
 
-				// l(this.canvas.width);
 				this.ringGap = this._canvas.width * 0.045;
-				// l(this.canvas.height);
-
+				
 				this.centerX = this._canvas.width / 2;
 				this.centerY = this._canvas.height / 2;
-
-				// this.ringGap =
 			}
 
 			this.updatePenColors();
