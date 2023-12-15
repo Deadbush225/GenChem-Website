@@ -1,5 +1,15 @@
 @use "colorPallete" as v;
 
+$layout-breakpoint-small: 1000px;
+
+@media (max-width: $layout-breakpoint-small) {
+	.atomic-name,
+	.atomic-weight {
+		display: none;
+		// color: transparent;
+	}
+}
+
 .periodic-table-container {
 	// padding: 20px;
 	// rotate: 90deg;
@@ -16,10 +26,8 @@
 	display: grid;
 	grid-template-columns: repeat(18, minmax(0, 1fr));
 	grid-template-rows: repeat(7, 1fr);
-	gap: 1px 1px;
-
-	// max-width: 50%;
-	// width: 70%;
+	grid-gap: 0.1em;
+	width: 100%;
 
 	// border: 1px solid wheat;
 	grid-template-areas:
@@ -90,6 +98,9 @@
 
 	// border: 1px red;
 
+	// width: 100%;
+	// height: 100%;
+
 	&:hover {
 		/* animation: enlarge 100ms ease-in; */
 		/* animation-fill-mode: backwards; */
@@ -97,6 +108,8 @@
 		transition: 100ms;
 		outline: 3px solid v.$selected-accent;
 		border-radius: 5px;
+
+		// position: absolute;
 		// background-color: aqua;
 	}
 }
@@ -107,7 +120,7 @@
 }
 
 .symbol {
-	font-size: 0.8em;
+	font-size: 1em;
 	// width: 80%;
 }
 
@@ -123,8 +136,21 @@
 .atomic-number,
 .atomic-name,
 .atomic-weight {
-	font-size: 0.5em;
+	font-size: 0.43em;
+	// display: none;
 	// width: ;
+}
+
+.atomic-number {
+	margin-top: 0.2em;
+}
+
+.atomic-weight {
+	margin-bottom: 0.2em;
+}
+
+.field {
+	width: 3ch;
 }
 
 @keyframes enlarge {

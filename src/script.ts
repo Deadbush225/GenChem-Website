@@ -66,7 +66,6 @@ function mouseOut(e: Event) {
 	}
 }
 
-
 import "./styles/styles.scss";
 import "../node_modules/flickity/css/flickity.css";
 // import "../node_modules/flickity/js/index.js";
@@ -85,7 +84,6 @@ import {
 import { settings } from "./scripts/cookies";
 import { ElementModel } from "./scripts/modelGenerator";
 
-
 function getAtomicNumberFromElement(element: JQuery<Element>): number {
 	return Number(element.attr("id")!.substring(1));
 }
@@ -95,8 +93,8 @@ function getIndexFromElement(element: JQuery<Element>): number {
 }
 
 function elementClicked(e: MouseEvent | number) {
-	let atomIndex: number | undefined = undefined;
-	let atomicNumber: number | undefined = undefined;
+	let atomIndex: number = 0;
+	let atomicNumber: number = 0;
 
 	if (typeof e == "number") {
 		l("number");
@@ -118,10 +116,13 @@ function elementClicked(e: MouseEvent | number) {
 
 			atomIndex = getIndexFromElement($(sourceElement));
 			atomicNumber = getAtomicNumberFromElement($(sourceElement));
+			// l(atomIndex);
+			// l(atomicNumber);
 		}
 	}
 
-	if (atomIndex && atomicNumber) {
+	// if (atomIndex && atomicNumber) {
+	if (atomicNumber) {
 		let symbol = obj[atomIndex][1];
 		let name = obj[atomIndex][2];
 		let atomicMass = obj[atomIndex][3];
@@ -174,7 +175,13 @@ function elementClicked(e: MouseEvent | number) {
 // applyCurrentTheme();
 chto(settings.currentTheme);
 
-$(() => {
+// $(() => {
+// 	// fill periodic table
+// });
+
+// $(window).on("load",
+
+window.onload = function () {
 	changeButtonThemes(settings.currentTheme);
 	bodyStyles = window.getComputedStyle(document.body);
 
@@ -205,6 +212,7 @@ $(() => {
 	if (elements) {
 		elements.forEach((item) => {
 			item.addEventListener("click", elementClicked);
+			// l(item);
 		});
 	}
 
@@ -221,6 +229,7 @@ $(() => {
 		Actinide: { color: "#c2ffeb" },
 	};
 
+	// fill table
 	if (document.querySelector(".periodic-table")) {
 		l("generating");
 
@@ -230,7 +239,7 @@ $(() => {
 		// l(obj)
 
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
-			l(index);
+			// l(index);
 
 			let currentElement = $(element);
 			let atomicNumber = getIndexFromElement(currentElement);
@@ -275,4 +284,4 @@ $(() => {
 	/// END of MODEL
 
 	elementClicked(1);
-});
+};
