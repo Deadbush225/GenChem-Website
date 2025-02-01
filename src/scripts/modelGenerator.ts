@@ -16,7 +16,6 @@ function transformRange(value: number): number {
 // 	return lhs < rhs ? -1 : lhs === rhs ? 0 : 1;
 // }
 
-
 export class ElementModel {
 	atomicNumber: number;
 	shells: number;
@@ -26,9 +25,10 @@ export class ElementModel {
 	ringGap: number;
 	rings: number;
 
-	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] 	= [];
-	protons: { x: number; y: number; Rx: number; Ry: number; color: string }[]
-		= [];
+	neutrons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
+		[];
+	protons: { x: number; y: number; Rx: number; Ry: number; color: string }[] =
+		[];
 	// protons: { x: number; y: number; color: string }[] = [];
 
 	startingAngle: number = 0;
@@ -93,7 +93,7 @@ export class ElementModel {
 				this._canvas.height = container.clientWidth;
 
 				this.ringGap = this._canvas.width * 0.045;
-				
+
 				this.centerX = this._canvas.width / 2;
 				this.centerY = this._canvas.height / 2;
 			}
@@ -113,8 +113,6 @@ export class ElementModel {
 		this._createRings();
 		this._populateRings();
 		this._rebuildProtons();
-
-		// this.startingAngle += this.additionalAnglePerUpdate;
 
 		this._ctx.restore();
 		window.requestAnimationFrame(this.bind);
@@ -198,13 +196,10 @@ export class ElementModel {
 				let centerX = Math.cos(currentAngle) * currentRingRadius;
 
 				if (this.hover == 1) {
-					// l("Hovered is on");
 					this._ctx.save();
 
-					// this.ctx.fillStyle = neutron.color;
 					this._ctx.filter = "blur(10)";
 					this._ctx.filter = "opacity(0.5)";
-					// this.ctx.filter = "brightness(1.2)";
 
 					this._ctx.beginPath();
 					this._ctx.arc(centerX, centerY, 10, 0, Math.PI * 2, true);
@@ -230,7 +225,6 @@ export class ElementModel {
 	}
 
 	_generateProtons() {
-		// l("not equal ... generating protons");
 		while (this.protons.length < this.atomicNumber) {
 			let randColor = Math.floor(Math.random() * 3);
 
@@ -249,7 +243,6 @@ export class ElementModel {
 			});
 
 			({ x, y } = this._randomPoint(this.boundaryRadius));
-			// l(`summoning proton at : ${x} - ${y}`);
 
 			this.protons.push({
 				x: x,
@@ -272,8 +265,6 @@ export class ElementModel {
 		this._generateProtons();
 
 		let _noise = transformRange(8);
-		// let randX = 0;
-		// let randY = 0;
 
 		let i = 0;
 		let rhs = this.boundaryRadius ** 2; // to compensate
@@ -285,8 +276,6 @@ export class ElementModel {
 		let ySign = 0;
 		let yNoise = 0;
 		let yNegNoise = 0;
-
-		// let negative
 
 		while (i < this.atomicNumber) {
 			// l("drawing neucleus");
@@ -357,15 +346,13 @@ export class ElementModel {
 			this._ctx.arc(neutron.x, neutron.y, 5, 0, Math.PI * 2, true);
 			this._ctx.fill();
 
-			// l(this.hover);
 			if (this.hover == 2) {
-				// l("Hovered is on");
 				this._ctx.save();
 
 				this._ctx.fillStyle = proton.color;
 				this._ctx.filter = "blur(10)";
 				this._ctx.filter = "opacity(0.5)";
-				// this.ctx.filter = "brightness(1.2)";
+
 				this._ctx.beginPath();
 				this._ctx.arc(proton.x, proton.y, 13, 0, Math.PI * 2, true);
 				this._ctx.fill();
@@ -373,13 +360,11 @@ export class ElementModel {
 				this._ctx.restore();
 			}
 			if (this.hover == 3) {
-				// l("Hovered is on");
 				this._ctx.save();
 
 				this._ctx.fillStyle = neutron.color;
 				this._ctx.filter = "blur(10)";
 				this._ctx.filter = "opacity(0.5)";
-				// this.ctx.filter = "brightness(1.2)";
 
 				this._ctx.beginPath();
 				this._ctx.arc(neutron.x, neutron.y, 13, 0, Math.PI * 2, true);

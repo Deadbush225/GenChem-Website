@@ -1,7 +1,7 @@
 import { l } from "../script";
 import Cookies from "js-cookie";
 
-/* ============================= SAVING COOKIES ============================= */
+/* ======================== SAVING COOKIES ======================= */
 /* we interact to the setting as a boolean but we save it as an integer */
 export let saveCookie = () => {
 	// l("Saving cookies: ");
@@ -13,11 +13,10 @@ export let saveCookie = () => {
 	Cookies.set(
 		"settings/currentTheme",
 		fromStrerializeFlag(settings.currentTheme).toString()
-	); 
-		
+	);
 };
 
-export function getCookie(): {defaultTheme: boolean; currentTheme: boolean} {
+export function getCookie(): { defaultTheme: boolean; currentTheme: boolean } {
 	let settings: { defaultTheme: boolean; currentTheme: boolean };
 
 	settings = {
@@ -34,7 +33,7 @@ export function getCookie(): {defaultTheme: boolean; currentTheme: boolean} {
 	return settings;
 }
 
-/* ========================== COOKIE STERIALIZATION ========================= */
+/* ===================== COOKIE STERIALIZATION ==================== */
 function fromStrerializeFlag(number: boolean): number {
 	let i: number = 0;
 

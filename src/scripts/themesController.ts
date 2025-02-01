@@ -1,9 +1,8 @@
-import { l, model } from "../script";
+import { l, model, theme } from "../script";
 import { settings, saveCookie } from "./cookies";
 
 export function applyCurrentTheme() {
 	l("ApplyCurrentTheme :" + settings.currentTheme);
-	// setTimeout(changeThemeTo, 1000, settings.currentTheme);
 	chto(!settings.currentTheme);
 	changeButtonThemes(!settings.currentTheme);
 	model.updatePenColors();
@@ -20,11 +19,9 @@ export function chto(theme: boolean) {
 	l(
 		"first replenish -> changing from " + settings.currentTheme + " to " + theme
 	);
-	// l("defaultTheme: " + settings.defaultTheme);
 
 	//check if needs to change the default color
 	if (settings.currentTheme == theme) {
-		// saveCookie()
 		if (settings.currentTheme == settings.defaultTheme) {
 			return;
 		}
@@ -45,11 +42,8 @@ export function chto(theme: boolean) {
 
 export function changeButtonThemes(theme: boolean) {
 	l("changing from " + settings.currentTheme + " to " + theme);
-	// l("defaultTheme: " + settings.defaultTheme);
 
-	//check if needs to change the default color
 	if (settings.currentTheme == theme) {
-		// saveCookie()
 		if (settings.currentTheme == settings.defaultTheme) {
 			return;
 		}
@@ -59,20 +53,15 @@ export function changeButtonThemes(theme: boolean) {
 	let themeButton = document.querySelector(".toggle-theme")!;
 
 	if (theme) {
-		// element.classList.toggle("dark-mode");
-		// element.classList.toggle("light-mode");
 		l("DarkMode: Changing to " + theme);
 		themeButton.classList.toggle("fa-sun");
 		themeButton.classList.toggle("fa-moon");
 	} else {
-		// element.classList.toggle("light-mode");
-		// element.classList.toggle("dark-mode");
 		l("LightMode: Changing to " + theme);
 		themeButton.classList.toggle("fa-moon");
 		themeButton.classList.toggle("fa-sun");
 	}
 	settings.currentTheme = theme;
 
-	l(settings);
 	saveCookie();
 }

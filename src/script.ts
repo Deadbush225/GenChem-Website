@@ -1,10 +1,10 @@
 // Dark = 1
 // Light = 0
 
-/* ================================= GLOBALS ================================ */
+/* ============================ GLOBALS =========================== */
 let obj: string[][];
 
-enum theme {
+export enum theme {
 	LIGHT,
 	DARK,
 }
@@ -39,9 +39,8 @@ export function l(message: any) {
 // import Cookies from "../node_modules/js-cookie/dist/js.cookie.mjs";
 // let Cookies = require("js-cookie");
 
-/* =============================== MOUSE HOVER ============================== */
+/* ========================== MOUSE HOVER ========================= */
 function mouseOver(e: Event) {
-	// l("mouse over");
 	if (e instanceof MouseEvent) {
 		let target = e.target as HTMLElement;
 
@@ -49,7 +48,6 @@ function mouseOver(e: Event) {
 			l(target.id);
 			if (target.id == "Electron") {
 				model.hover = 1;
-				// l("refreshing");
 			} else if (target.id == "Proton") {
 				model.hover = 2;
 			} else if (target.id == "Neutron") {
@@ -60,7 +58,6 @@ function mouseOver(e: Event) {
 }
 
 function mouseOut(e: Event) {
-	// l("mouse out");
 	if (e instanceof MouseEvent) {
 		model.hover = 0;
 	}
@@ -116,12 +113,9 @@ function elementClicked(e: MouseEvent | number) {
 
 			atomIndex = getIndexFromElement($(sourceElement));
 			atomicNumber = getAtomicNumberFromElement($(sourceElement));
-			// l(atomIndex);
-			// l(atomicNumber);
 		}
 	}
 
-	// if (atomIndex && atomicNumber) {
 	if (atomicNumber) {
 		let symbol = obj[atomIndex][1];
 		let name = obj[atomIndex][2];
@@ -168,18 +162,10 @@ function elementClicked(e: MouseEvent | number) {
 		$("#atomic-model-number").text(atomicNumber);
 
 		model.changeElement(atomicNumber);
-		// model = new ElementModel(atomicNumber);
 	}
 }
 
-// applyCurrentTheme();
 chto(settings.currentTheme);
-
-// $(() => {
-// 	// fill periodic table
-// });
-
-// $(window).on("load",
 
 window.onload = function () {
 	changeButtonThemes(settings.currentTheme);
@@ -194,17 +180,13 @@ window.onload = function () {
 	});
 
 	$(window).on("scroll", function () {
-		// l($(this).scrollTop());
 		if ($(this).scrollTop()! > 400) {
 			//use `this`, not `document`
-			// l("this should work");
 			$(".toTheTop").fadeIn("fast");
-			// $(".toTheTop").css("visibility", "visible");
 		} else {
 			$(".toTheTop").fadeOut("fast");
 		}
 	});
-	// document.querySelector("#");
 
 	let elements: NodeListOf<HTMLDivElement> =
 		document.querySelectorAll(".elements");
@@ -212,7 +194,6 @@ window.onload = function () {
 	if (elements) {
 		elements.forEach((item) => {
 			item.addEventListener("click", elementClicked);
-			// l(item);
 		});
 	}
 
@@ -231,19 +212,11 @@ window.onload = function () {
 
 	// fill table
 	if (document.querySelector(".periodic-table")) {
-		l("generating");
-
-		// let obj: string[][] = periodictable.Row;
 		obj = periodictable.Row;
 
-		// l(obj)
-
 		document.querySelectorAll(".elements").forEach((element, index, parent) => {
-			// l(index);
-
 			let currentElement = $(element);
 			let atomicNumber = getIndexFromElement(currentElement);
-			// console.log(currentElement)
 			let elementObject = obj[atomicNumber];
 
 			currentElement.css(
@@ -268,7 +241,7 @@ window.onload = function () {
 		});
 	}
 
-	/// START of MODEL (positioning is important load this before everything else is loaded)
+	/// START of MODEL (load this before everything else is loaded)
 	model = new ElementModel(1);
 
 	document

@@ -114,7 +114,7 @@ export default defineConfig({
 	},
 
 	server: {
-		port: 8888,
+		port: 9999,
 		strictPort: true,
 		open: true,
 	},
